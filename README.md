@@ -1,58 +1,60 @@
-# Sejal Soni - Developer Portfolio 🚀
+# Sejal Soni - Personal Portfolio Website
 
-Welcome to my personal developer portfolio! This project is a fully responsive, modern web application designed to showcase my skills, projects, and experiences as a Full-Stack Web Developer specializing in the MERN stack.
+Welcome to my personal developer portfolio! This repository contains the source code for my portfolio website, designed to showcase my skills, projects, and professional journey as a Full-Stack Web Developer.
 
-![Portfolio Preview](assets/og-image.jpg) <!-- Update this path if you add a real screenshot later -->
+## 🚀 Live Demo
 
-## ✨ Features
+[View Live Portfolio](#) *(Add link when deployed)*
 
-- **Interactive UI/UX**: Built with fluid micro-animations, scroll reveals, and a clean glassmorphism aesthetic.
-- **Dynamic Firebase Backend**: The contact form is integrated directly with Firebase Firestore, allowing real-time global message delivery without a local Node server.
-- **Dark/Light Mode**: Fully integrated theme toggling to respect user preferences.
-- **Custom Cursor & Particle Physics**: A constellation-style particle system on the hero canvas that reacts to mouse movements.
-- **Performance Optimized**: Zero heavy frontend frameworks used for the core UI, resulting in near-instant load times. SEO and accessibility best practices implemented.
+## 📖 About The Project
 
-## 🛠️ Technology Stack
+This is a responsive, modern, and interactive portfolio website built from scratch using HTML5, Vanilla CSS, and JavaScript. It features a custom design, smooth animations, and a dynamic dark/light theme toggle.
 
-- **Frontend**: HTML5, Vanilla CSS3 (Custom Variables, Flexbox, Grid), Vanilla JavaScript (ES6+)
-- **Backend/Database**: Firebase (Cloud Firestore SDK v10)
-- **Icons & Typography**: FontAwesome, Google Fonts (Inter, Outfit, Fira Code)
-- **Deployment**: Vercel & GitHub Pages ready.
+### ✨ Key Features
 
-## 🚀 Quick Start (Local Development)
+- **Responsive Design**: Fully functional on desktop, tablet, and mobile devices.
+- **Modern UI/UX**: Glassmorphism effects, gradient text, and custom cursors.
+- **Dark/Light Mode**: User preference theme toggle with memory.
+- **Interactive Animations**: Scroll reveals, typed text effects, and micro-interactions.
+- **Semantic HTML & SEO Optimized**: Proper document structure for accessibility and search engines.
 
-To run this project locally on your machine:
+## 🛠️ Built With
 
-1. **Clone the repository**
+- **HTML5**
+- **CSS3** (Vanilla CSS, Flexbox, Grid)
+- **JavaScript** (ES6+)
+- **FontAwesome** (Icons)
+- **Google Fonts** (Inter, Outfit, Fira Code)
+
+## 📂 Project Structure
+
+```text
+├── assets/                 # Images, resumes, and other static files
+├── index.html              # Main landing page
+├── about.html              # Dedicated about page
+├── style.css               # Core stylesheet (design system, utilities, components)
+├── script.js               # Main functionality and interactivity
+└── README.md               # Project documentation
+```
+
+## ⚙️ How to Run Locally
+
+To view the project locally on your machine:
+
+1. **Clone the repository:**
    ```bash
-   git clone https://github.com/Sejalsoni30/sejal-portfolio.git
-   cd sejal-portfolio
+   git clone https://github.com/Sejalsoni30/Sejal-Portfolio.git
    ```
-
-2. **Configure Firebase (Required for Contact Form)**
-   Open `script.js` and locate the `firebaseConfig` block at the top of the file. Update the variables with your own Firebase project configuration:
-   ```javascript
-   const firebaseConfig = {
-     apiKey: "YOUR_API_KEY",
-     authDomain: "YOUR_AUTH_DOMAIN",
-     projectId: "YOUR_PROJECT_ID",
-     ...
-   };
-   ```
-
-3. **Serve the Application**
-   Since this uses ES Modules for Firebase, it must be served over `http://` or `https://` (not `file://`).
-   Use any local server tool, such as Node's `serve`:
+2. **Navigate to the directory:**
    ```bash
-   npx serve -l 3000
+   cd Sejal-Portfolio
    ```
-   Open `http://localhost:3000` in your browser.
+3. **Open the project:**
+   Simply open `index.html` in your favorite web browser, or use a local development server like VS Code's "Live Server" extension for a better experience.
 
-## 📬 Contact & Links
+## 📬 Contact
 
-- **GitHub**: [@Sejalsoni30](https://github.com/Sejalsoni30)
-- **LinkedIn**: [Sejal Soni](https://www.linkedin.com/in/sejal-soni-361897303)
-- **Email**: sejalsoni372@gmail.com
-
----
-*Designed & Built with passion by Sejal Soni.*
+- **Name:** Sejal Soni
+- **Email:** [sejalsoni372@gmail.com](mailto:sejalsoni372@gmail.com)
+- **LinkedIn:** [Sejal Soni](https://www.linkedin.com/in/sejal-soni-361897303)
+- **GitHub:** [@Sejalsoni30](https://github.com/Sejalsoni30)
