@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Know more about Sejal Soni, a passionate Full-Stack Web Developer.">
+    <title>About Me | Sejal Soni</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Core Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-mode" style="overflow-x: hidden;">
+
+    <!-- Custom Cursor -->
+    <div id="custom-cursor" class="custom-cursor"></div>
+    <div id="custom-cursor-dot" class="custom-cursor-dot"></div>
+
+    <!-- Background Grid Effect -->
+    <div class="bg-grid-effect"></div>
+
+    <!-- Navigation Header -->
+    <header class="header-nav" id="header-nav">
+        <div class="nav-container container">
+            <a href="index.html" class="nav-logo" id="nav-logo-btn">
+                <span class="gradient-text">&lt;Sejal Soni /&gt;</span>
+            </a>
+            
+            <!-- Desktop Navigation Links -->
+            <nav class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link active-nav-link">About Me</a></li>
+                    <li><a href="index.html#projects" class="nav-link">Projects</a></li>
+                    <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <!-- Theme Toggle Button -->
+                <button class="theme-toggle" id="theme-toggle-btn" aria-label="Toggle dark/light theme">
+                    <i class="fa-solid fa-moon moon-icon"></i>
+                    <i class="fa-solid fa-sun sun-icon"></i>
+                </button>
+
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-toggle" id="mobile-toggle-btn" aria-label="Toggle mobile menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main style="padding-top: 120px;">
+        <section class="section-padding" id="about-detailed">
+            <div class="container">
+                <div class="section-title-wrapper text-center reveal-item">
+                    <span class="section-subtitle">My Story</span>
+                    <h1 class="section-title">Beyond the Code</h1>
+                    <div class="section-title-line"></div>
+                </div>
+
+                <!-- Deep Dive Text Section -->
+                <div class="glass-panel" style="padding: 40px; margin-bottom: 50px;">
+                    <h3 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 20px; color: var(--accent-primary);">My Philosophy</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 20px; font-size: 1.1rem; line-height: 1.8;">
+                        I believe that great software is a blend of empathy, logic, and creativity. While algorithms and databases form the backbone of modern web applications, the true measure of their success lies in how effortlessly they solve human problems. My journey into Computer Science was driven by a sheer curiosity to understand how complex systems operate behind the scenes.
+                    </p>
+                    <p style="color: var(--text-secondary); margin-bottom: 0; font-size: 1.1rem; line-height: 1.8;">
+                        Today, as a Full-Stack Web Developer specializing in the MERN stack, I strive to write clean, maintainable, and scalable code. Whether I am optimizing MongoDB aggregation pipelines or designing a pixel-perfect, accessible React component, my goal is always to deliver value and craft experiences that leave a lasting impact.
+                    </p>
+                </div>
+
+                <!-- Hobbies & Interests Grid -->
+                <div class="grid-two-cols" style="gap: 30px; margin-bottom: 50px;">
+                    <div class="glass-panel" style="padding: 30px;">
+                        <div style="font-size: 2rem; color: var(--accent-secondary); margin-bottom: 15px;"><i class="fa-solid fa-code-branch"></i></div>
+                        <h4 style="font-family: var(--font-heading); font-size: 1.2rem; margin-bottom: 10px;">Open Source Enthusiast</h4>
+                        <p style="color: var(--text-muted); font-size: 0.95rem;">I actively follow open source projects and love learning from community-driven development. It's fascinating how collaborative engineering shapes the modern web.</p>
+                    </div>
+                    
+                    <div class="glass-panel" style="padding: 30px;">
+                        <div style="font-size: 2rem; color: var(--accent-tertiary); margin-bottom: 15px;"><i class="fa-solid fa-chart-line"></i></div>
+                        <h4 style="font-family: var(--font-heading); font-size: 1.2rem; margin-bottom: 10px;">Data Driven Problem Solver</h4>
+                        <p style="color: var(--text-muted); font-size: 0.95rem;">Beyond writing code, I enjoy exploring Data Analytics and Power BI. I appreciate finding hidden patterns in data and utilizing those insights to improve application architecture.</p>
+                    </div>
+                </div>
+
+                <!-- Fun Facts -->
+                <div class="glass-panel" style="padding: 40px; text-align: center; border-color: rgba(168, 85, 247, 0.3);">
+                    <h3 style="font-family: var(--font-heading); font-size: 1.4rem; margin-bottom: 25px;">Fun Facts About Me</h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
+                        <span class="badge" style="font-size: 1rem; padding: 10px 20px;">☕ Coffee Powered</span>
+                        <span class="badge badge-accent" style="font-size: 1rem; padding: 10px 20px;">🎧 Focus Music Listener</span>
+                        <span class="badge" style="font-size: 1rem; padding: 10px 20px;">📚 Always Learning</span>
+                        <span class="badge badge-accent" style="font-size: 1rem; padding: 10px 20px;">🌙 Night Owl Coder</span>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 60px;">
+                    <a href="index.html" class="btn btn-primary">
+                        <i class="fa-solid fa-arrow-left"></i> Back to Homepage
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer style="text-align: center; padding: 40px 0; border-top: 1px solid var(--border-color); margin-top: 40px;">
+        <p style="color: var(--text-muted); font-size: 0.9rem;">
+            &copy; 2026 Sejal Soni. Designed & Built with passion.
+        </p>
+    </footer>
+
+    <!-- Include core script to maintain theme toggling, custom cursor, and Firebase -->
+    <script type="module" src="script.js"></script>
+</body>
+</html>
