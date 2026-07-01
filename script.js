@@ -68,13 +68,11 @@ function initLoader() {
             clearInterval(loading);
 
             // Smooth fade out
+            loader.classList.add('loader-finished');
             setTimeout(() => {
-                loader.style.opacity = '0';
-                loader.style.visibility = 'hidden';
-
-                // Allow scrolling after page load
+                loader.style.display = 'none';
                 document.body.style.overflowY = 'auto';
-            }, 400);
+            }, 1200); // Wait for curtain transition
         }
     }, intervalTime);
 
@@ -282,7 +280,7 @@ function initTypingEffect() {
    SCROLL REVEAL & SKILLS PROGRESS ANIMATIONS
    ========================================================================== */
 function initScrollReveal() {
-    const revealItems = document.querySelectorAll('.reveal-item');
+    const revealItems = document.querySelectorAll('.reveal-left, .reveal-right, .reveal-zoom');
     const skillBars = document.querySelectorAll('.skill-bar-fill');
 
     // Config Observer

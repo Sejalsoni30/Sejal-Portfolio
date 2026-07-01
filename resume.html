@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sejal Soni - Professional Resume and Experience.">
+    <title>Resume | Sejal Soni</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Core Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-mode" style="overflow-x: hidden;">
+
+    <!-- Custom Cursor -->
+    <div id="custom-cursor" class="custom-cursor"></div>
+    <div id="custom-cursor-dot" class="custom-cursor-dot"></div>
+
+    <!-- Page Loader (Curtain Reveal) -->
+    <div id="loader" class="loader-overlay">
+        <div class="curtain-panel curtain-top"></div>
+        <div class="curtain-panel curtain-bottom"></div>
+        <div class="loader-content">
+            <span class="loader-logo glow-pulse">&lt;SS /&gt;</span>
+            <div class="loader-bar-bg">
+                <div id="loader-bar" class="loader-bar"></div>
+            </div>
+            <span id="loader-percent" class="loader-percent">0%</span>
+        </div>
+    </div>
+
+    <!-- Ambient Floating Orbs -->
+    <div class="ambient-orbs print-hide">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <!-- Background Grid Effect -->
+    <div class="bg-grid-effect print-hide"></div>
+
+    <!-- Navigation Header -->
+    <header class="header-nav print-hide" id="header-nav">
+        <div class="nav-container container">
+            <a href="index.html" class="nav-logo" id="nav-logo-btn">
+                <span class="gradient-text">&lt;Sejal Soni /&gt;</span>
+            </a>
+            
+            <nav class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About Me</a></li>
+                    <li><a href="index.html#projects" class="nav-link">Projects</a></li>
+                    <li><a href="resume.html" class="nav-link active-nav-link">Resume</a></li>
+                    <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle-btn" aria-label="Toggle dark/light theme">
+                    <i class="fa-solid fa-moon moon-icon"></i>
+                    <i class="fa-solid fa-sun sun-icon"></i>
+                </button>
+                <button class="mobile-menu-toggle" id="mobile-toggle-btn" aria-label="Toggle mobile menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Resume Content -->
+    <main style="padding-top: 120px;" class="resume-main">
+        <section class="section-padding">
+            <div class="container resume-container glass-panel reveal-zoom">
+                
+                <!-- Print/Download Header -->
+                <div class="resume-header-actions print-hide">
+                    <h1 class="section-title" style="font-size: 2rem; margin-bottom: 0;">Professional Resume</h1>
+                    <div class="resume-buttons">
+                        <button onclick="window.print()" class="btn btn-secondary"><i class="fa-solid fa-print"></i> Print</button>
+                        <a href="assets/Sejal_Soni_Resume.pdf" download class="btn btn-primary"><i class="fa-solid fa-download"></i> Download PDF</a>
+                    </div>
+                </div>
+
+                <hr class="resume-divider print-hide">
+
+                <!-- CV Document Area -->
+                <div class="cv-document">
+                    <!-- Top Info -->
+                    <div class="cv-header text-center">
+                        <h1 class="cv-name gradient-text">Sejal Soni</h1>
+                        <p class="cv-title">Full-Stack Web Developer</p>
+                        <div class="cv-contact-info">
+                            <span><i class="fa-solid fa-envelope"></i> sejalsoni372@gmail.com</span>
+                            <span><i class="fa-solid fa-phone"></i> +91 930231XXXX</span>
+                            <span><i class="fa-solid fa-location-dot"></i> Balaghat, MP, India</span>
+                            <span><i class="fa-brands fa-linkedin"></i> linkedin.com/in/sejal</span>
+                        </div>
+                    </div>
+
+                    <div class="cv-body grid-resume-layout">
+                        <!-- Left Column (Skills & Edu) -->
+                        <div class="cv-sidebar">
+                            <div class="cv-section">
+                                <h3 class="cv-section-title">Technical Skills</h3>
+                                <div class="cv-skills-list">
+                                    <div class="cv-skill-group">
+                                        <h4>Frontend</h4>
+                                        <p>HTML5, CSS3, JavaScript (ES6+), React.js, Tailwind CSS</p>
+                                    </div>
+                                    <div class="cv-skill-group">
+                                        <h4>Backend</h4>
+                                        <p>Node.js, Express.js, RESTful APIs, Next.js API Routes</p>
+                                    </div>
+                                    <div class="cv-skill-group">
+                                        <h4>Database & Tools</h4>
+                                        <p>MongoDB, MySQL, Firebase, Git, GitHub, Vercel, Postman</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="cv-section">
+                                <h3 class="cv-section-title">Education</h3>
+                                <div class="cv-edu-item">
+                                    <h4>B.Tech in Computer Science</h4>
+                                    <span class="cv-date">2022 - 2026</span>
+                                    <p class="cv-school">Sardar Patel University</p>
+                                    <p class="cv-grade">CGPA: 8.90 / 10</p>
+                                </div>
+                                <div class="cv-edu-item mt-3">
+                                    <h4>Class XII (PCM)</h4>
+                                    <span class="cv-date">Completed in 2022</span>
+                                    <p class="cv-school">Govt. V.R.D English Medium</p>
+                                    <p class="cv-grade">Aggregate: 79%</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Column (Experience & Projects) -->
+                        <div class="cv-main-content">
+                            <div class="cv-section">
+                                <h3 class="cv-section-title">Professional Experience</h3>
+                                <div class="cv-job-item">
+                                    <div class="cv-job-header">
+                                        <h4>Web Development Intern</h4>
+                                        <span class="cv-date">June 2025</span>
+                                    </div>
+                                    <p class="cv-company">Gokul Tech Solutions</p>
+                                    <ul class="cv-bullets">
+                                        <li>Developed and maintained full-stack web applications using Node.js, React.js, and MySQL.</li>
+                                        <li>Designed, built, and thoroughly tested RESTful APIs to ensure robust data exchange between client and server.</li>
+                                        <li>Collaborated with senior engineers to implement responsive front-end components, improving user engagement by 15%.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="cv-section">
+                                <h3 class="cv-section-title">Featured Projects</h3>
+                                <div class="cv-project-item">
+                                    <h4>Smart AI Backup System</h4>
+                                    <p class="cv-tech">Node.js, Express, Content-Defined Chunking</p>
+                                    <p class="cv-desc">Engineered a deduplication system that compresses files effectively using AI-driven hashing, saving storage bandwidth by detecting duplicate byte chunks.</p>
+                                </div>
+                                <div class="cv-project-item">
+                                    <h4>VideoAI Automation</h4>
+                                    <p class="cv-tech">React.js, Node.js, Next.js, Cloud Storage</p>
+                                    <p class="cv-desc">Built a platform that automates video processing pipelines. Allows users to upload raw footage and apply batch AI filters in the cloud.</p>
+                                </div>
+                                <div class="cv-project-item">
+                                    <h4>Quiz-War Platform</h4>
+                                    <p class="cv-tech">MERN Stack, Socket.io</p>
+                                    <p class="cv-desc">Created a real-time competitive quiz application. Features live scoring, leaderboards, and a low-latency socket connection for multiplayer.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="cv-section">
+                                <h3 class="cv-section-title">Certifications</h3>
+                                <ul class="cv-bullets">
+                                    <li>Meta Front-End Developer Professional Certificate</li>
+                                    <li>AWS Cloud Practitioner (Certified)</li>
+                                    <li>Postman API Fundamentals Student Expert</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer print-hide">
+        <div class="container text-center">
+            <p>&copy; 2026 Sejal Soni. Built with <i class="fa-solid fa-heart" style="color: #ef4444;"></i></p>
+        </div>
+    </footer>
+
+    <!-- Firebase App (the core Firebase SDK) -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
+    
+    <!-- Main Script -->
+    <script src="script.js"></script>
+</body>
+</html>
