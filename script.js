@@ -63,30 +63,38 @@ function initTheme() {
     const themeBtn = document.getElementById('theme-toggle-btn');
     const body = document.body;
 
+    const themes = ['dark-mode', 'light-mode', 'ocean-mode', 'cyberpunk-mode'];
+    
     // Check local storage or system preference
-    const savedTheme = localStorage.getItem('portfolio-theme');
-    const systemPrefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+    let savedTheme = localStorage.getItem('portfolio-theme');
+    
+    // Migrate old format ('light' / 'dark') to new format ('light-mode' / 'dark-mode')
+    if (savedTheme === 'light') savedTheme = 'light-mode';
+    if (savedTheme === 'dark') savedTheme = 'dark-mode';
 
-    if (savedTheme === 'light' || (!savedTheme && systemPrefersLight)) {
-        body.classList.add('light-mode');
-        body.classList.remove('dark-mode');
-    } else {
-        body.classList.add('dark-mode');
-        body.classList.remove('light-mode');
+    if (!themes.includes(savedTheme)) {
+        const systemPrefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+        savedTheme = systemPrefersLight ? 'light-mode' : 'dark-mode';
     }
+
+    // Apply initial theme
+    body.classList.remove(...themes);
+    body.classList.add(savedTheme);
 
     if (!themeBtn) return;
 
     themeBtn.addEventListener('click', () => {
-        if (body.classList.contains('light-mode')) {
-            body.classList.remove('light-mode');
-            body.classList.add('dark-mode');
-            localStorage.setItem('portfolio-theme', 'dark');
-        } else {
-            body.classList.add('light-mode');
-            body.classList.remove('dark-mode');
-            localStorage.setItem('portfolio-theme', 'light');
-        }
+        // Find current theme
+        let currentTheme = themes.find(t => body.classList.contains(t)) || 'dark-mode';
+        let currentIndex = themes.indexOf(currentTheme);
+        
+        // Get next theme in array
+        let nextIndex = (currentIndex + 1) % themes.length;
+        let nextTheme = themes[nextIndex];
+
+        body.classList.remove(...themes);
+        body.classList.add(nextTheme);
+        localStorage.setItem('portfolio-theme', nextTheme);
     });
 }
 
