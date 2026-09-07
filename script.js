@@ -3,7 +3,7 @@ import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.g
 
 // TODO: Replace with your actual Firebase config from Firebase Console
 const firebaseConfig = {
-    apiKey: "AIzaSyCpqFUK3L5L6nCbwStn_To8g-rcDiB6uF0",
+    apiKey: "YOUR_API_KEY",
     authDomain: "sejalportfolio.firebaseapp.com",
     projectId: "sejalportfolio",
     storageBucket: "sejalportfolio.firebasestorage.app",
