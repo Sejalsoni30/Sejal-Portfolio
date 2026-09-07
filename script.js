@@ -1,28 +1,4 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-
-// TODO: Replace with your actual Firebase config from Firebase Console
-const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "sejalportfolio.firebaseapp.com",
-    projectId: "sejalportfolio",
-    storageBucket: "sejalportfolio.firebasestorage.app",
-    messagingSenderId: "508809327235",
-    appId: "1:508809327235:web:63340eff139609007221b6"
-};
-
-let db = null;
-try {
-    if (firebaseConfig.apiKey !== "YOUR_API_KEY") {
-        const app = initializeApp(firebaseConfig);
-        db = getFirestore(app);
-        console.log("Firebase initialized successfully");
-    } else {
-        console.warn("Firebase config is missing. Please update firebaseConfig in script.js.");
-    }
-} catch (error) {
-    console.error("Firebase initialization error:", error);
-}
+import { supabase } from './supabaseClient.js';
 
 /* ==========================================================================
    SEJAL SONI PORTFOLIO INTERACTIVE LOGIC
@@ -385,22 +361,15 @@ function initContactForm() {
         submitBtn.disabled = true;
         submitBtn.innerHTML = 'Sending... <i class="fa-solid fa-circle-notch fa-spin"></i>';
 
-        // Send data to Firebase Firestore
-        if (!db) {
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = 'Send Message <i class="fa-solid fa-paper-plane"></i>';
-            showStatus('Firebase is not configured. Please add your firebaseConfig to script.js', 'error');
-            return;
-        }
+        // Send data to Supabase
+        supabase
+            .from('contact_messages')
+            .insert([
+                { name, email, subject, message }
+            ])
+            .then(({ data, error }) => {
+                if (error) throw error;
 
-        addDoc(collection(db, "contacts"), {
-            name: name,
-            email: email,
-            subject: subject,
-            message: message,
-            createdAt: serverTimestamp()
-        })
-            .then(() => {
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = 'Send Message <i class="fa-solid fa-paper-plane"></i>';
 
@@ -413,10 +382,10 @@ function initContactForm() {
                 });
             })
             .catch(error => {
-                console.error('Error adding document:', error);
+                console.error('Error inserting data:', error);
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = 'Send Message <i class="fa-solid fa-paper-plane"></i>';
-                showStatus('Failed to send message via Firebase. Please try again.', 'error');
+                showStatus('Failed to send message. Please try again.', 'error');
             });
     });
 
