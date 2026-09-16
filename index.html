@@ -123,7 +123,7 @@
                     <span class="hero-greeting">Hi there, I am</span>
                     <h1 class="hero-name gradient-text">Sejal Soni</h1>
                     <h2 class="hero-title">
-                        I build <span id="typed-text" class="typed-text"></span><span class="typed-cursor">|</span>
+                        I build <span id="typed-text" class="typed-text" aria-live="polite"></span><span class="typed-cursor" aria-hidden="true">|</span>
                     </h2>
                     <p class="hero-description">
                         Recent Computer Science Engineering graduate with hands-on experience in full-stack web
@@ -132,9 +132,11 @@
                     </p>
 
                     <div class="hero-ctas">
-                      
-                        <a href="#contact" class="btn btn-secondary" id="btn-hero-contact">
-                            Contact Me <i class="fa-solid fa-arrow-right"></i>
+                        <a href="#projects" class="btn btn-primary" id="btn-hero-projects">
+                            View My Work <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="#contact" class="btn btn-outline" id="btn-hero-contact">
+                            Contact Me
                         </a>
                     </div>
 
@@ -151,6 +153,15 @@
                             aria-label="Email Sejal">
                             <i class="fa-solid fa-envelope"></i>
                         </a>
+                    </div>
+
+                    <!-- Floating tech tag strip -->
+                    <div class="hero-tech-strip" aria-label="Tech stack">
+                        <span class="hero-tech-tag"><i class="fa-brands fa-react"></i> React</span>
+                        <span class="hero-tech-tag"><i class="fa-brands fa-node-js"></i> Node.js</span>
+                        <span class="hero-tech-tag"><i class="fa-solid fa-leaf"></i> MongoDB</span>
+                        <span class="hero-tech-tag"><i class="fa-solid fa-server"></i> Express</span>
+                        <span class="hero-tech-tag"><i class="fa-brands fa-js"></i> JavaScript</span>
                     </div>
                 </div>
 
@@ -171,24 +182,24 @@
   role: <span class="code-string">'Full-Stack Web Developer'</span>,
   education: {
     degree: <span class="code-string">'B.Tech (CSE)'</span>,
-    university: <span class="code-string">'Sardar Patel University'</span>,
+    university: <span class="code-string">'Sardar Patel Uni.'</span>,
     cgpa: <span class="code-number">8.90</span>
   },
   skills: [
-    <span class="code-string">'MongoDB'</span>, <span class="code-string">'Express.js'</span>, 
+    <span class="code-string">'MongoDB'</span>, <span class="code-string">'Express.js'</span>,
     <span class="code-string">'React.js'</span>, <span class="code-string">'Node.js'</span>,
     <span class="code-string">'TailwindCSS'</span>, <span class="code-string">'MySQL'</span>,
     <span class="code-string">'Git'</span>, <span class="code-string">'Power BI'</span>
   ],
   passionateAbout: [
-    <span class="code-string">'Scalable Backend APIs'</span>,
-    <span class="code-string">'Stunning UI/UX Design'</span>,
-    <span class="code-string">'Cloud Storage Systems'</span>
+    <span class="code-string">'Scalable APIs'</span>,
+    <span class="code-string">'Stunning UI/UX'</span>,
+    <span class="code-string">'Cloud Systems'</span>
   ],
   isAlwaysLearning: <span class="code-boolean">true</span>
 };
 
-<span class="code-comment">// Let's build something exceptional together!</span>
+<span class="code-comment">// Let's build something exceptional!</span>
 developer.collaborate();</code></pre>
                         </div>
                     </div>
