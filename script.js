@@ -147,7 +147,9 @@ function initTheme() {
     const body = document.body;
     const themes = ['dark-mode', 'light-mode', 'ocean-mode', 'cyberpunk-mode'];
 
-    let savedTheme = localStorage.getItem('portfolio-theme') || 'dark-mode';
+    const urlParams = new URLSearchParams(window.location.search);
+    const queryTheme = urlParams.get('theme');
+    let savedTheme = queryTheme || localStorage.getItem('portfolio-theme') || 'dark-mode';
     if (!themes.includes(savedTheme)) savedTheme = 'dark-mode';
 
     body.classList.remove(...themes);
@@ -356,10 +358,10 @@ function initEyeTracking() {
             wordmark.style.transform = `translate3d(${-curParallaxX.toFixed(2)}px, ${-curParallaxY.toFixed(2)}px, 0)`;
         }
         if (portraitWrap) {
-            // Subtle 3D perspective tilt coupled with translation
+            // Subtle 3D perspective tilt coupled with horizontal parallax (grounded bottom)
             const rotY = (curParallaxX * 0.18).toFixed(2);
-            const rotX = (-curParallaxY * 0.18).toFixed(2);
-            portraitWrap.style.transform = `translate3d(${(curParallaxX * 0.22).toFixed(2)}px, ${(curParallaxY * 0.22 + breathY).toFixed(2)}px, 0) perspective(900px) rotateY(${rotY}deg) rotateX(${rotX}deg)`;
+            const rotX = (-curParallaxY * 0.10).toFixed(2);
+            portraitWrap.style.transform = `translate3d(${(curParallaxX * 0.20).toFixed(2)}px, 0, 0) perspective(900px) rotateY(${rotY}deg) rotateX(${rotX}deg)`;
         }
 
         requestAnimationFrame(renderGaze);
