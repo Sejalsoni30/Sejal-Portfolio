@@ -165,65 +165,104 @@
     <main>
 
         <!-- ==========================================================================
-             CINEMATIC HERO SECTION (MARCUS VANE ARCHETYPE)
+             CINEMATIC EDITORIAL HERO SECTION (BALANCED 3-COLUMN LAYOUT)
              ========================================================================== -->
         <section class="cinematic-hero" id="hero">
+            <!-- Atmospheric Lighting & Red Gradient Glow -->
             <div class="hero-radial-glow" aria-hidden="true"></div>
+            <div class="hero-accent-light" aria-hidden="true"></div>
 
-            <!-- Top Grid: Greeting, Headline, Statement & CTAs -->
-            <div class="hero-top-grid container">
-                <div class="hero-roles-stack reveal-left">
+            <!-- Oversized Background SEJAL Typography (Layered with Subtle Parallax) -->
+            <div class="towering-wordmark" id="towering-wordmark" aria-hidden="true">
+                <span class="wordmark-row row-top">SEJAL</span>
+                <span class="wordmark-row row-bottom">SONI</span>
+            </div>
+
+            <!-- Balanced 3-Column Editorial Grid: Left (Bio) | Center (Portrait) | Right (CTAs) -->
+            <div class="hero-editorial-grid container">
+
+                <!-- LEFT COLUMN: Identity, Roles & Introduction -->
+                <div class="hero-col hero-col-left reveal-left">
                     <div class="hero-greeting-pill">
                         <span class="pulse-dot"></span>
                         <span>HI, I'M SEJAL SONI</span>
                     </div>
-                    <span class="role-line">FULL STACK DEVELOPER</span>
-                    <span class="role-line role-accent">CREATIVE PROBLEM SOLVER</span>
+
+                    <h1 class="hero-roles-stack">
+                        <span class="role-line">FULL STACK DEVELOPER</span>
+                        <span class="role-line role-accent">CREATIVE PROBLEM SOLVER</span>
+                    </h1>
+
+                    <p class="hero-intro-text">
+                        Engineering modern, responsive, and high-performance digital experiences. Specializing in robust MERN architectures, elegant frontend interactions, and scalable cloud systems.
+                    </p>
+
+                    <div class="hero-badges-row">
+                        <span class="hero-status-pill">
+                            <span class="status-indicator-dot"></span> Open for Select Work
+                        </span>
+                        <span class="hero-status-pill">
+                            <i class="fa-solid fa-location-dot text-ember"></i> Balaghat, MP
+                        </span>
+                    </div>
                 </div>
 
-                <div class="hero-statement-wrap reveal-right">
+                <!-- CENTER COLUMN: Main Visual Focus (Portrait Stage) -->
+                <div class="hero-col hero-col-center">
+                    <div class="towering-portrait-wrap" id="towering-portrait-wrap">
+                        <div class="interactive-portrait-stage" id="hero-portrait-stage" title="Interactive Eye-Tracking Portrait">
+                            <!-- Soft Center Backlight -->
+                            <div class="portrait-backlight" aria-hidden="true"></div>
+
+                            <!-- Layer 1: Base Portrait with Sclera -->
+                            <img src="sejal-eye-base.png" alt="Sejal Soni" class="portrait-layer portrait-base" draggable="false">
+
+                            <!-- Layer 2: Moving Irises / Pupils -->
+                            <div class="eye-tracker-layer" aria-hidden="true">
+                                <div class="eye-pupil left-pupil" id="pupil-left">
+                                    <img src="sejal-iris-left.png" alt="" draggable="false">
+                                </div>
+                                <div class="eye-pupil right-pupil" id="pupil-right">
+                                    <img src="sejal-iris-right.png" alt="" draggable="false">
+                                </div>
+                            </div>
+
+                            <!-- Layer 3: Face Eyelids Mask -->
+                            <img src="sejal-eye-mask.png" alt="Sejal Soni" class="portrait-layer portrait-mask" draggable="false">
+
+                            <!-- Layer 4: Natural Closed Eyelids for Realistic Blinking -->
+                            <img src="sejal-eyelids-closed.png" alt="" class="portrait-layer portrait-blink" id="portrait-blink" draggable="false" aria-hidden="true">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT COLUMN: Description & Interactive CTAs -->
+                <div class="hero-col hero-col-right reveal-right">
+                    <div class="hero-editorial-meta">
+                        <span class="hero-meta-label">INDEX // 01</span>
+                        <span class="hero-meta-divider"></span>
+                        <span class="hero-meta-label">PORTFOLIO &amp; SERVICES</span>
+                    </div>
+
                     <p class="hero-statement">
-                        I build modern, responsive, and intelligent digital experiences.
+                        I help businesses, startups, and individuals transform ambitious ideas into modern, responsive, and powerful digital platforms built with precision engineering.
                     </p>
+
                     <div class="hero-ctas-wrap">
-                        <a href="#ventures" class="btn btn-primary btn-sm" id="btn-hero-work">
+                        <a href="#ventures" class="btn btn-primary btn-hero-cta" id="btn-hero-work">
                             <span>Explore My Work</span> <i class="fa-solid fa-arrow-down"></i>
                         </a>
-                        <a href="#contact" class="btn btn-outline btn-sm" id="btn-hero-connect">
+                        <a href="#contact" class="btn btn-outline btn-hero-cta" id="btn-hero-connect">
                             <span>Let's Connect</span> <i class="fa-solid fa-paper-plane"></i>
                         </a>
                     </div>
-                </div>
-            </div>
 
-            <!-- Towering Giant Name Wordmark & Interactive Eye Tracking Portrait Stage -->
-            <div class="towering-stage" id="towering-stage">
-                <!-- Giant Anton Wordmark (Layered Behind Cutout) -->
-                <div class="towering-wordmark" id="towering-wordmark" aria-hidden="true">
-                    <span class="wordmark-row row-top">SEJAL</span>
-                    <span class="wordmark-row row-bottom">SONI</span>
-                </div>
-
-                <!-- Framed Interactive Eye Tracking Portrait Stage -->
-                <div class="towering-portrait-wrap" id="towering-portrait-wrap">
-                    <div class="interactive-portrait-stage" id="hero-portrait-stage" title="Interactive Eye-Tracking Portrait">
-                        <!-- Layer 1: Base Portrait with Sclera -->
-                        <img src="sejal-eye-base.png" alt="Sejal Soni" class="portrait-layer portrait-base" draggable="false">
-
-                        <!-- Layer 2: Moving Irises / Pupils -->
-                        <div class="eye-tracker-layer" aria-hidden="true">
-                            <div class="eye-pupil left-pupil" id="pupil-left">
-                                <img src="sejal-iris-left.png" alt="" draggable="false">
-                            </div>
-                            <div class="eye-pupil right-pupil" id="pupil-right">
-                                <img src="sejal-iris-right.png" alt="" draggable="false">
-                            </div>
-                        </div>
-
-                        <!-- Layer 3: Face Eyelids Mask -->
-                        <img src="sejal-eye-mask.png" alt="Sejal Soni" class="portrait-layer portrait-mask" draggable="false">
+                    <div class="hero-client-note">
+                        <span class="pulse-dot-sm"></span>
+                        <span>Available for Freelance &amp; Engineering Roles</span>
                     </div>
                 </div>
+
             </div>
 
             <!-- Bottom Bar: Scroll Indicator & Quick Tech -->
@@ -231,6 +270,7 @@
                 <a href="#story" class="scroll-enter-indicator" aria-label="Scroll to enter">
                     <span class="ember-line"></span>
                     <span class="scroll-label">SCROLL TO ENTER</span>
+                    <i class="fa-solid fa-chevron-down scroll-chevron"></i>
                 </a>
 
                 <div class="hero-tech-quick">
@@ -240,7 +280,9 @@
                     <span class="sep">/</span>
                     <span>NODE.JS</span>
                     <span class="sep">/</span>
-                    <span>CLOUD SYSTEMS</span>
+                    <span>TYPESCRIPT</span>
+                    <span class="sep">/</span>
+                    <span>CLOUD</span>
                 </div>
             </div>
         </section>

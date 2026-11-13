@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initNavbarScroll();
     initMobileMenu();
     initEyeTracking();
+    initEyeBlinking();
     initScrollReveal();
     initVenturesFilter();
     initVoicesSwitcher();
@@ -365,6 +366,50 @@ function initEyeTracking() {
     }
 
     requestAnimationFrame(renderGaze);
+}
+
+/* ==========================================================================
+   4B. REALISTIC BLINKING ENGINE
+   (Natural human blink frequency: 3.5s - 6.5s with occasional double-blinks)
+   ========================================================================== */
+function initEyeBlinking() {
+    const blinkLayer = document.getElementById('portrait-blink');
+    if (!blinkLayer) return;
+
+    let blinkTimer = null;
+
+    function executeBlink(isDouble = false) {
+        // Fast eyelid closure
+        blinkLayer.style.opacity = '1';
+
+        setTimeout(() => {
+            // Eyelid reopening
+            blinkLayer.style.opacity = '0';
+
+            // 22% probability of a quick follow-up micro-blink (human double-blink reflex)
+            if (!isDouble && Math.random() < 0.22) {
+                setTimeout(() => {
+                    executeBlink(true);
+                }, 130);
+                return;
+            }
+
+            // Schedule next natural blink
+            queueNextBlink();
+        }, 110);
+    }
+
+    function queueNextBlink() {
+        if (blinkTimer) clearTimeout(blinkTimer);
+        // Random natural interval between 3200ms and 6500ms
+        const delay = 3200 + Math.random() * 3300;
+        blinkTimer = setTimeout(() => {
+            executeBlink();
+        }, delay);
+    }
+
+    // Initial natural blink after page load
+    setTimeout(queueNextBlink, 2000);
 }
 
 /* ==========================================================================
