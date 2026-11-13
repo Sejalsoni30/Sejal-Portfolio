@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+    <defs>
+        <!-- Background Gradient -->
+        <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#15151c"/>
+            <stop offset="50%" stop-color="#09090d"/>
+            <stop offset="100%" stop-color="#040406"/>
+        </linearGradient>
+
+        <!-- Electric Ember Gradient -->
+        <linearGradient id="emberGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ff6b3d"/>
+            <stop offset="60%" stop-color="#ff3b1f"/>
+            <stop offset="100%" stop-color="#d62208"/>
+        </linearGradient>
+
+        <!-- Titanium White Gradient -->
+        <linearGradient id="whiteGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ffffff"/>
+            <stop offset="100%" stop-color="#d0d0d8"/>
+        </linearGradient>
+
+        <!-- Luminous Rim Border Gradient -->
+        <linearGradient id="rimGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ff5733" stop-opacity="0.85"/>
+            <stop offset="35%" stop-color="#ff3b1f" stop-opacity="0.45"/>
+            <stop offset="100%" stop-color="#ffffff" stop-opacity="0.12"/>
+        </linearGradient>
+
+        <!-- Subtle Core Glow Behind Letters -->
+        <radialGradient id="emberRadial" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#ff3b1f" stop-opacity="0.4"/>
+            <stop offset="60%" stop-color="#ff3b1f" stop-opacity="0.1"/>
+            <stop offset="100%" stop-color="#ff3b1f" stop-opacity="0"/>
+        </radialGradient>
+    </defs>
+
+    <!-- Base Squircle with Glowing Rim -->
+    <rect x="24" y="24" width="464" height="464" rx="120" fill="url(#bgGrad)" stroke="url(#rimGrad)" stroke-width="10"/>
+
+    <!-- Central Ember Aura -->
+    <circle cx="256" cy="256" r="180" fill="url(#emberRadial)"/>
+
+    <!-- Decorative Top-Left Tech Hazard Slashes -->
+    <g opacity="0.35" fill="#ff3b1f">
+        <rect x="75" y="65" width="7" height="20" rx="2" transform="skewX(-25)"/>
+        <rect x="90" y="65" width="7" height="20" rx="2" transform="skewX(-25)"/>
+        <rect x="105" y="65" width="7" height="20" rx="2" transform="skewX(-25)"/>
+    </g>
+
+    <!-- Active Pulse Status Dot (Top-Right) -->
+    <circle cx="420" cy="92" r="15" fill="#ff3b1f" opacity="0.4"/>
+    <circle cx="420" cy="92" r="9" fill="#ff3b1f"/>
+    <circle cx="420" cy="92" r="4" fill="#ffffff"/>
+
+    <!-- First 'S' - Authentic Anton Glyph in Electric Ember -->
+    <path d="M496 -16Q255 -16 148.5 104.0Q42 224 42 486V658H390V438Q390 377 408.5 342.5Q427 308 473 308Q521 308 539.5 336.0Q558 364 558 428Q558 509 542.0 563.5Q526 618 486.5 667.5Q447 717 377 783L219 933Q42 1100 42 1315Q42 1540 146.5 1658.0Q251 1776 449 1776Q691 1776 792.5 1647.0Q894 1518 894 1255H536V1376Q536 1412 515.5 1432.0Q495 1452 460 1452Q418 1452 398.5 1428.5Q379 1405 379 1368Q379 1331 399.0 1288.0Q419 1245 478 1189L681 994Q742 936 793.0 871.5Q844 807 875.0 721.5Q906 636 906 513Q906 265 814.5 124.5Q723 -16 496 -16Z" fill="url(#emberGrad)" transform="translate(112.01, 392.40) scale(0.1550, -0.1550)" />
+
+    <!-- Second 'S' - Authentic Anton Glyph in Titanium White -->
+    <path d="M496 -16Q255 -16 148.5 104.0Q42 224 42 486V658H390V438Q390 377 408.5 342.5Q427 308 473 308Q521 308 539.5 336.0Q558 364 558 428Q558 509 542.0 563.5Q526 618 486.5 667.5Q447 717 377 783L219 933Q42 1100 42 1315Q42 1540 146.5 1658.0Q251 1776 449 1776Q691 1776 792.5 1647.0Q894 1518 894 1255H536V1376Q536 1412 515.5 1432.0Q495 1452 460 1452Q418 1452 398.5 1428.5Q379 1405 379 1368Q379 1331 399.0 1288.0Q419 1245 478 1189L681 994Q742 936 793.0 871.5Q844 807 875.0 721.5Q906 636 906 513Q906 265 814.5 124.5Q723 -16 496 -16Z" fill="url(#whiteGrad)" transform="translate(253.06, 392.40) scale(0.1550, -0.1550)" />
+</svg>
