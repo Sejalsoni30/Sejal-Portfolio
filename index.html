@@ -5,32 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Portfolio of Sejal Soni, a Full-Stack Web Developer and Computer Science Graduate specializing in the MERN stack. Explore projects, skills, and experience.">
+        content="Sejal Soni — Full-Stack Developer & Systems Architect. Specializing in MERN stack, scalable cloud backends, and cinematic web interfaces.">
     <meta name="keywords"
-        content="Sejal Soni, Portfolio, Full-Stack Developer, MERN Stack, Software Engineer, Web Developer, React, Node.js, MongoDB">
+        content="Sejal Soni, Portfolio, Full-Stack Developer, MERN Stack, Software Engineer, React, Node.js, Marcus Vane, Next.js">
     <meta name="author" content="Sejal Soni">
 
-    <!-- Open Graph / Facebook -->
+    <!-- Open Graph / Meta -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Sejal Soni | Full-Stack Web Developer & Software Engineer">
+    <meta property="og:title" content="Sejal Soni — Full-Stack Developer & Systems Architect">
     <meta property="og:description"
-        content="Explore Sejal Soni's developer portfolio: full-stack web applications, technical expertise, and internship experiences.">
+        content="Cinematic portfolio of Sejal Soni: full-stack web applications, technical precision, and scalable architectures.">
     <meta property="og:url" content="https://github.com/Sejalsoni30">
-    <meta property="og:image" content="assets/og-image.jpg">
+    <meta property="og:image" content="sejal-cutout.png">
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="Sejal Soni | Full-Stack Web Developer & Software Engineer">
-    <meta property="twitter:description"
-        content="Explore Sejal Soni's developer portfolio: full-stack web applications, technical expertise, and internship experiences.">
+    <title>Sejal Soni — Full-Stack Developer & Systems Architect</title>
 
-    <title>Sejal Soni | Full-Stack Web Developer</title>
-
-    <!-- Google Fonts -->
+    <!-- Google Fonts: Anton (Towering Wordmark), Plus Jakarta Sans, Inter, JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
         rel="stylesheet">
 
     <!-- FontAwesome Icons -->
@@ -44,56 +38,55 @@
 
 <body class="dark-mode">
 
+    <!-- Film Grain Noise Texture -->
+    <div class="noise-overlay" aria-hidden="true"></div>
+
     <!-- Custom Cursor -->
     <div id="custom-cursor" class="custom-cursor"></div>
     <div id="custom-cursor-dot" class="custom-cursor-dot"></div>
 
-    <!-- Page Loader -->
+    <!-- Marcus Vane Cinematic Preloader -->
     <div id="loader" class="loader-overlay">
         <div class="curtain-panel curtain-top"></div>
         <div class="curtain-panel curtain-bottom"></div>
         <div class="loader-content">
-            <span class="loader-logo glow-pulse">&lt;SS /&gt;</span>
+            <span class="loader-monogram">&lt;SS /&gt;</span>
             <div class="loader-bar-bg">
                 <div id="loader-bar" class="loader-bar"></div>
             </div>
-            <span id="loader-percent" class="loader-percent">0%</span>
+            <span id="loader-percent" class="loader-percent">00%</span>
         </div>
-    </div>
-
-    <!-- Background Grid Effect -->
-    <div class="bg-grid-effect"></div>
-
-    <!-- Ambient Floating Orbs -->
-    <div class="ambient-orbs">
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
-        <div class="orb orb-3"></div>
     </div>
 
     <!-- Navigation Header -->
     <header class="header-nav" id="header-nav">
         <div class="nav-container container">
-            <a href="#hero" class="nav-logo" id="nav-logo-btn">
-                <span class="gradient-text">&lt;Sejal Soni /&gt;</span>
+            <a href="#hero" class="nav-brand-pill" id="nav-logo-btn">
+                <span class="nav-monogram">SS</span>
+                <span class="nav-name">SEJAL SONI</span>
             </a>
 
             <!-- Desktop Navigation Links -->
             <nav class="nav-menu" id="nav-menu">
                 <ul class="nav-list">
-                    <li><a href="#about" class="nav-link" id="link-about">About</a></li>
-                    <li><a href="#skills" class="nav-link" id="link-skills">Skills</a></li>
-                    <li><a href="#timeline" class="nav-link" id="link-timeline">Journey</a></li>
-                    <li><a href="#projects" class="nav-link" id="link-projects">Projects</a></li>
-                    <li><a href="#certifications" class="nav-link" id="link-certs">Certifications</a></li>
-                    <li><a href="resume.html" class="nav-link" id="link-resume">Resume</a></li>
-                    <li><a href="#contact" class="nav-link id-contact-link" id="link-contact">Contact</a></li>
+                    <li><a href="#story" class="nav-link" id="link-story">Story</a></li>
+                    <li><a href="#ventures" class="nav-link" id="link-ventures">Ventures</a></li>
+                    <li><a href="#impact" class="nav-link" id="link-impact">Impact</a></li>
+                    <li><a href="#capabilities" class="nav-link" id="link-capabilities">Arsenal</a></li>
+                    <li><a href="#chronology" class="nav-link" id="link-chronology">Chronology</a></li>
+                    <li><a href="#voices" class="nav-link" id="link-voices">Voices</a></li>
+                    <li><a href="#contact" class="nav-link" id="link-contact">Contact</a></li>
                 </ul>
             </nav>
 
             <div class="nav-actions">
+                <!-- Direct Resume Link -->
+                <a href="SEJALSONI_RESUME_NEW.pdf" download="Sejal_Soni_Resume.pdf" class="nav-action-btn" id="nav-resume-btn">
+                    <span>Resume</span> <i class="fa-solid fa-arrow-down-to-bracket"></i>
+                </a>
+
                 <!-- Theme Toggle Button -->
-                <button class="theme-toggle" id="theme-toggle-btn" aria-label="Toggle dark/light theme">
+                <button class="theme-toggle" id="theme-toggle-btn" aria-label="Toggle theme">
                     <i class="fa-solid fa-moon moon-icon"></i>
                     <i class="fa-solid fa-sun sun-icon"></i>
                 </button>
@@ -111,943 +104,772 @@
     <!-- Main Content -->
     <main>
 
-        <!-- Hero Section -->
-        <section class="hero-section" id="hero">
-            <canvas id="hero-canvas"></canvas>
-            <div class="container hero-container grid-two-cols">
-                <!-- Hero Content -->
-                <div class="hero-content reveal-left">
-                    <div class="badge-container">
-                        <span class="hero-badge"><span class="pulse-dot"></span> Available for Opportunities</span>
+        <!-- ==========================================================================
+             CINEMATIC HERO SECTION (MARCUS VANE ARCHETYPE)
+             ========================================================================== -->
+        <section class="cinematic-hero" id="hero">
+            <div class="hero-radial-glow" aria-hidden="true"></div>
+
+            <!-- Top Grid: Stacked Roles & Statement -->
+            <div class="hero-top-grid container">
+                <div class="hero-roles-stack reveal-left">
+                    <span class="role-line">FULL-STACK</span>
+                    <span class="role-line role-accent">DEVELOPER</span>
+                    <span class="role-line">SYSTEMS</span>
+                    <span class="role-line">BUILDER</span>
+                </div>
+
+                <div class="hero-statement-wrap reveal-right">
+                    <p class="hero-statement">
+                        Engineering scalable web architectures and cloud-native applications with relentless conviction — from prototype to production scale.
+                    </p>
+                    <div class="hero-status-pill">
+                        <span class="pulse-dot"></span>
+                        <span>AVAILABLE FOR OPPORTUNITIES</span>
                     </div>
-                    <span class="hero-greeting">Hi there, I am</span>
-                    <h1 class="hero-name gradient-text">Sejal Soni</h1>
-                    <h2 class="hero-title">
-                        I build <span id="typed-text" class="typed-text" aria-live="polite"></span><span class="typed-cursor" aria-hidden="true">|</span>
+                </div>
+            </div>
+
+            <!-- Towering Giant Name Wordmark & Framed Portrait Stage -->
+            <div class="towering-stage" id="towering-stage">
+                <!-- Giant Anton Wordmark (Layered Behind Cutout) -->
+                <div class="towering-wordmark" id="towering-wordmark" aria-hidden="true">
+                    <span class="wordmark-row row-top">SEJAL</span>
+                    <span class="wordmark-row row-bottom">SONI</span>
+                </div>
+
+                <!-- Framed Portrait Cutout (Foreground with bottom fade) -->
+                <div class="towering-portrait-wrap" id="towering-portrait-wrap">
+                    <img src="sejal-cutout.png" alt="Sejal Soni" class="towering-portrait" id="hero-portrait">
+                </div>
+            </div>
+
+            <!-- Bottom Bar: Scroll Indicator & Quick Tech -->
+            <div class="hero-bottom-bar container">
+                <a href="#story" class="scroll-enter-indicator" aria-label="Scroll to enter">
+                    <span class="ember-line"></span>
+                    <span class="scroll-label">SCROLL TO ENTER</span>
+                </a>
+
+                <div class="hero-tech-quick">
+                    <span>MERN</span>
+                    <span class="sep">/</span>
+                    <span>REACT</span>
+                    <span class="sep">/</span>
+                    <span>NODE.JS</span>
+                    <span class="sep">/</span>
+                    <span>CLOUD SYSTEMS</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             INFINITE MARQUEE TICKER (MARCUS VANE SIGNATURE)
+             ========================================================================== -->
+        <div class="cinematic-marquee" aria-hidden="true">
+            <div class="marquee-track">
+                <div class="marquee-group">
+                    <span>FULL-STACK ARCHITECT</span>
+                    <span class="marquee-dot">•</span>
+                    <span>MERN SPECIALIST</span>
+                    <span class="marquee-dot">•</span>
+                    <span>SCALABLE APIS</span>
+                    <span class="marquee-dot">•</span>
+                    <span>CLOUD STORAGE OPTIMIZATION</span>
+                    <span class="marquee-dot">•</span>
+                    <span>PIXEL-PERFECT UI</span>
+                    <span class="marquee-dot">•</span>
+                    <span>SHIP THE FUTURE</span>
+                    <span class="marquee-dot">•</span>
+                    <span>THINK IN SYSTEMS</span>
+                    <span class="marquee-dot">•</span>
+                </div>
+                <div class="marquee-group" aria-hidden="true">
+                    <span>FULL-STACK ARCHITECT</span>
+                    <span class="marquee-dot">•</span>
+                    <span>MERN SPECIALIST</span>
+                    <span class="marquee-dot">•</span>
+                    <span>SCALABLE APIS</span>
+                    <span class="marquee-dot">•</span>
+                    <span>CLOUD STORAGE OPTIMIZATION</span>
+                    <span class="marquee-dot">•</span>
+                    <span>PIXEL-PERFECT UI</span>
+                    <span class="marquee-dot">•</span>
+                    <span>SHIP THE FUTURE</span>
+                    <span class="marquee-dot">•</span>
+                    <span>THINK IN SYSTEMS</span>
+                    <span class="marquee-dot">•</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==========================================================================
+             THE STORY / PHILOSOPHY SECTION (MARCUS VANE STYLE)
+             ========================================================================== -->
+        <section class="section-padding" id="story">
+            <div class="container">
+                <div class="eyebrow-badge reveal-up">
+                    <span class="eyebrow-dot">•</span>
+                    <span>THE STORY</span>
+                </div>
+
+                <div class="story-grid">
+                    <!-- Left: Lead Narrative -->
+                    <div class="story-lead-col reveal-left">
+                        <h2 class="story-big-headline">
+                            CONVICTION IS A COMPETITIVE ADVANTAGE.
+                        </h2>
+                        <p class="story-paragraph">
+                            I am a Computer Science Engineering graduate (2026, 8.90 CGPA) dedicated to engineering software that couples mathematical precision with cinematic, human-centric design. Rather than assembling generic templates, I focus on the hard problems: low-latency backend APIs, deduplicated storage architectures, and fluid 60fps micro-interactions.
+                        </p>
+                        <p class="story-paragraph">
+                            From engineering frame-level video editors integrated with Google Drive to developing AI-powered storage platforms that cut storage redundancy by 35%, my commitment has always been singular: build systems that are resilient, intuitive, and built to scale.
+                        </p>
+
+                        <div class="story-actions">
+                            <a href="about.html" class="btn btn-outline" id="btn-know-more">
+                                Know More About Me <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                            <a href="SEJALSONI_RESUME_NEW.pdf" download="Sejal_Soni_Resume.pdf" class="btn btn-primary" id="btn-story-resume">
+                                Download Resume PDF <i class="fa-solid fa-arrow-down-to-bracket"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right: Numbered Pillars (01, 02, 03, 04) -->
+                    <div class="story-pillars-col reveal-right delay-100">
+                        <div class="pillar-item">
+                            <span class="pillar-num">01</span>
+                            <div>
+                                <h3 class="pillar-title">Architecture Before Aesthetics</h3>
+                                <p class="pillar-desc">
+                                    Solid systems demand resilient foundations. I architect clean schema designs, secure JWT authentication, and normalized databases before painting pixels.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="pillar-item">
+                            <span class="pillar-num">02</span>
+                            <div>
+                                <h3 class="pillar-title">High-Fidelity Execution</h3>
+                                <p class="pillar-desc">
+                                    Code quality and UI craft are inseparable. Every animation timing curve, tactile hover state, and responsive breakpoint is tuned for effortless fluidity.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="pillar-item">
+                            <span class="pillar-num">03</span>
+                            <div>
+                                <h3 class="pillar-title">Systems That Scale</h3>
+                                <p class="pillar-desc">
+                                    Designing for throughput and efficiency. Engineered backend deduplication that reduced redundant storage by ~35% on production workloads.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="pillar-item">
+                            <span class="pillar-num">04</span>
+                            <div>
+                                <h3 class="pillar-title">Relentless Curiosity</h3>
+                                <p class="pillar-desc">
+                                    The technological frontier never stops moving. Constantly mastering LLM APIs, modern React patterns, cloud infrastructure, and autonomous workflows.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             SELECTED VENTURES / FEATURED PROJECTS
+             ========================================================================== -->
+        <section class="section-padding" id="ventures" style="background: var(--bg-secondary);">
+            <div class="container">
+                <div class="section-head-split reveal-up">
+                    <div>
+                        <div class="eyebrow-badge">
+                            <span class="eyebrow-dot">•</span>
+                            <span>SELECTED VENTURES</span>
+                        </div>
+                        <h2 class="cinematic-section-title">THE WORK THAT SHAPES TOMORROW.</h2>
+                    </div>
+                    <span class="section-counter">06 / VENTURES</span>
+                </div>
+
+                <!-- Category Filters -->
+                <div class="projects-filter-bar reveal-up">
+                    <button class="filter-pill active" data-filter="all" id="btn-filter-all">All Ventures</button>
+                    <button class="filter-pill" data-filter="fullstack" id="btn-filter-fs">Full Stack</button>
+                    <button class="filter-pill" data-filter="ai" id="btn-filter-ai">AI Systems</button>
+                    <button class="filter-pill" data-filter="frontend" id="btn-filter-fe">Frontend & Apps</button>
+                </div>
+
+                <!-- Ventures Staggered Grid -->
+                <div class="ventures-grid">
+
+                    <!-- Venture 1: Smart AI Backup & Storage -->
+                    <article class="venture-card reveal-up" data-category="fullstack">
+                        <div class="venture-image-stage">
+                            <img src="AIbackup.png" alt="Smart AI Backup" class="venture-image">
+                            <span class="hazard-badge">//////</span>
+                            <span class="venture-status-pill">CLOUD PLATFORM</span>
+                        </div>
+                        <div class="venture-details">
+                            <div class="venture-top-meta">
+                                <span>FULL-STACK STORAGE</span>
+                                <span>2025</span>
+                            </div>
+                            <h3 class="venture-title">Smart AI Backup & Storage System</h3>
+                            <p class="venture-desc">
+                                An enterprise-grade AI storage platform featuring secure JWT user authentication, automated duplicate block detection, and intelligent file deduplication that reduced storage consumption by 35%.
+                            </p>
+                            <div class="venture-tags">
+                                <span class="tech-chip">MongoDB Atlas</span>
+                                <span class="tech-chip">Express.js</span>
+                                <span class="tech-chip">Node.js</span>
+                                <span class="tech-chip">JWT Security</span>
+                            </div>
+                            <div class="venture-actions">
+                                <a href="https://github.com/Sejalsoni30" target="_blank" rel="noopener" class="btn btn-sm btn-outline">
+                                    <i class="fa-brands fa-github"></i> Source
+                                </a>
+                                <button class="btn btn-sm btn-primary demo-click-btn">
+                                    <i class="fa-solid fa-bolt"></i> Interactive Sandbox
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Venture 2: VideoAI Cloud Video Editor -->
+                    <article class="venture-card reveal-up delay-100" data-category="fullstack">
+                        <div class="venture-image-stage">
+                            <img src="videoedit.png" alt="VideoAI Editor" class="venture-image">
+                            <span class="hazard-badge">//////</span>
+                            <span class="venture-status-pill">PRODUCTION READY</span>
+                        </div>
+                        <div class="venture-details">
+                            <div class="venture-top-meta">
+                                <span>CLOUD MEDIA EDITOR</span>
+                                <span>2025</span>
+                            </div>
+                            <h3 class="venture-title">VideoAI — Cloud Video Editor</h3>
+                            <p class="venture-desc">
+                                A high-performance web-based video timeline editor featuring frame-accurate playback, dynamic canvas filter rendering, and custom Google Drive API integration for real-time file synchronization.
+                            </p>
+                            <div class="venture-tags">
+                                <span class="tech-chip">React.js</span>
+                                <span class="tech-chip">Node.js</span>
+                                <span class="tech-chip">Google Drive API</span>
+                                <span class="tech-chip">Canvas Filters</span>
+                            </div>
+                            <div class="venture-actions">
+                                <a href="https://github.com/Sejalsoni30" target="_blank" rel="noopener" class="btn btn-sm btn-outline">
+                                    <i class="fa-brands fa-github"></i> Source
+                                </a>
+                                <button class="btn btn-sm btn-primary demo-click-btn">
+                                    <i class="fa-solid fa-play"></i> Test Timeline
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Venture 3: ShopSmart AI -->
+                    <article class="venture-card reveal-up" data-category="ai">
+                        <div class="venture-image-stage">
+                            <img src="shopagent.png" alt="ShopSmart AI" class="venture-image">
+                            <span class="hazard-badge">//////</span>
+                            <span class="venture-status-pill">AI LIVE APP</span>
+                        </div>
+                        <div class="venture-details">
+                            <div class="venture-top-meta">
+                                <span>GENERATIVE COMMERCE</span>
+                                <span>2026</span>
+                            </div>
+                            <h3 class="venture-title">ShopSmart AI Assistant</h3>
+                            <p class="venture-desc">
+                                An intelligent autonomous shopping assistant that empowers users to explore, compare, and discover products through natural-language conversation and personalized recommendation vectors.
+                            </p>
+                            <div class="venture-tags">
+                                <span class="tech-chip">React.js</span>
+                                <span class="tech-chip">AI/LLM</span>
+                                <span class="tech-chip">Node.js</span>
+                                <span class="tech-chip">Vercel Edge</span>
+                            </div>
+                            <div class="venture-actions">
+                                <a href="https://github.com/Sejalsoni30/ShopSmart-Ai" target="_blank" rel="noopener" class="btn btn-sm btn-outline">
+                                    <i class="fa-brands fa-github"></i> Source
+                                </a>
+                                <a href="https://shop-smart-ai-murex.vercel.app/" target="_blank" rel="noopener" class="btn btn-sm btn-primary">
+                                    <span>Launch App</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Venture 4: Virtual Educator -->
+                    <article class="venture-card reveal-up delay-100" data-category="ai">
+                        <div class="venture-image-stage">
+                            <img src="AIteacher.png" alt="Virtual Educator" class="venture-image">
+                            <span class="hazard-badge">//////</span>
+                            <span class="venture-status-pill">GEMINI AI POWERED</span>
+                        </div>
+                        <div class="venture-details">
+                            <div class="venture-top-meta">
+                                <span>ADAPTIVE LEARNING</span>
+                                <span>2026</span>
+                            </div>
+                            <h3 class="venture-title">Virtual Educator Platform</h3>
+                            <p class="venture-desc">
+                                An AI-driven interactive tutoring ecosystem powered by the Gemini API that generates topic-tailored modules, live knowledge checks, and adaptive concept explanations for students.
+                            </p>
+                            <div class="venture-tags">
+                                <span class="tech-chip">React.js</span>
+                                <span class="tech-chip">Gemini API</span>
+                                <span class="tech-chip">Adaptive UX</span>
+                                <span class="tech-chip">Vercel</span>
+                            </div>
+                            <div class="venture-actions">
+                                <a href="https://github.com/Sejalsoni30/Virtual-educator" target="_blank" rel="noopener" class="btn btn-sm btn-outline">
+                                    <i class="fa-brands fa-github"></i> Source
+                                </a>
+                                <a href="https://ai-teacher-five-zeta.vercel.app/" target="_blank" rel="noopener" class="btn btn-sm btn-primary">
+                                    <span>Launch App</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Venture 5: Quiz-War Platform -->
+                    <article class="venture-card reveal-up" data-category="frontend">
+                        <div class="venture-image-stage">
+                            <img src="quizwar.png" alt="Quiz-War" class="venture-image">
+                            <span class="hazard-badge">//////</span>
+                            <span class="venture-status-pill">INTERACTIVE APP</span>
+                        </div>
+                        <div class="venture-details">
+                            <div class="venture-top-meta">
+                                <span>GAMEPLAY & LOGIC</span>
+                                <span>2024</span>
+                            </div>
+                            <h3 class="venture-title">Quiz-War Arena</h3>
+                            <p class="venture-desc">
+                                Real-time dynamic quiz engine challenging users with timed algorithmic questions, dynamic scoring multipliers, and statistical breakdown dashboards.
+                            </p>
+                            <div class="venture-tags">
+                                <span class="tech-chip">HTML5</span>
+                                <span class="tech-chip">CSS3 Flexbox</span>
+                                <span class="tech-chip">Vanilla JS</span>
+                                <span class="tech-chip">Session Storage</span>
+                            </div>
+                            <div class="venture-actions">
+                                <a href="https://github.com/Sejalsoni30" target="_blank" rel="noopener" class="btn btn-sm btn-outline">
+                                    <i class="fa-brands fa-github"></i> Source
+                                </a>
+                                <button class="btn btn-sm btn-primary demo-click-btn">
+                                    <i class="fa-solid fa-gamepad"></i> Play Demo
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Venture 6: Personal Portfolio Website -->
+                    <article class="venture-card reveal-up delay-100" data-category="frontend">
+                        <div class="venture-image-stage">
+                            <img src="portfoliofront.png" alt="Portfolio Front" class="venture-image">
+                            <span class="hazard-badge">//////</span>
+                            <span class="venture-status-pill">CINEMATIC REDESIGN</span>
+                        </div>
+                        <div class="venture-details">
+                            <div class="venture-top-meta">
+                                <span>DESIGN SYSTEM</span>
+                                <span>2026</span>
+                            </div>
+                            <h3 class="venture-title">Marcus Vane Portfolio Architecture</h3>
+                            <p class="venture-desc">
+                                A cinematic developer portfolio featuring towering typography, electric ember accents, custom physics-driven cursor, and seamless 60fps scroll transitions.
+                            </p>
+                            <div class="venture-tags">
+                                <span class="tech-chip">Modern JavaScript</span>
+                                <span class="tech-chip">CSS Variables</span>
+                                <span class="tech-chip">Supabase</span>
+                                <span class="tech-chip">Vercel</span>
+                            </div>
+                            <div class="venture-actions">
+                                <a href="https://github.com/Sejalsoni30" target="_blank" rel="noopener" class="btn btn-sm btn-outline">
+                                    <i class="fa-brands fa-github"></i> Source
+                                </a>
+                                <a href="#hero" class="btn btn-sm btn-primary">
+                                    <span>Top of Site</span> <i class="fa-solid fa-arrow-up"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             BY THE NUMBERS / IMPACT METRICS (MARCUS VANE STYLE)
+             ========================================================================== */ -->
+        <section class="section-padding" id="impact">
+            <div class="container">
+                <div class="eyebrow-badge reveal-up">
+                    <span class="eyebrow-dot">•</span>
+                    <span>BY THE NUMBERS</span>
+                </div>
+                <h2 class="cinematic-section-title reveal-up">MEASURABLE EXCELLENCE.</h2>
+
+                <div class="metrics-grid reveal-zoom">
+                    <div class="metric-box">
+                        <span class="metric-val">8.90<span class="metric-accent">/10</span></span>
+                        <span class="metric-label">B.TECH CGPA (SPU)</span>
+                    </div>
+
+                    <div class="metric-box">
+                        <span class="metric-val">06<span class="metric-accent">+</span></span>
+                        <span class="metric-label">CORE VENTURES</span>
+                    </div>
+
+                    <div class="metric-box">
+                        <span class="metric-val">35<span class="metric-accent">%</span></span>
+                        <span class="metric-label">STORAGE REDUCED</span>
+                    </div>
+
+                    <div class="metric-box">
+                        <span class="metric-val">100<span class="metric-accent">%</span></span>
+                        <span class="metric-label">COMMITMENT TO CRAFT</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             TECHNICAL ARSENAL / CAPABILITIES BENTO
+             ========================================================================== -->
+        <section class="section-padding" id="capabilities" style="background: var(--bg-secondary);">
+            <div class="container">
+                <div class="eyebrow-badge reveal-up">
+                    <span class="eyebrow-dot">•</span>
+                    <span>TECHNICAL ARSENAL</span>
+                </div>
+                <h2 class="cinematic-section-title reveal-up">ENGINEERED CAPABILITIES.</h2>
+
+                <div class="capabilities-bento">
+
+                    <!-- Bento 1: Frontend -->
+                    <div class="bento-card reveal-up">
+                        <div class="bento-head">
+                            <h3 class="bento-title"><i class="fa-solid fa-code bento-icon"></i> Frontend Engineering</h3>
+                            <span class="hazard-stripes">//////</span>
+                        </div>
+                        <p class="story-paragraph" style="font-size: 0.92rem;">
+                            Building responsive, accessible, and reactive user interfaces that elevate complex backend state into fluid consumer experiences.
+                        </p>
+                        <div class="bento-chips">
+                            <span class="skill-pill"><i class="fa-brands fa-react"></i> React.js</span>
+                            <span class="skill-pill"><i class="fa-brands fa-js-square"></i> JavaScript (ES6+)</span>
+                            <span class="skill-pill"><i class="fa-brands fa-html5"></i> HTML5 / CSS3</span>
+                            <span class="skill-pill"><i class="fa-solid fa-wind"></i> Tailwind CSS</span>
+                            <span class="skill-pill"><i class="fa-solid fa-mobile-screen"></i> Responsive UI</span>
+                        </div>
+                    </div>
+
+                    <!-- Bento 2: Backend -->
+                    <div class="bento-card reveal-up delay-100">
+                        <div class="bento-head">
+                            <h3 class="bento-title"><i class="fa-solid fa-server bento-icon"></i> Backend Architecture</h3>
+                            <span class="hazard-stripes">//////</span>
+                        </div>
+                        <p class="story-paragraph" style="font-size: 0.92rem;">
+                            Architecting resilient RESTful APIs, asynchronous event processing, secure authentication schemes, and scalable cloud microservices.
+                        </p>
+                        <div class="bento-chips">
+                            <span class="skill-pill"><i class="fa-brands fa-node-js"></i> Node.js</span>
+                            <span class="skill-pill"><i class="fa-solid fa-gears"></i> Express.js</span>
+                            <span class="skill-pill"><i class="fa-brands fa-php"></i> PHP</span>
+                            <span class="skill-pill"><i class="fa-solid fa-key"></i> JWT Authentication</span>
+                            <span class="skill-pill"><i class="fa-solid fa-network-wired"></i> RESTful APIs</span>
+                        </div>
+                    </div>
+
+                    <!-- Bento 3: Databases -->
+                    <div class="bento-card reveal-up">
+                        <div class="bento-head">
+                            <h3 class="bento-title"><i class="fa-solid fa-database bento-icon"></i> Databases & Storage</h3>
+                            <span class="hazard-stripes">//////</span>
+                        </div>
+                        <p class="story-paragraph" style="font-size: 0.92rem;">
+                            Designing efficient relational schemas, high-throughput NoSQL document collections, deduplicated cloud storage, and query indexing.
+                        </p>
+                        <div class="bento-chips">
+                            <span class="skill-pill"><i class="fa-solid fa-leaf"></i> MongoDB Atlas</span>
+                            <span class="skill-pill"><i class="fa-solid fa-table-cells"></i> MySQL</span>
+                            <span class="skill-pill"><i class="fa-solid fa-bolt"></i> Supabase</span>
+                            <span class="skill-pill"><i class="fa-brands fa-google-drive"></i> Cloud APIs</span>
+                        </div>
+                    </div>
+
+                    <!-- Bento 4: Developer Tools & Analytics -->
+                    <div class="bento-card reveal-up delay-100">
+                        <div class="bento-head">
+                            <h3 class="bento-title"><i class="fa-solid fa-chart-line bento-icon"></i> Tools & Methodologies</h3>
+                            <span class="hazard-stripes">//////</span>
+                        </div>
+                        <p class="story-paragraph" style="font-size: 0.92rem;">
+                            Leveraging modern version control, analytical dashboards, API contract verification tools, and AI workflows for accelerated shipping.
+                        </p>
+                        <div class="bento-chips">
+                            <span class="skill-pill"><i class="fa-brands fa-git-alt"></i> Git & GitHub</span>
+                            <span class="skill-pill"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
+                            <span class="skill-pill"><i class="fa-solid fa-laptop-code"></i> VS Code & Postman</span>
+                            <span class="skill-pill"><i class="fa-solid fa-brain"></i> LLM & Prompt Eng.</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             JOURNEY & TIMELINE (CHRONOLOGY)
+             ========================================================================== -->
+        <section class="section-padding" id="chronology">
+            <div class="container">
+                <div class="eyebrow-badge reveal-up">
+                    <span class="eyebrow-dot">•</span>
+                    <span>CHRONOLOGY & CREDENTIALS</span>
+                </div>
+                <h2 class="cinematic-section-title reveal-up">ACADEMIC & PROFESSIONAL PATH.</h2>
+
+                <div class="chronology-stack">
+
+                    <!-- Milestone 1 -->
+                    <div class="chronology-item reveal-up">
+                        <div class="chronology-date-col">
+                            <span class="chronology-year">2022 — 2026</span>
+                            <span class="chronology-type">B.TECH CSE</span>
+                        </div>
+                        <div>
+                            <h3 class="chronology-role">Bachelor of Technology — Computer Science Engineering</h3>
+                            <span class="chronology-company">Sardar Patel University, Balaghat</span>
+                            <p class="chronology-desc">
+                                Focused on data structures, algorithmic design, database systems, object-oriented paradigms, and modern distributed web architectures. Graduating with a distinguished cumulative score of <strong>8.90 / 10 CGPA</strong>.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Milestone 2 -->
+                    <div class="chronology-item reveal-up delay-100">
+                        <div class="chronology-date-col">
+                            <span class="chronology-year">JUN 2025</span>
+                            <span class="chronology-type">INTERNSHIP</span>
+                        </div>
+                        <div>
+                            <h3 class="chronology-role">Full-Stack Web Development Intern</h3>
+                            <span class="chronology-company">Gokul Tech Solutions</span>
+                            <p class="chronology-desc">
+                                Contributed to client-facing full-stack applications utilizing Node.js, React.js, and MySQL. Spearheaded API endpoint testing, integrated modular UI states, and collaborated within an agile sprint delivery workflow.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Milestone 3 -->
+                    <div class="chronology-item reveal-up delay-200">
+                        <div class="chronology-date-col">
+                            <span class="chronology-year">2024 — 2026</span>
+                            <span class="chronology-type">CERTIFICATIONS</span>
+                        </div>
+                        <div>
+                            <h3 class="chronology-role">Professional Verifications & Credentials</h3>
+                            <span class="chronology-company">Connect Shiksha & RTSoft Solutions</span>
+                            <p class="chronology-desc">
+                                Verified certifications in Full Stack Web Development (Connect Shiksha, Oct 2024), specialized MERN Stack Architecture Training (RTSoft Solutions, Feb 2026), and C/C++ Systems Programming (SPU).
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             INTERACTIVE VOICES / WHAT THEY SAY (MARCUS VANE STYLE)
+             ========================================================================== -->
+        <section class="section-padding" id="voices" style="background: var(--bg-secondary);">
+            <div class="container">
+                <div class="section-head-split reveal-up">
+                    <div>
+                        <div class="eyebrow-badge">
+                            <span class="eyebrow-dot">•</span>
+                            <span>VOICES & TESTIMONIALS</span>
+                        </div>
+                        <h2 class="cinematic-section-title">WHAT THEY SAY.</h2>
+                    </div>
+                    <span class="section-counter">03 / ENDORSEMENTS</span>
+                </div>
+
+                <!-- Interactive Testimonial Switcher -->
+                <div class="voices-stage reveal-zoom">
+
+                    <!-- Left: Tab Buttons -->
+                    <div class="voices-tabs-list" id="voices-tabs">
+                        <button class="voice-tab-btn active" data-index="0">
+                            <span class="voice-tab-num">01</span>
+                            <span class="voice-tab-name">Prof. R. Sharma</span>
+                            <span class="voice-tab-role">Department of CSE, SPU</span>
+                        </button>
+
+                        <button class="voice-tab-btn" data-index="1">
+                            <span class="voice-tab-num">02</span>
+                            <span class="voice-tab-name">Arun Kumar</span>
+                            <span class="voice-tab-role">Tech Lead, Gokul Tech</span>
+                        </button>
+
+                        <button class="voice-tab-btn" data-index="2">
+                            <span class="voice-tab-num">03</span>
+                            <span class="voice-tab-name">Neha Patel</span>
+                            <span class="voice-tab-role">Full-Stack Partner</span>
+                        </button>
+                    </div>
+
+                    <!-- Middle: Active Quote -->
+                    <div class="voice-quote-area">
+                        <blockquote class="voice-quote-text" id="voice-quote-text">
+                            "Sejal consistently demonstrates exceptional architectural clarity and problem-solving capability. Her 8.90 CGPA is backed by production-level rigor in every system she authors."
+                        </blockquote>
+                        <div class="voice-quote-author" id="voice-quote-author">
+                            Prof. R. Sharma — Senior Faculty, Sardar Patel University
+                        </div>
+                    </div>
+
+                    <!-- Right: Dynamic Avatar -->
+                    <div class="voice-portrait-wrap">
+                        <div class="voice-avatar-frame">
+                            <img src="new.jpeg" alt="Endorsement Avatar" class="voice-avatar-img" id="voice-avatar-img">
+                        </div>
+                        <span class="hazard-stripes">//////</span>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             CINEMATIC CALL TO ACTION & CONTACT (MARCUS VANE STYLE)
+             ========================================================================== -->
+        <section class="section-padding" id="contact">
+            <div class="container">
+                <div class="eyebrow-badge reveal-up">
+                    <span class="eyebrow-dot">•</span>
+                    <span>LET'S BUILD</span>
+                </div>
+
+                <div class="cta-massive-block reveal-up">
+                    <h2 class="cta-massive-title">
+                        HAVE SOMETHING THE WORLD SAYS CAN'T BE DONE?
                     </h2>
-                    <p class="hero-description">
-                        Recent Computer Science Engineering graduate with hands-on experience in full-stack web
-                        development using the MERN stack. Proficient in crafting responsive, scalable, and
-                        cloud-integrated applications that combine technical precision with elegant user interfaces.
+                    <p class="cta-massive-desc">
+                        That's usually where I start. I read every message and partner with ambitious teams to engineer software that moves markets.
                     </p>
 
-                    <div class="hero-ctas">
-                        <a href="#projects" class="btn btn-primary" id="btn-hero-projects">
-                            View My Work <i class="fa-solid fa-arrow-right"></i>
+                    <!-- Giant Interactive Email Link -->
+                    <div>
+                        <a href="mailto:sejalsoni372@gmail.com" class="giant-email-link" id="big-email-cta">
+                            <span>sejalsoni372@gmail.com</span>
+                            <span class="arrow">↗</span>
                         </a>
-                        <a href="#contact" class="btn btn-outline" id="btn-hero-contact">
-                            Contact Me
-                        </a>
-                    </div>
-
-                    <div class="hero-socials">
-                        <a href="https://github.com/Sejalsoni30" target="_blank" rel="noopener" class="social-icon"
-                            id="hero-github-link" aria-label="GitHub Profile">
-                            <i class="fa-brands fa-github"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/sejal-soni-361897303" target="_blank" rel="noopener"
-                            class="social-icon" id="hero-linkedin-link" aria-label="LinkedIn Profile">
-                            <i class="fa-brands fa-linkedin-in"></i>
-                        </a>
-                        <a href="mailto:sejalsoni372@gmail.com" class="social-icon" id="hero-email-link"
-                            aria-label="Email Sejal">
-                            <i class="fa-solid fa-envelope"></i>
-                        </a>
-                    </div>
-
-                    <!-- Floating tech tag strip -->
-                    <div class="hero-tech-strip" aria-label="Tech stack">
-                        <span class="hero-tech-tag"><i class="fa-brands fa-react"></i> React</span>
-                        <span class="hero-tech-tag"><i class="fa-brands fa-node-js"></i> Node.js</span>
-                        <span class="hero-tech-tag"><i class="fa-solid fa-leaf"></i> MongoDB</span>
-                        <span class="hero-tech-tag"><i class="fa-solid fa-server"></i> Express</span>
-                        <span class="hero-tech-tag"><i class="fa-brands fa-js"></i> JavaScript</span>
+                        <br>
+                        <button class="email-copy-pill" id="copy-email-btn">
+                            <i class="fa-solid fa-copy"></i>
+                            <span id="copy-email-text">Click to copy address</span>
+                        </button>
                     </div>
                 </div>
 
-                <!-- Hero Interactive Graphic -->
-                <div class="hero-graphic reveal-right delay-200 floating-anim">
-                    <div class="glass-terminal">
-                        <div class="terminal-header">
-                            <div class="terminal-buttons">
-                                <span class="dot red"></span>
-                                <span class="dot yellow"></span>
-                                <span class="dot green"></span>
-                            </div>
-                            <div class="terminal-title">sejal_soni.js</div>
-                        </div>
-                        <div class="terminal-body">
-                            <pre><code><span class="code-keyword">const</span> developer = {
-  name: <span class="code-string">'Sejal Soni'</span>,
-  role: <span class="code-string">'Full-Stack Web Developer'</span>,
-  education: {
-    degree: <span class="code-string">'B.Tech (CSE)'</span>,
-    university: <span class="code-string">'Sardar Patel Uni.'</span>,
-    cgpa: <span class="code-number">8.90</span>
-  },
-  skills: [
-    <span class="code-string">'MongoDB'</span>, <span class="code-string">'Express.js'</span>,
-    <span class="code-string">'React.js'</span>, <span class="code-string">'Node.js'</span>,
-    <span class="code-string">'TailwindCSS'</span>, <span class="code-string">'MySQL'</span>,
-    <span class="code-string">'Git'</span>, <span class="code-string">'Power BI'</span>
-  ],
-  passionateAbout: [
-    <span class="code-string">'Scalable APIs'</span>,
-    <span class="code-string">'Stunning UI/UX'</span>,
-    <span class="code-string">'Cloud Systems'</span>
-  ],
-  isAlwaysLearning: <span class="code-boolean">true</span>
-};
-
-<span class="code-comment">// Let's build something exceptional!</span>
-developer.collaborate();</code></pre>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <a href="#about" class="scroll-down-arrow" aria-label="Scroll to About Me section">
-                <i class="fa-solid fa-chevron-down"></i>
-            </a>
-        </section>
-
-        <!-- About Me Section -->
-        <section class="about-section section-padding" id="about">
-            <div class="container">
-                <div class="section-title-wrapper text-center reveal-zoom">
-                    <span class="section-subtitle">Get To Know Me</span>
-                    <h2 class="section-title">About Me</h2>
-                    <div class="section-title-line"></div>
-                </div>
-
-                <div class="about-grid grid-two-cols">
-                    <!-- About Text -->
-                    <div class="about-text-content reveal-left">
-                        <h3 class="about-heading">I am a passionate software engineer specializing in building modern
-                            web applications.</h3>
-                        <p class="about-paragraph">
-                            I am a recent Computer Science Engineering graduate (2026) with a deep interest in
-                            full-stack engineering and cloud-integrated architectures. My path in web development is
-                            driven by a passion for solving complex backend problems and translating them into seamless,
-                            responsive frontend user interfaces.
-                        </p>
-                        <p class="about-paragraph">
-                            With expertise in the MERN stack, I have designed and built production-grade storage tools,
-                            AI integrations, and responsive components. I am eager to apply my learning, collaborate in
-                            agile teams, and build performance-driven software solutions.
-                        </p>
-
-                        <!-- Highlights Quick Stats -->
-                        <div class="stats-grid">
-                            <div class="stat-card glass-panel">
-                                <span class="stat-number">8.90</span>
-                                <span class="stat-label">B.Tech CGPA</span>
-                            </div>
-                            <div class="stat-card glass-panel">
-                                <span class="stat-number">6+</span>
-                                <span class="stat-label">Core Projects</span>
-                            </div>
-                            <div class="stat-card glass-panel">
-                                <span class="stat-number">1</span>
-                                <span class="stat-label">Internship</span>
-                            </div>
-                            <div class="stat-card glass-panel">
-                                <span class="stat-number">3+</span>
-                                <span class="stat-label">Certificates</span>
-                            </div>
-                        </div>
-
-                        <div class="about-personal-info">
-                            <div class="info-item">
-                                <span class="info-label"><i class="fa-solid fa-location-dot"></i> Location:</span>
-                                <span class="info-value">Balaghat, MP, India</span>
-                            </div>
-                            <div class="info-item">
-                                <span class="info-label"><i class="fa-solid fa-envelope"></i> Email:</span>
-                                <span class="info-value"><a
-                                        href="mailto:sejalsoni372@gmail.com">sejalsoni372@gmail.com</a></span>
-                            </div>
-                        </div>
-
-                        <a href="about.html" class="btn btn-outline" style="margin-top: 25px;">
-                            Know More About Me <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                    </div>
-
-                    <!-- About Image / Creative Profile Mockup -->
-                    <div class="about-visual reveal-right delay-200 floating-anim-slow">
-                        <div class="profile-card-creative glass-panel">
-                            <div class="profile-avatar-placeholder" style="overflow: hidden; padding: 0;">
-                                <img src="/new.jpeg" alt="Sejal Soni" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
-                            </div>
-                            <div class="profile-details-list">
-                                <div class="detail-row">
-                                    <span class="detail-name">Name:</span>
-                                    <span class="detail-val">Sejal Soni</span>
-                                </div>
-                                <div class="detail-row">
-                                    <span class="detail-name">Focus:</span>
-                                    <span class="detail-val">Full-Stack Development</span>
-                                </div>
-                                <div class="detail-row">
-                                    <span class="detail-name">Interests:</span>
-                                    <span class="detail-val">Cloud Systems, Data Analytics</span>
-                                </div>
-                                <div class="detail-row">
-                                    <span class="detail-name">Status:</span>
-                                    <span class="detail-val text-green"><i class="fa-solid fa-circle-check"></i> Ready
-                                        to Hire</span>
-                                </div>
-                            </div>
-                            <div class="profile-creative-footer">
-                                <a href="/SEJALSONI_RESUME_NEW.pdf" download="Sejal_Soni_Resume.pdf"
-                                    class="btn btn-outline btn-sm" id="btn-about-resume">
-                                    <i class="fa-solid fa-arrow-down-to-bracket"></i> Download Resume PDF
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section class="skills-section section-padding" id="skills">
-            <div class="container">
-                <div class="section-title-wrapper text-center reveal-zoom">
-                    <span class="section-subtitle">What I Excel In</span>
-                    <h2 class="section-title">Technical Skills</h2>
-                    <div class="section-title-line"></div>
-                </div>
-
-                <div class="skills-wrapper grid-two-cols">
-
-                    <!-- Left: Frontend & Backend -->
-                    <div class="skills-column reveal-zoom">
-                        <!-- Frontend Category -->
-                        <div class="skills-category-box glass-panel">
-                            <h3 class="category-title"><i class="fa-solid fa-code"></i> Frontend Web Development</h3>
-
-                            <!-- Skill 1 -->
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name"><i class="fa-brands fa-react color-react"></i>
-                                        React.js</span>
-                                    <span class="skill-percent">85%</span>
-                                </div>
-                                <div class="skill-bar-bg">
-                                    <div class="skill-bar-fill fill-react" data-width="85%"></div>
-                                </div>
-                            </div>
-
-                            <!-- Skill 2 -->
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name"><i class="fa-brands fa-js-square color-js"></i> JavaScript
-                                        (ES6+)</span>
-                                    <span class="skill-percent">80%</span>
-                                </div>
-                                <div class="skill-bar-bg">
-                                    <div class="skill-bar-fill fill-js" data-width="80%"></div>
-                                </div>
-                            </div>
-
-                            <!-- Skill 3 -->
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name"><i class="fa-brands fa-html5 color-html"></i> HTML5 /
-                                        CSS3</span>
-                                    <span class="skill-percent">90%</span>
-                                </div>
-                                <div class="skill-bar-bg">
-                                    <div class="skill-bar-fill fill-html" data-width="90%"></div>
-                                </div>
-                            </div>
-
-                            <!-- Skill 4 -->
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name"><i class="fa-brands fa-css3-alt color-tailwind"></i>
-                                        Tailwind CSS</span>
-                                    <span class="skill-percent">85%</span>
-                                </div>
-                                <div class="skill-bar-bg">
-                                    <div class="skill-bar-fill fill-tailwind" data-width="85%"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Backend Category -->
-                        <div class="skills-category-box glass-panel">
-                            <h3 class="category-title"><i class="fa-solid fa-gears"></i> Backend Systems</h3>
-
-                            <!-- Skill 1 -->
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name"><i class="fa-brands fa-node-js color-node"></i>
-                                        Node.js</span>
-                                    <span class="skill-percent">80%</span>
-                                </div>
-                                <div class="skill-bar-bg">
-                                    <div class="skill-bar-fill fill-node" data-width="80%"></div>
-                                </div>
-                            </div>
-
-                            <!-- Skill 2 -->
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name"><i class="fa-solid fa-server color-express"></i>
-                                        Express.js</span>
-                                    <span class="skill-percent">80%</span>
-                                </div>
-                                <div class="skill-bar-bg">
-                                    <div class="skill-bar-fill fill-express" data-width="80%"></div>
-                                </div>
-                            </div>
-
-                            <!-- Skill 3 -->
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name"><i class="fa-brands fa-php color-php"></i> PHP</span>
-                                    <span class="skill-percent">70%</span>
-                                </div>
-                                <div class="skill-bar-bg">
-                                    <div class="skill-bar-fill fill-php" data-width="70%"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Right: Databases, Tools & Others -->
-                    <div class="skills-column reveal-zoom delay-200">
-                        <!-- Databases & Storage -->
-                        <div class="skills-category-box glass-panel">
-                            <h3 class="category-title"><i class="fa-solid fa-database"></i> Databases & Cloud Storage
-                            </h3>
-
-                            <!-- Skill 1 -->
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name"><i class="fa-solid fa-leaf color-mongo"></i> MongoDB /
-                                        MongoDB Atlas</span>
-                                    <span class="skill-percent">80%</span>
-                                </div>
-                                <div class="skill-bar-bg">
-                                    <div class="skill-bar-fill fill-mongo" data-width="80%"></div>
-                                </div>
-                            </div>
-
-                            <!-- Skill 2 -->
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name"><i class="fa-solid fa-table-cells color-mysql"></i>
-                                        MySQL</span>
-                                    <span class="skill-percent">75%</span>
-                                </div>
-                                <div class="skill-bar-bg">
-                                    <div class="skill-bar-fill fill-mysql" data-width="75%"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Data Analytics & Tools -->
-                        <div class="skills-category-box glass-panel">
-                            <h3 class="category-title"><i class="fa-solid fa-chart-line"></i> Analytics & Developer
-                                Tools</h3>
-
-                            <!-- Skill 1 -->
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name"><i class="fa-brands fa-git-alt color-git"></i> Git &
-                                        GitHub</span>
-                                    <span class="skill-percent">85%</span>
-                                </div>
-                                <div class="skill-bar-bg">
-                                    <div class="skill-bar-fill fill-git" data-width="85%"></div>
-                                </div>
-                            </div>
-
-                            <!-- Skill 2 -->
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name"><i class="fa-solid fa-chart-pie color-powerbi"></i> Power
-                                        BI / Dashboarding</span>
-                                    <span class="skill-percent">70%</span>
-                                </div>
-                                <div class="skill-bar-bg">
-                                    <div class="skill-bar-fill fill-powerbi" data-width="70%"></div>
-                                </div>
-                            </div>
-
-                            <!-- Skill 3 -->
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name"><i class="fa-solid fa-laptop-code color-vscode"></i> VS
-                                        Code / Postman</span>
-                                    <span class="skill-percent">85%</span>
-                                </div>
-                                <div class="skill-bar-bg">
-                                    <div class="skill-bar-fill fill-vscode" data-width="85%"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Other Skills -->
-                        <div class="skills-category-box glass-panel">
-                            <h3 class="category-title"><i class="fa-solid fa-circle-nodes"></i> Other Methodologies</h3>
-                            <div class="chips-container">
-                                <span class="skill-chip">MERN Stack</span>
-                                <span class="skill-chip">OOPs Concepts</span>
-                                <span class="skill-chip">Java</span>
-                                <span class="skill-chip">C / C++</span>
-                                <span class="skill-chip">Prompt Engineering</span>
-                                <span class="skill-chip">REST APIs</span>
-                                <span class="skill-chip">Responsive Web Design</span>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- Journey Section (Timeline of Experience & Education) -->
-        <section class="timeline-section section-padding" id="timeline">
-            <div class="container">
-                <div class="section-title-wrapper text-center reveal-zoom">
-                    <span class="section-subtitle">Academic & Professional Background</span>
-                    <h2 class="section-title">My Journey</h2>
-                    <div class="section-title-line"></div>
-                </div>
-
-                <div class="timeline-container">
-
-                    <!-- Timeline Item 1 -->
-                    <div class="timeline-item reveal-zoom">
-                        <div class="timeline-dot"><i class="fa-solid fa-user-graduate"></i></div>
-                        <div class="timeline-date">2022 - 2026</div>
-                        <div class="timeline-content glass-panel">
-                            <div class="timeline-header-content">
-                                <h3 class="timeline-role">B.Tech - Computer Science Engineering</h3>
-                                <span class="timeline-company">Sardar Patel University, Balaghat</span>
-                            </div>
-                            <p class="timeline-desc">
-                                Actively focused on computer engineering principles, data structures, algorithms,
-                                object-oriented programming, and web technology frameworks.
-                            </p>
-                            <div class="timeline-highlights">
-                                <span class="badge badge-accent">CGPA: 8.90 / 10 (8th Semester)</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Timeline Item 2 -->
-                    <div class="timeline-item reveal-zoom">
-                        <div class="timeline-dot"><i class="fa-solid fa-briefcase"></i></div>
-                        <div class="timeline-date">June 2025</div>
-                        <div class="timeline-content glass-panel">
-                            <div class="timeline-header-content">
-                                <h3 class="timeline-role">Web Development Intern</h3>
-                                <span class="timeline-company">Gokul Tech Solutions</span>
-                            </div>
-                            <p class="timeline-desc">
-                                Gained industrial exposure working in a professional team environment focusing on
-                                full-stack web applications.
-                            </p>
-                            <ul class="timeline-bullets">
-                                <li>Worked on Node.js, React.js, and MySQL-based web projects.</li>
-                                <li>Contributed to designing, building, and testing RESTful APIs.</li>
-                                <li>Collaborated on creating responsive front-end components for client applications.
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Timeline Item 3 -->
-                    <div class="timeline-item reveal-zoom">
-                        <div class="timeline-dot"><i class="fa-solid fa-school"></i></div>
-                        <div class="timeline-date">Completed in 2022</div>
-                        <div class="timeline-content glass-panel">
-                            <div class="timeline-header-content">
-                                <h3 class="timeline-role">Class XII (PCM)</h3>
-                                <span class="timeline-company">Govt. V.R.D English Medium School, Balaghat</span>
-                            </div>
-                            <p class="timeline-desc">
-                                Completed senior secondary school with a concentration in Physics, Chemistry, and
-                                Mathematics (PCM).
-                            </p>
-                            <div class="timeline-highlights">
-                                <span class="badge badge-accent">Aggregate: 79%</span>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section class="projects-section section-padding" id="projects">
-            <div class="container">
-                <div class="section-title-wrapper text-center reveal-zoom">
-                    <span class="section-subtitle">My Creative Space</span>
-                    <h2 class="section-title">Featured Projects</h2>
-                    <div class="section-title-line"></div>
-                </div>
-
-                <!-- Filters -->
-                <div class="projects-filter reveal-zoom">
-                    <button class="filter-btn active" data-filter="all" id="btn-filter-all">All Projects</button>
-                    <button class="filter-btn" data-filter="fullstack" id="btn-filter-fs">Full Stack</button>
-                    <button class="filter-btn" data-filter="ai" id="btn-filter-ai">AI Powered</button>
-                    <button class="filter-btn" data-filter="frontend" id="btn-filter-fe">Frontend & JS</button>
-                </div>
-
-                <!-- Projects Grid -->
-                <div class="projects-grid">
-
-                    <!-- Project 1: Smart AI Backup -->
-                    <div class="project-card glass-panel reveal-zoom" data-category="fullstack">
-                        <div class="project-image-box">
-                            <img src="/AIbackup.png" alt="VaultIQ AI" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-                            <span class="project-category-badge">Full Stack</span>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Smart AI Backup & Storage System</h3>
-                            <p class="project-desc">
-                                An AI-powered backup platform that features secure user authentication, automatic
-                                duplicate detection, and file deduplication to reduce storage needs.
-                            </p>
-                            <div class="project-tech-tags">
-                                <span class="tech-tag">MongoDB Atlas</span>
-                                <span class="tech-tag">Express.js</span>
-                                <span class="tech-tag">Node.js</span>
-                                <span class="tech-tag">JWT</span>
-                            </div>
-                            <ul class="project-highlights">
-                                <li>Supports 10GB+ storage capacity.</li>
-                                <li>Authentication handled via JWT security protocols.</li>
-                                <li>Deduplication reduced duplicate storage by ~35%.</li>
-                            </ul>
-                            <div class="project-links">
-                                <a href="https://github.com/Sejalsoni30" target="_blank" rel="noopener"
-                                    class="btn btn-sm btn-outline" id="btn-proj-ai-git">
-                                    <i class="fa-brands fa-github"></i> Code
-                                </a>
-                                <a href="#" class="btn btn-sm btn-primary demo-click-btn" id="btn-proj-ai-demo">
-                                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Demo
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 2: VideoAI -->
-                    <div class="project-card glass-panel reveal-zoom delay-100" data-category="fullstack">
-                        <div class="project-image-box">
-                            <img src="/videoedit.png" alt="VisionAI" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-                            <span class="project-category-badge">Full Stack</span>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">VideoAI - Cloud Video Editor</h3>
-                            <p class="project-desc">
-                                A web-based video editor featuring frame-accurate playback, dynamic filter rendering,
-                                and custom timelines with high-fidelity output encoding.
-                            </p>
-                            <div class="project-tech-tags">
-                                <span class="tech-tag">React.js</span>
-                                <span class="tech-tag">Node.js</span>
-                                <span class="tech-tag">Google Drive API</span>
-                                <span class="tech-tag">CSS Grid</span>
-                            </div>
-                            <ul class="project-highlights">
-                                <li>Google Drive integration for file exports.</li>
-                                <li>Responsive React.js layout with real-time preview filters.</li>
-                                <li>Dynamic timeline rendering and control bars.</li>
-                            </ul>
-                            <div class="project-links">
-                                <a href="https://github.com/Sejalsoni30" target="_blank" rel="noopener"
-                                    class="btn btn-sm btn-outline" id="btn-proj-video-git">
-                                    <i class="fa-brands fa-github"></i> Code
-                                </a>
-                                <a href="#" class="btn btn-sm btn-primary demo-click-btn" id="btn-proj-video-demo">
-                                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Demo
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 3: Quiz-War -->
-                    <div class="project-card glass-panel reveal-zoom delay-200" data-category="frontend">
-                        <div class="project-image-box">
-                            <img src="/quizwar.png" alt="QuizWar" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-                            <span class="project-category-badge">Frontend</span>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Quiz-War - Quiz Web Application</h3>
-                            <p class="project-desc">
-                                An interactive quiz platform that tests users' skills under time constraints, rendering
-                                dynamic questions, calculating scoring metrics, and preserving stats.
-                            </p>
-                            <div class="project-tech-tags">
-                                <span class="tech-tag">HTML5</span>
-                                <span class="tech-tag">CSS Flexbox</span>
-                                <span class="tech-tag">JavaScript</span>
-                            </div>
-                            <ul class="project-highlights">
-                                <li>Countdown timer integration for gameplay pressure.</li>
-                                <li>Live score tracking and final summary panel.</li>
-                                <li>Responsive UI layout optimized for screens of all sizes.</li>
-                            </ul>
-                            <div class="project-links">
-                                <a href="https://github.com/Sejalsoni30" target="_blank" rel="noopener"
-                                    class="btn btn-sm btn-outline" id="btn-proj-quiz-git">
-                                    <i class="fa-brands fa-github"></i> Code
-                                </a>
-                                <a href="#" class="btn btn-sm btn-primary demo-click-btn" id="btn-proj-quiz-demo">
-                                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Demo
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 4: Portfolio Website -->
-                    <div class="project-card glass-panel reveal-zoom" data-category="frontend">
-                        <div class="project-image-box">
-                            <img src="/portfoliofront.png" alt="Portfolio Website" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-                            <span class="project-category-badge">Frontend</span>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Personal Portfolio Website</h3>
-                            <p class="project-desc">
-                                A high-end, responsive developer portfolio showcasing projects and skills. Optimized for
-                                accessibility, performance, and search engines.
-                            </p>
-                            <div class="project-tech-tags">
-                                <span class="tech-tag">HTML5</span>
-                                <span class="tech-tag">Vanilla CSS</span>
-                                <span class="tech-tag">JavaScript</span>
-                            </div>
-                            <ul class="project-highlights">
-                                <li>Implemented responsive design using CSS Flexbox and Grid.</li>
-                                <li>Theme mode memory toggle (Light/Dark).</li>
-                                <li>Custom interactive scroll triggers and custom cursor.</li>
-                            </ul>
-                            <div class="project-links">
-                                <a href="https://github.com/Sejalsoni30" target="_blank" rel="noopener"
-                                    class="btn btn-sm btn-outline" id="btn-proj-port-git">
-                                    <i class="fa-brands fa-github"></i> Code
-                                </a>
-                                <a href="#" class="btn btn-sm btn-primary demo-click-btn" id="btn-proj-port-demo">
-                                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Demo
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 5: ShopSmart AI -->
-                    <div class="project-card glass-panel reveal-zoom delay-100" data-category="ai">
-                        <div class="project-image-box">
-                            <img src="/shopagent.png" alt="ShopSmart AI" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-                            <span class="project-category-badge" style="background:linear-gradient(135deg,#6366f1,#a855f7);">AI Powered</span>
-                            <span class="project-new-badge">New</span>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">ShopSmart AI</h3>
-                            <p class="project-desc">
-                                An intelligent AI-powered shopping assistant that helps users discover, compare, and make smarter purchase decisions using personalized recommendations and natural language search.
-                            </p>
-                            <div class="project-tech-tags">
-                                <span class="tech-tag">React.js</span>
-                                <span class="tech-tag">AI/LLM</span>
-                                <span class="tech-tag">Node.js</span>
-                                <span class="tech-tag">Vercel</span>
-                            </div>
-                            <ul class="project-highlights">
-                                <li>AI-driven product recommendations tailored to user preferences.</li>
-                                <li>Natural language search for intuitive product discovery.</li>
-                                <li>Fully deployed and live on Vercel with seamless UX.</li>
-                            </ul>
-                            <div class="project-links">
-                                <a href="https://github.com/Sejalsoni30/ShopSmart-Ai" target="_blank" rel="noopener"
-                                    class="btn btn-sm btn-outline" id="btn-proj-shopsmart-git">
-                                    <i class="fa-brands fa-github"></i> Code
-                                </a>
-                                <a href="https://shop-smart-ai-murex.vercel.app/" target="_blank" rel="noopener"
-                                    class="btn btn-sm btn-primary" id="btn-proj-shopsmart-demo">
-                                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 6: Virtual Educator -->
-                    <div class="project-card glass-panel reveal-zoom delay-200" data-category="ai">
-                        <div class="project-image-box">
-                            <img src="/AIteacher.png" alt="Virtual Educator" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-                            <span class="project-category-badge" style="background:linear-gradient(135deg,#0ea5e9,#6366f1);">AI Powered</span>
-                            <span class="project-new-badge">New</span>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Virtual Educator</h3>
-                            <p class="project-desc">
-                                An AI-powered virtual teaching platform that generates personalized lessons, quizzes, and explanations on any topic — making learning interactive, adaptive, and accessible for all.
-                            </p>
-                            <div class="project-tech-tags">
-                                <span class="tech-tag">React.js</span>
-                                <span class="tech-tag">AI/LLM</span>
-                                <span class="tech-tag">Gemini API</span>
-                                <span class="tech-tag">Vercel</span>
-                            </div>
-                            <ul class="project-highlights">
-                                <li>Generates topic-specific lessons & quizzes on demand.</li>
-                                <li>Adaptive learning paths using AI for personalized experience.</li>
-                                <li>Fully deployed live with clean, student-friendly interface.</li>
-                            </ul>
-                            <div class="project-links">
-                                <a href="https://github.com/Sejalsoni30/Virtual-educator" target="_blank" rel="noopener"
-                                    class="btn btn-sm btn-outline" id="btn-proj-educator-git">
-                                    <i class="fa-brands fa-github"></i> Code
-                                </a>
-                                <a href="https://ai-teacher-five-zeta.vercel.app/" target="_blank" rel="noopener"
-                                    class="btn btn-sm btn-primary" id="btn-proj-educator-demo">
-                                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- Certifications & Achievements Section -->
-        <section class="certifications-section section-padding" id="certifications">
-            <div class="container">
-                <div class="section-title-wrapper text-center reveal-zoom">
-                    <span class="section-subtitle">Milestones & Verifications</span>
-                    <h2 class="section-title">Certifications & Achievements</h2>
-                    <div class="section-title-line"></div>
-                </div>
-
-                <div class="certs-achievements-grid grid-two-cols">
-
-                    <!-- Certifications Column -->
-                    <div class="certs-column reveal-zoom">
-                        <h3 class="subsection-title"><i class="fa-solid fa-award"></i> Professional Certifications</h3>
-                        <div class="certs-list">
-
-                            <!-- Cert 1 -->
-                            <div class="cert-item glass-panel">
-                                <div class="cert-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-                                <div class="cert-info">
-                                    <h4 class="cert-title">Full Stack Web Development Certificate</h4>
-                                    <span class="cert-issuer">Connect Shiksha</span>
-                                    <span class="cert-date"><i class="fa-solid fa-calendar-days"></i> Oct 2024</span>
-                                </div>
-                            </div>
-
-                            <!-- Cert 2 -->
-                            <div class="cert-item glass-panel">
-                                <div class="cert-icon"><i class="fa-solid fa-code"></i></div>
-                                <div class="cert-info">
-                                    <h4 class="cert-title">MERN Stack Training Certificate</h4>
-                                    <span class="cert-issuer">RTSoft Solutions, Gondia</span>
-                                    <span class="cert-date"><i class="fa-solid fa-calendar-days"></i> Feb 2026</span>
-                                </div>
-                            </div>
-
-                            <!-- Cert 3 -->
-                            <div class="cert-item glass-panel">
-                                <div class="cert-icon"><i class="fa-solid fa-gears"></i></div>
-                                <div class="cert-info">
-                                    <h4 class="cert-title">C / C++ Training (1 Month)</h4>
-                                    <span class="cert-issuer">SPU Balaghat</span>
-                                    <span class="cert-date"><i class="fa-solid fa-calendar-days"></i> 2024</span>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <!-- Achievements Column -->
-                    <div class="achievements-column reveal-zoom delay-200">
-                        <h3 class="subsection-title"><i class="fa-solid fa-trophy"></i> Key Achievements</h3>
-                        <div class="achievements-list">
-
-                            <!-- Achievement 1 -->
-                            <div class="achievement-item glass-panel">
-                                <div class="ach-icon"><i class="fa-solid fa-star"></i></div>
-                                <div class="ach-info">
-                                    <h4 class="ach-title">Academic Excellence</h4>
-                                    <p class="ach-desc">Maintained a stellar cumulative grade point average of 8.90/10
-                                        during B.Tech in Computer Science Engineering (Sardar Patel University).</p>
-                                </div>
-                            </div>
-
-                            <!-- Achievement 2 -->
-                            <div class="achievement-item glass-panel">
-                                <div class="ach-icon"><i class="fa-solid fa-bolt"></i></div>
-                                <div class="ach-info">
-                                    <h4 class="ach-title">Storage Optimization</h4>
-                                    <p class="ach-desc">Successfully designed and coded a backend deduplication logic in
-                                        Express.js that reduced duplicate storage consumption by 35% on the AI storage
-                                        system.</p>
-                                </div>
-                            </div>
-
-                            <!-- Achievement 3 -->
-                            <div class="achievement-item glass-panel">
-                                <div class="ach-icon"><i class="fa-solid fa-circle-nodes"></i></div>
-                                <div class="ach-info">
-                                    <h4 class="ach-title">API Integration Expertise</h4>
-                                    <p class="ach-desc">Engineered full-stack integrations using complex third-party
-                                        platforms such as Google Drive API for frame-level video editors.</p>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section class="contact-section section-padding" id="contact">
-            <!-- Decorative Background Elements -->
-            <div class="contact-bg-glow contact-glow-1"></div>
-            <div class="contact-bg-glow contact-glow-2"></div>
-
-            <div class="container">
-                <div class="section-title-wrapper text-center reveal-zoom">
-                    <span class="section-subtitle">Let's Connect</span>
-                    <h2 class="section-title">Get In Touch</h2>
-                    <div class="section-title-line"></div>
-                    <p class="section-desc reveal-zoom">Have a project in mind, a question, or just want to say hello? I'd love to hear from you.</p>
-                </div>
-
-                <div class="contact-layout">
-
-                    <!-- Left: Rich Info Panel -->
-                    <div class="contact-info-panel reveal-left">
-
-                        <!-- Availability Card -->
-                        <div class="availability-card glass-panel">
-                            <div class="avail-indicator">
-                                <span class="pulse-dot"></span>
-                                <span class="avail-label">Available for Opportunities</span>
-                            </div>
-                            <h3 class="contact-panel-title">Let's build something <span class="gradient-text">exceptional</span> together!</h3>
-                            <p class="contact-panel-desc">
-                                I'm open to full-stack roles, freelance projects, internships, and open-source collaborations. Let's create something that makes an impact.
-                            </p>
-                        </div>
-
-                        <!-- Contact Info Cards -->
-                        <div class="contact-info-cards">
-                            <a href="mailto:sejalsoni372@gmail.com" class="contact-card-item glass-panel" id="contact-email-send">
-                                <div class="contact-card-icon" style="background: linear-gradient(135deg,#6366f1,#a855f7);">
-                                    <i class="fa-solid fa-envelope"></i>
-                                </div>
-                                <div class="contact-card-text">
-                                    <span class="contact-card-label">Email Me</span>
-                                    <span class="contact-card-value">sejalsoni372@gmail.com</span>
-                                </div>
-                                <i class="fa-solid fa-arrow-right contact-card-arrow"></i>
-                            </a>
-
-                            <a href="tel:+91930231XXXX" class="contact-card-item glass-panel" id="contact-phone-call">
-                                <div class="contact-card-icon" style="background: linear-gradient(135deg,#0ea5e9,#6366f1);">
-                                    <i class="fa-solid fa-phone"></i>
-                                </div>
-                                <div class="contact-card-text">
-                                    <span class="contact-card-label">Call Me</span>
-                                    <span class="contact-card-value">+91 930231XXXX</span>
-                                </div>
-                                <i class="fa-solid fa-arrow-right contact-card-arrow"></i>
-                            </a>
-
-                            <div class="contact-card-item glass-panel">
-                                <div class="contact-card-icon" style="background: linear-gradient(135deg,#10b981,#0ea5e9);">
-                                    <i class="fa-solid fa-location-dot"></i>
-                                </div>
-                                <div class="contact-card-text">
-                                    <span class="contact-card-label">Location</span>
-                                    <span class="contact-card-value">Balaghat, Madhya Pradesh, India</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Social Links -->
-                        <div class="contact-social-row">
-                            <span class="social-row-label">Find me on</span>
-                            <div class="contact-socials">
-                                <a href="https://github.com/Sejalsoni30" target="_blank" rel="noopener"
-                                    class="contact-social-pill" id="contact-github-btn" aria-label="GitHub Profile">
-                                    <i class="fa-brands fa-github"></i> GitHub
-                                </a>
-                                <a href="https://www.linkedin.com/in/sejal-soni-361897303" target="_blank" rel="noopener"
-                                    class="contact-social-pill" id="contact-linkedin-btn" aria-label="LinkedIn Profile">
-                                    <i class="fa-brands fa-linkedin-in"></i> LinkedIn
-                                </a>
-                                <a href="mailto:sejalsoni372@gmail.com"
-                                    class="contact-social-pill" aria-label="Email">
-                                    <i class="fa-solid fa-envelope"></i> Email
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Right: Premium Contact Form -->
-                    <div class="contact-form-panel glass-panel reveal-right delay-200">
-                        <div class="form-panel-header">
-                            <div class="form-panel-icon">
-                                <i class="fa-solid fa-paper-plane"></i>
+                <!-- Contact Layout Grid: Info Cards + Form -->
+                <div class="contact-layout-grid">
+
+                    <!-- Left: Meta Details -->
+                    <div class="contact-meta-cards reveal-left">
+                        <div class="contact-meta-item">
+                            <div class="contact-meta-icon">
+                                <i class="fa-solid fa-location-dot"></i>
                             </div>
                             <div>
-                                <h3 class="form-panel-title">Send a Message</h3>
-                                <p class="form-panel-subtitle">I usually reply within 24 hours ✨</p>
+                                <span class="contact-meta-label">Location</span>
+                                <div class="contact-meta-val">Balaghat, Madhya Pradesh, India</div>
                             </div>
                         </div>
 
+                        <div class="contact-meta-item">
+                            <div class="contact-meta-icon">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <span class="contact-meta-label">Direct Communication</span>
+                                <div class="contact-meta-val"><a href="tel:+91930231XXXX">+91 930231XXXX</a></div>
+                            </div>
+                        </div>
+
+                        <div class="contact-meta-item">
+                            <div class="contact-meta-icon">
+                                <i class="fa-brands fa-github"></i>
+                            </div>
+                            <div>
+                                <span class="contact-meta-label">Code Repositories</span>
+                                <div class="contact-meta-val">
+                                    <a href="https://github.com/Sejalsoni30" target="_blank" rel="noopener">github.com/Sejalsoni30 ↗</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contact-meta-item">
+                            <div class="contact-meta-icon">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </div>
+                            <div>
+                                <span class="contact-meta-label">Professional Network</span>
+                                <div class="contact-meta-val">
+                                    <a href="https://www.linkedin.com/in/sejal-soni-361897303" target="_blank" rel="noopener">linkedin.com/in/sejal-soni ↗</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Supabase Connected Contact Form -->
+                    <div class="contact-form-panel reveal-right delay-100">
                         <form id="contact-form" class="contact-form">
-                            <div class="form-group-row">
-                                <div class="form-group">
-                                    <label for="contact-name" class="form-label-top">Your Name</label>
-                                    <div class="input-wrapper">
-                                        <i class="fa-solid fa-user input-icon"></i>
-                                        <input type="text" id="contact-name" name="name" class="form-control-new" required
-                                            placeholder="Sejal Soni">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="contact-email" class="form-label-top">Your Email</label>
-                                    <div class="input-wrapper">
-                                        <i class="fa-solid fa-envelope input-icon"></i>
-                                        <input type="email" id="contact-email" name="email" class="form-control-new" required
-                                            placeholder="hello@example.com">
-                                    </div>
-                                </div>
-                            </div>
                             <div class="form-group">
-                                <label for="contact-subject" class="form-label-top">Subject</label>
-                                <div class="input-wrapper">
-                                    <i class="fa-solid fa-tag input-icon"></i>
-                                    <input type="text" id="contact-subject" name="subject" class="form-control-new" required
-                                        placeholder="Project Collaboration / Job Opportunity">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="contact-message" class="form-label-top">Your Message</label>
-                                <textarea id="contact-message" name="message" class="form-control-new textarea-new" rows="5" required
-                                    placeholder="Hey Sejal, I'd love to work with you on..."></textarea>
+                                <label for="contact-name" class="form-label-top">Your Name</label>
+                                <input type="text" id="contact-name" name="name" class="form-control-new" required
+                                    placeholder="Enter your name">
                             </div>
 
-                            <button type="submit" class="btn btn-primary btn-block contact-submit" id="contact-submit-btn">
+                            <div class="form-group">
+                                <label for="contact-email" class="form-label-top">Your Email</label>
+                                <input type="email" id="contact-email" name="email" class="form-control-new" required
+                                    placeholder="your.email@company.com">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contact-subject" class="form-label-top">Subject / Opportunity</label>
+                                <input type="text" id="contact-subject" name="subject" class="form-control-new" required
+                                    placeholder="Software Engineering Role / Partnership">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contact-message" class="form-label-top">Message</label>
+                                <textarea id="contact-message" name="message" class="form-control-new textarea-new" rows="5" required
+                                    placeholder="Describe your vision or project..."></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block" id="contact-submit-btn">
                                 <span>Send Message</span> <i class="fa-solid fa-paper-plane"></i>
                             </button>
 
-                            <!-- Form Status Message -->
                             <div id="form-status" class="form-status-msg"></div>
                         </form>
                     </div>
@@ -1058,58 +880,56 @@ developer.collaborate();</code></pre>
 
     </main>
 
-    <!-- Footer -->
+    <!-- ==========================================================================
+         CINEMATIC FOOTER
+         ========================================================================== -->
     <footer class="footer">
-        <div class="container footer-content text-center">
-            <a href="#hero" class="footer-logo">
-                <span class="gradient-text">&lt;Sejal Soni /&gt;</span>
-            </a>
-            <p class="footer-tagline">Building clean, premium, and performant web products.</p>
-            <div class="footer-socials">
-                <a href="https://github.com/Sejalsoni30" target="_blank" rel="noopener" class="footer-social-icon"
-                    aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/sejal-soni-361897303" target="_blank" rel="noopener"
-                    class="footer-social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                <a href="mailto:sejalsoni372@gmail.com" class="footer-social-icon" aria-label="Email"><i
-                        class="fa-solid fa-envelope"></i></a>
+        <div class="container footer-inner">
+            <div class="footer-left">
+                <span class="footer-brand">SEJAL SONI</span>
+                <span class="footer-conviction">DESIGNED &amp; BUILT WITH CONVICTION.</span>
             </div>
-            <p class="footer-copy">&copy; 2026 Sejal Soni. All rights reserved. Designed with passion.</p>
+
+            <ul class="footer-links">
+                <li><a href="https://github.com/Sejalsoni30" target="_blank" rel="noopener">GitHub</a></li>
+                <li><a href="https://www.linkedin.com/in/sejal-soni-361897303" target="_blank" rel="noopener">LinkedIn</a></li>
+                <li><a href="SEJALSONI_RESUME_NEW.pdf" download="Sejal_Soni_Resume.pdf">Resume PDF</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="mailto:sejalsoni372@gmail.com">Direct Email</a></li>
+            </ul>
+
+            <span class="footer-copy">&copy; 2026 SEJAL SONI. ALL RIGHTS RESERVED.</span>
         </div>
     </footer>
 
     <!-- Back to Top Button -->
-    <button class="back-to-top" id="back-to-top-btn" aria-label="Scroll back to top">
+    <button class="back-to-top" id="back-to-top-btn" aria-label="Back to top">
         <i class="fa-solid fa-arrow-up"></i>
     </button>
 
-    <!-- Project Demo Modal (Placeholder for interactive showcase) -->
-    <div id="demo-modal" class="modal-overlay">
-        <div class="modal-box glass-panel">
+    <!-- Project Demo Modal (Interactive Simulation Sandbox) -->
+    <div id="demo-modal" class="modal-overlay" aria-hidden="true">
+        <div class="modal-box">
             <button class="modal-close" id="modal-close-btn" aria-label="Close modal">&times;</button>
-            <h3 id="modal-project-title" class="modal-title">Project Demo</h3>
-            <div class="modal-body">
-                <p id="modal-project-desc" class="modal-desc"></p>
-                <div class="modal-status-badge">
-                    <span class="pulse-dot"></span> Simulation Ready
+            <h3 id="modal-project-title" class="modal-title">Interactive Sandbox</h3>
+            <p id="modal-project-desc" class="modal-desc"></p>
+            <div class="mock-browser-demo">
+                <div class="mock-browser-header">
+                    <div class="browser-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="browser-address-bar" id="mock-browser-url">https://sejal.dev/sandbox</div>
                 </div>
-                <div class="mock-browser-demo">
-                    <div class="mock-browser-header">
-                        <div class="browser-dots">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                        <div class="browser-address-bar" id="mock-browser-url">https://sejal.dev/project</div>
-                    </div>
-                    <div class="mock-browser-content" id="mock-browser-viewport">
-                        <!-- Dynamic demo interface injected by JS -->
-                    </div>
+                <div class="mock-browser-content" id="mock-browser-viewport">
+                    <!-- Dynamic interactive demo injected via JS -->
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Core Interactive Logic & Firebase Setup -->
+    <!-- Core Interactive Logic -->
     <script type="module" src="script.js"></script>
 </body>
 
