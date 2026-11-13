@@ -206,6 +206,8 @@ function initCustomCursor() {
 
 /* ==========================================================================
    4. INTERACTIVE EYE TRACKING & HERO DEPTH ENGINE
+   (Inspired by GSAP Vault Reactive Face Mesh: elliptical clamping, saccadic
+    quickTo response, dual-velocity head lag & idle micro-breathing)
    ========================================================================== */
 function initEyeTracking() {
     const hero = document.getElementById('hero');
@@ -229,20 +231,30 @@ function initEyeTracking() {
 
     let mouseX = window.innerWidth / 2;
     let mouseY = window.innerHeight / 2;
+    let lastMouseX = mouseX;
+    let lastMouseY = mouseY;
     let isInsideHero = false;
 
-    // Saccade & lerp interpolation positions
+    // Saccade & lerp interpolation positions (matching GSAP quickTo 0.16s power2.out)
     let curDxL = 0, curDyL = 0;
     let curDxR = 0, curDyR = 0;
     let targetDxL = 0, targetDyL = 0;
     let targetDxR = 0, targetDyR = 0;
 
+    // Head yaw/pitch parallax positions (matching GSAP 0.9s power3.out heavy lag)
     let curParallaxX = 0, curParallaxY = 0;
     let targetParallaxX = 0, targetParallaxY = 0;
 
+    let animTime = 0;
+
     window.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
+        // Deadzone threshold against micro-jitter
+        if (Math.hypot(e.clientX - lastMouseX, e.clientY - lastMouseY) > 1.5) {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            lastMouseX = mouseX;
+            lastMouseY = mouseY;
+        }
 
         const heroRect = hero.getBoundingClientRect();
         // Active when cursor is anywhere in or near the hero section
@@ -259,8 +271,13 @@ function initEyeTracking() {
     });
 
     function renderGaze() {
+        animTime += 0.016;
+
+        const stageWidth = portraitStage.clientWidth || 360;
+        const scale = stageWidth / 1086;
+
         if (!isInsideHero) {
-            // Smoothly return to natural centered neutral gaze
+            // Smoothly glide back to neutral centered gaze & reset head yaw
             targetDxL = 0;
             targetDyL = 0;
             targetDxR = 0;
@@ -269,12 +286,9 @@ function initEyeTracking() {
             targetParallaxY = 0;
         } else {
             const stageRect = portraitStage.getBoundingClientRect();
-            const stageWidth = stageRect.width;
 
-            // Scale factor relative to the 1086px native resolution
-            const scale = stageWidth / 1086;
-
-            // Maximum realistic anatomical eye boundaries in pixels (subtle, non-distorting)
+            // Maximum realistic anatomical eye boundaries in pixels
+            // Human palpebral fissure: wider horizontally (~4.2px) than vertically (~2.4px)
             const maxDx = 4.2 * scale;
             const maxDy = 2.4 * scale;
 
@@ -286,27 +300,32 @@ function initEyeTracking() {
             const rightEyeX = stageRect.left + stageWidth * 0.5635;
             const rightEyeY = stageRect.top + stageRect.height * 0.3695;
 
-            // Vector from left eye to mouse
+            // Left eye vector calculation with true anatomical ellipse clamping
             const rawDxL = mouseX - leftEyeX;
             const rawDyL = mouseY - leftEyeY;
             const distL = Math.hypot(rawDxL, rawDyL);
             const angleL = Math.atan2(rawDyL, rawDxL);
-
+            const cosL = Math.cos(angleL);
+            const sinL = Math.sin(angleL);
+            // Elliptical boundary constraint r(theta) = (a*b) / sqrt((b*cos)^2 + (a*sin)^2)
+            const maxRL = (maxDx * maxDy) / Math.sqrt((maxDy * cosL) ** 2 + (maxDx * sinL) ** 2);
             const intensityL = Math.min(1.0, distL / 280);
-            targetDxL = Math.cos(angleL) * maxDx * intensityL;
-            targetDyL = Math.sin(angleL) * maxDy * intensityL;
+            targetDxL = cosL * maxRL * intensityL;
+            targetDyL = sinL * maxRL * intensityL;
 
-            // Vector from right eye to mouse
+            // Right eye vector calculation with true anatomical ellipse clamping
             const rawDxR = mouseX - rightEyeX;
             const rawDyR = mouseY - rightEyeY;
             const distR = Math.hypot(rawDxR, rawDyR);
             const angleR = Math.atan2(rawDyR, rawDxR);
-
+            const cosR = Math.cos(angleR);
+            const sinR = Math.sin(angleR);
+            const maxRR = (maxDx * maxDy) / Math.sqrt((maxDy * cosR) ** 2 + (maxDx * sinR) ** 2);
             const intensityR = Math.min(1.0, distR / 280);
-            targetDxR = Math.cos(angleR) * maxDx * intensityR;
-            targetDyR = Math.sin(angleR) * maxDy * intensityR;
+            targetDxR = cosR * maxRR * intensityR;
+            targetDyR = sinR * maxRR * intensityR;
 
-            // Subtle depth parallax for background wordmark & foreground
+            // Subtle depth parallax for background wordmark & foreground stage
             const centerX = window.innerWidth / 2;
             const centerY = window.innerHeight / 2;
             const deltaX = (mouseX - centerX) / centerX;
@@ -315,24 +334,31 @@ function initEyeTracking() {
             targetParallaxY = deltaY * 8;
         }
 
-        // 60fps lerp damping (0.12 factor gives realistic human eye saccade motion)
-        curDxL += (targetDxL - curDxL) * 0.12;
-        curDyL += (targetDyL - curDyL) * 0.12;
+        // 1. Saccadic Eye Interpolation: 0.16 damping factor replicates GSAP quickTo(0.16s, power2.out)
+        curDxL += (targetDxL - curDxL) * 0.16;
+        curDyL += (targetDyL - curDyL) * 0.16;
 
-        curDxR += (targetDxR - curDxR) * 0.12;
-        curDyR += (targetDyR - curDyR) * 0.12;
+        curDxR += (targetDxR - curDxR) * 0.16;
+        curDyR += (targetDyR - curDyR) * 0.16;
 
-        curParallaxX += (targetParallaxX - curParallaxX) * 0.08;
-        curParallaxY += (targetParallaxY - curParallaxY) * 0.08;
+        // 2. Head Yaw & Parallax: 0.045 damping factor replicates GSAP power3.out 0.9s heavy lag
+        curParallaxX += (targetParallaxX - curParallaxX) * 0.045;
+        curParallaxY += (targetParallaxY - curParallaxY) * 0.045;
 
-        pupilLeft.style.transform = `translate3d(${curDxL.toFixed(2)}px, ${curDyL.toFixed(2)}px, 0)`;
-        pupilRight.style.transform = `translate3d(${curDxR.toFixed(2)}px, ${curDyR.toFixed(2)}px, 0)`;
+        // 3. Subtle ambient breathing oscillation (inspired by GSAP Vault 2.3s sine.inOut loop)
+        const breathY = Math.sin(animTime * 2.7) * 0.35 * scale;
+
+        pupilLeft.style.transform = `translate3d(${curDxL.toFixed(2)}px, ${(curDyL + breathY * 0.5).toFixed(2)}px, 0)`;
+        pupilRight.style.transform = `translate3d(${curDxR.toFixed(2)}px, ${(curDyR + breathY * 0.5).toFixed(2)}px, 0)`;
 
         if (wordmark) {
             wordmark.style.transform = `translate3d(${-curParallaxX.toFixed(2)}px, ${-curParallaxY.toFixed(2)}px, 0)`;
         }
         if (portraitWrap) {
-            portraitWrap.style.transform = `translate3d(${(curParallaxX * 0.25).toFixed(2)}px, ${(curParallaxY * 0.25).toFixed(2)}px, 0)`;
+            // Subtle 3D perspective tilt coupled with translation
+            const rotY = (curParallaxX * 0.18).toFixed(2);
+            const rotX = (-curParallaxY * 0.18).toFixed(2);
+            portraitWrap.style.transform = `translate3d(${(curParallaxX * 0.22).toFixed(2)}px, ${(curParallaxY * 0.22 + breathY).toFixed(2)}px, 0) perspective(900px) rotateY(${rotY}deg) rotateX(${rotX}deg)`;
         }
 
         requestAnimationFrame(renderGaze);
