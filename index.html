@@ -45,16 +45,64 @@
     <div id="custom-cursor" class="custom-cursor"></div>
     <div id="custom-cursor-dot" class="custom-cursor-dot"></div>
 
-    <!-- Marcus Vane Cinematic Preloader -->
-    <div id="loader" class="loader-overlay">
-        <div class="curtain-panel curtain-top"></div>
-        <div class="curtain-panel curtain-bottom"></div>
-        <div class="loader-content">
-            <span class="loader-monogram">&lt;SS /&gt;</span>
-            <div class="loader-bar-bg">
-                <div id="loader-bar" class="loader-bar"></div>
+    <!-- High-Tech Shutter & Telemetry Preloader -->
+    <div id="loader" class="loader-overlay" aria-hidden="false">
+        <!-- 5 Staggered Shutter Columns -->
+        <div class="loader-curtain">
+            <div class="loader-slat" style="--i:0"></div>
+            <div class="loader-slat" style="--i:1"></div>
+            <div class="loader-slat" style="--i:2"></div>
+            <div class="loader-slat" style="--i:3"></div>
+            <div class="loader-slat" style="--i:4"></div>
+        </div>
+
+        <!-- Ambient Cyber Background Grid & Pulse -->
+        <div class="loader-ambient-grid"></div>
+
+        <!-- HUD Interface -->
+        <div class="loader-hud">
+            <!-- HUD Top Header -->
+            <div class="loader-hud-top">
+                <div class="hud-status">
+                    <span class="hud-dot"></span>
+                    <span class="hud-mono">SYS.BOOT <span class="hud-sub-hide">// KERNEL V4.2</span></span>
+                </div>
+                <div class="hud-brand">
+                    <span class="hud-monogram">SS</span>
+                    <span class="hud-brand-name">SEJAL SONI</span>
+                </div>
+                <div class="hud-meta">
+                    <span class="hud-mono"><span class="hud-sub-hide">BALAGHAT, </span>MP [IN]</span>
+                </div>
             </div>
-            <span id="loader-percent" class="loader-percent">00%</span>
+
+            <!-- Central Stage: Giant Numeric Counter & High-Tech Track -->
+            <div class="loader-center-stage">
+                <div class="loader-counter-wrap">
+                    <span id="loader-percent" class="loader-giant-number">000</span>
+                    <span class="loader-counter-unit">%</span>
+                </div>
+
+                <div class="loader-progress-track">
+                    <div id="loader-bar" class="loader-progress-fill"></div>
+                    <div class="loader-spark-glow" id="loader-spark"></div>
+                </div>
+
+                <div class="loader-telemetry">
+                    <span class="hazard-badge-sm">//////</span>
+                    <span id="loader-status-text" class="loader-telemetry-msg">INITIALIZING MERN ARCHITECTURE...</span>
+                </div>
+            </div>
+
+            <!-- HUD Bottom Footer -->
+            <div class="loader-hud-bottom">
+                <div class="hud-meta">
+                    <span><span class="hud-sub-hide">STACK: </span>MERN &middot; AI<span class="hud-sub-hide"> &middot; CLOUD</span></span>
+                </div>
+                <div class="hud-meta">
+                    <span>STATUS: <span id="loader-phase" class="hud-phase-highlight">BOOTING</span></span>
+                </div>
+            </div>
         </div>
     </div>
 

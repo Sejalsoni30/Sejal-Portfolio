@@ -46,44 +46,96 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ==========================================================================
-   1. CINEMATIC PRELOADER
+   1. CINEMATIC HIGH-TECH TELEMETRY PRELOADER
    ========================================================================== */
 function initLoader() {
     const loader = document.getElementById('loader');
-    const loaderBar = document.getElementById('loader-bar');
-    const loaderPercent = document.getElementById('loader-percent');
-
     if (!loader) return;
 
-    // If direct hash navigation, bypass preloader instantly
-    if (window.location.hash) {
+    const loaderBar = document.getElementById('loader-bar');
+    const loaderPercent = document.getElementById('loader-percent');
+    const loaderSpark = document.getElementById('loader-spark');
+    const loaderStatus = document.getElementById('loader-status-text');
+    const loaderPhase = document.getElementById('loader-phase');
+
+    // If direct hash navigation or ?preview= parameter, bypass preloader instantly
+    const urlParams = new URLSearchParams(window.location.search);
+    if (window.location.hash || urlParams.get('preview')) {
         loader.style.display = 'none';
         document.body.style.overflowY = 'auto';
         return;
     }
 
+    document.body.style.overflow = 'hidden';
+
+    const bootSteps = [
+        { threshold: 0, text: 'INITIALIZING MERN ARCHITECTURE...', phase: 'BOOTING' },
+        { threshold: 24, text: 'SYNCHRONIZING MONGODB CLUSTERS...', phase: 'SYNCING' },
+        { threshold: 52, text: 'CALIBRATING NEURAL REST APIS...', phase: 'CALIBRATING' },
+        { threshold: 76, text: 'OPTIMIZING PRODUCTION SHADERS...', phase: 'OPTIMIZING' },
+        { threshold: 94, text: 'SYSTEM READY. LAUNCHING PORTFOLIO.', phase: 'ONLINE' }
+    ];
+
+    let currentStepIdx = -1;
     let progress = 0;
+
     const interval = setInterval(() => {
-        progress += Math.floor(Math.random() * 6) + 4;
+        // Organic acceleration cadence
+        const increment = progress < 25 ? Math.floor(Math.random() * 5) + 3
+                        : progress < 65 ? Math.floor(Math.random() * 6) + 4
+                        : progress < 88 ? Math.floor(Math.random() * 5) + 3
+                        : Math.floor(Math.random() * 4) + 2;
+
+        progress += increment;
         if (progress > 100) progress = 100;
 
-        const formatted = progress < 10 ? `0${progress}%` : `${progress}%`;
-        if (loaderBar) loaderBar.style.width = `${progress}%`;
+        // 3-digit padded counter: 000, 015, 087, 100
+        let formatted = `${progress}`;
+        if (progress < 10) formatted = `00${progress}`;
+        else if (progress < 100) formatted = `0${progress}`;
+
         if (loaderPercent) loaderPercent.textContent = formatted;
+        if (loaderBar) loaderBar.style.width = `${progress}%`;
+        if (loaderSpark) loaderSpark.style.left = `${progress}%`;
+
+        // Update telemetry status & phase tag
+        for (let i = bootSteps.length - 1; i >= 0; i--) {
+            if (progress >= bootSteps[i].threshold) {
+                if (currentStepIdx !== i) {
+                    currentStepIdx = i;
+                    if (loaderStatus) {
+                        loaderStatus.style.opacity = '0.35';
+                        setTimeout(() => {
+                            if (loaderStatus) {
+                                loaderStatus.textContent = bootSteps[i].text;
+                                loaderStatus.style.opacity = '1';
+                            }
+                        }, 70);
+                    }
+                    if (loaderPhase) {
+                        loaderPhase.textContent = bootSteps[i].phase;
+                    }
+                }
+                break;
+            }
+        }
 
         if (progress >= 100) {
             clearInterval(interval);
+            if (loaderPercent) loaderPercent.classList.add('is-complete');
+            if (loaderPhase) loaderPhase.textContent = 'ONLINE';
+
             setTimeout(() => {
                 loader.classList.add('loader-finished');
                 document.body.style.overflowY = 'auto';
+
+                // Staggered shutter transition takes 0.85s + 0.32s = ~1.17s to fully clear
                 setTimeout(() => {
                     loader.style.display = 'none';
-                }, 800);
-            }, 150);
+                }, 1200);
+            }, 180);
         }
-    }, 14);
-
-    document.body.style.overflow = 'hidden';
+    }, 28);
 }
 
 /* ==========================================================================
