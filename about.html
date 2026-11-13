@@ -9,7 +9,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -29,8 +29,9 @@
     <!-- Navigation Header -->
     <header class="header-nav" id="header-nav">
         <div class="nav-container container">
-            <a href="index.html" class="nav-logo" id="nav-logo-btn">
-                <span class="gradient-text">&lt;Sejal Soni /&gt;</span>
+            <a href="index.html" class="nav-brand-pill" id="nav-logo-btn">
+                <span class="nav-monogram">SS</span>
+                <span class="nav-name">SEJAL SONI</span>
             </a>
             
             <!-- Desktop Navigation Links -->
@@ -76,8 +77,17 @@
                     <!-- Image Section -->
                     <div class="about-image-wrapper reveal-item" style="flex: 1; min-width: 280px; max-width: 380px; margin: 0 auto; position: relative;">
                         <!-- Background glow effect -->
-                        <div style="position: absolute; top: -15px; left: -15px; right: -15px; bottom: -15px; background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary)); z-index: -1; border-radius: 24px; opacity: 0.3; filter: blur(25px);"></div>
-                        <img src="assets/professional-photo.png" alt="Sejal Soni" style="width: 100%; height: auto; border-radius: 20px; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4); border: 1px solid rgba(255, 255, 255, 0.1); object-fit: cover; display: block;">
+                        <div style="position: absolute; top: -15px; left: -15px; right: -15px; bottom: -15px; background: radial-gradient(circle, var(--accent-ember-glow), transparent 70%); z-index: -1; border-radius: 24px; opacity: 0.6; filter: blur(25px);"></div>
+                        <div class="story-portrait-frame">
+                            <span class="hazard-badge">//////</span>
+                            <img src="sejal-story.jpg" alt="Sejal Soni" class="story-portrait-img">
+                            <div class="story-portrait-overlay">
+                                <div class="story-portrait-tag">
+                                    <span class="pulse-dot"></span>
+                                    <span>SEJAL SONI · FULL-STACK</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Text Section -->
