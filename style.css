@@ -883,7 +883,11 @@ body.light-mode .sun-icon { display: block; }
     user-select: none;
     pointer-events: none;
     transition: transform 0.2s ease-out;
-    opacity: 0.85;
+    opacity: 0.28;
+}
+
+body:not(.light-mode) .towering-wordmark {
+    opacity: 0.25;
 }
 
 .wordmark-row {
