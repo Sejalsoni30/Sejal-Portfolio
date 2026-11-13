@@ -874,42 +874,34 @@ body.light-mode .sun-icon { display: block; }
 /* Oversized Background Anton Wordmark (Layered Behind Cutout) */
 .towering-wordmark {
     position: absolute;
-    top: 5%;
-    left: 0;
-    right: 0;
+    inset: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     z-index: 1;
     user-select: none;
     pointer-events: none;
     transition: transform 0.2s ease-out;
+    opacity: 0.85;
 }
 
 .wordmark-row {
     font-family: var(--font-display);
-    font-size: clamp(5.8rem, 16vw, 16.5rem);
+    font-size: clamp(6.5rem, 19vw, 20rem);
     line-height: 0.82;
     letter-spacing: -0.015em;
     text-transform: uppercase;
+    color: var(--accent-ember);
     text-align: center;
     display: block;
     width: 100%;
-    transition: all 0.3s ease;
 }
 
-/* Light mode: clearly visible red outlined brandmark */
-body.light-mode .wordmark-row {
-    color: rgba(255, 59, 31, 0.14);
-    -webkit-text-stroke: 2px rgba(255, 59, 31, 0.55);
-    opacity: 1;
-}
-
-body:not(.light-mode) .wordmark-row {
-    color: var(--accent-ember);
-    opacity: 0.32;
-    text-shadow: 0 0 50px rgba(255, 59, 31, 0.20);
+.wordmark-row.row-bottom {
+    background: linear-gradient(180deg, var(--accent-ember) 0%, rgba(255, 59, 31, 0.22) 75%, transparent 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 /* Balanced 3-Column Editorial Grid */
