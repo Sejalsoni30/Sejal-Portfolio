@@ -170,27 +170,33 @@
         <section class="cinematic-hero" id="hero">
             <div class="hero-radial-glow" aria-hidden="true"></div>
 
-            <!-- Top Grid: Stacked Roles & Statement -->
+            <!-- Top Grid: Greeting, Headline, Statement & CTAs -->
             <div class="hero-top-grid container">
                 <div class="hero-roles-stack reveal-left">
-                    <span class="role-line">FULL-STACK</span>
-                    <span class="role-line role-accent">DEVELOPER</span>
-                    <span class="role-line">SYSTEMS</span>
-                    <span class="role-line">BUILDER</span>
+                    <div class="hero-greeting-pill">
+                        <span class="pulse-dot"></span>
+                        <span>HI, I'M SEJAL SONI</span>
+                    </div>
+                    <span class="role-line">FULL STACK DEVELOPER</span>
+                    <span class="role-line role-accent">CREATIVE PROBLEM SOLVER</span>
                 </div>
 
                 <div class="hero-statement-wrap reveal-right">
                     <p class="hero-statement">
-                        Engineering scalable web architectures and cloud-native applications with relentless conviction — from prototype to production scale.
+                        I build modern, responsive, and intelligent digital experiences.
                     </p>
-                    <div class="hero-status-pill">
-                        <span class="pulse-dot"></span>
-                        <span>AVAILABLE FOR OPPORTUNITIES</span>
+                    <div class="hero-ctas-wrap">
+                        <a href="#ventures" class="btn btn-primary btn-sm" id="btn-hero-work">
+                            <span>Explore My Work</span> <i class="fa-solid fa-arrow-down"></i>
+                        </a>
+                        <a href="#contact" class="btn btn-outline btn-sm" id="btn-hero-connect">
+                            <span>Let's Connect</span> <i class="fa-solid fa-paper-plane"></i>
+                        </a>
                     </div>
                 </div>
             </div>
 
-            <!-- Towering Giant Name Wordmark & Framed Portrait Stage -->
+            <!-- Towering Giant Name Wordmark & Interactive Eye Tracking Portrait Stage -->
             <div class="towering-stage" id="towering-stage">
                 <!-- Giant Anton Wordmark (Layered Behind Cutout) -->
                 <div class="towering-wordmark" id="towering-wordmark" aria-hidden="true">
@@ -198,9 +204,25 @@
                     <span class="wordmark-row row-bottom">SONI</span>
                 </div>
 
-                <!-- Framed Portrait Cutout (Foreground with bottom fade) -->
+                <!-- Framed Interactive Eye Tracking Portrait Stage -->
                 <div class="towering-portrait-wrap" id="towering-portrait-wrap">
-                    <img src="sejal-cutout.png" alt="Sejal Soni" class="towering-portrait" id="hero-portrait">
+                    <div class="interactive-portrait-stage" id="hero-portrait-stage" title="Interactive Eye-Tracking Portrait">
+                        <!-- Layer 1: Base Portrait with Sclera -->
+                        <img src="sejal-eye-base.png" alt="Sejal Soni" class="portrait-layer portrait-base" draggable="false">
+
+                        <!-- Layer 2: Moving Irises / Pupils -->
+                        <div class="eye-tracker-layer" aria-hidden="true">
+                            <div class="eye-pupil left-pupil" id="pupil-left">
+                                <img src="sejal-iris-left.png" alt="" draggable="false">
+                            </div>
+                            <div class="eye-pupil right-pupil" id="pupil-right">
+                                <img src="sejal-iris-right.png" alt="" draggable="false">
+                            </div>
+                        </div>
+
+                        <!-- Layer 3: Face Eyelids Mask -->
+                        <img src="sejal-eye-mask.png" alt="Sejal Soni" class="portrait-layer portrait-mask" draggable="false">
+                    </div>
                 </div>
             </div>
 

@@ -872,11 +872,105 @@ body.light-mode .sun-icon { display: block; }
     display: flex;
     flex-direction: column;
     font-family: var(--font-display);
-    font-size: clamp(2rem, 4vw, 3.6rem);
+    font-size: clamp(1.8rem, 3.8vw, 3.4rem);
     line-height: 0.95;
     letter-spacing: -0.01em;
     text-transform: uppercase;
     color: var(--text-primary);
+}
+
+.hero-greeting-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 14px;
+    border-radius: 9999px;
+    background: rgba(255, 59, 31, 0.08);
+    border: 1px solid var(--accent-ember-border);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--accent-ember);
+    margin-bottom: 0.75rem;
+    width: fit-content;
+}
+
+.hero-ctas-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* Interactive Eye Tracking Stage */
+.interactive-portrait-stage {
+    position: relative;
+    width: min(440px, 48vh, 85vw);
+    aspect-ratio: 1086 / 1448;
+    margin: 0 auto;
+    filter: drop-shadow(0 25px 45px rgba(0, 0, 0, 0.95));
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.portrait-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    pointer-events: none;
+    user-select: none;
+}
+
+.portrait-base {
+    z-index: 1;
+}
+
+.eye-tracker-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.eye-pupil {
+    position: absolute;
+    z-index: 2;
+    pointer-events: none;
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+}
+
+.eye-pupil img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    user-select: none;
+    pointer-events: none;
+}
+
+.left-pupil {
+    left: 35.0829%;
+    top: 35.2210%;
+    width: 4.4199%;
+    height: 3.3149%;
+}
+
+.right-pupil {
+    left: 54.0516%;
+    top: 35.2210%;
+    width: 4.6041%;
+    height: 3.4530%;
+}
+
+.portrait-mask {
+    z-index: 3;
 }
 
 .hero-roles-stack .role-accent {
@@ -2483,18 +2577,37 @@ body.light-mode .sun-icon { display: block; }
     }
 
     .hero-roles-stack .role-line {
-        font-size: clamp(1.9rem, 8.5vw, 3rem);
+        font-size: clamp(1.6rem, 7.2vw, 2.5rem);
         line-height: 0.95;
     }
 
     .hero-statement-wrap {
         align-items: flex-start;
         text-align: left;
+        gap: 1rem;
     }
 
     .hero-statement {
         font-size: 0.95rem;
         line-height: 1.55;
+    }
+
+    .hero-ctas-wrap {
+        width: 100%;
+        display: flex;
+        gap: 10px;
+    }
+
+    .hero-ctas-wrap .btn {
+        flex: 1;
+        justify-content: center;
+        min-height: 44px;
+        padding: 10px 14px;
+        font-size: 0.72rem;
+    }
+
+    .interactive-portrait-stage {
+        width: min(320px, 44vh, 80vw);
     }
 
     .towering-stage {

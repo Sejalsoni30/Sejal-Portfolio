@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initCustomCursor();
     initNavbarScroll();
     initMobileMenu();
-    initHeroParallax();
+    initEyeTracking();
     initScrollReveal();
     initVenturesFilter();
     initVoicesSwitcher();
@@ -205,33 +205,140 @@ function initCustomCursor() {
 }
 
 /* ==========================================================================
-   4. TOWERING HERO PARALLAX 3D TILT
+   4. INTERACTIVE EYE TRACKING & HERO DEPTH ENGINE
    ========================================================================== */
-function initHeroParallax() {
-    const stage = document.getElementById('towering-stage');
-    const portrait = document.getElementById('hero-portrait');
+function initEyeTracking() {
+    const hero = document.getElementById('hero');
+    const portraitStage = document.getElementById('hero-portrait-stage');
+    const pupilLeft = document.getElementById('pupil-left');
+    const pupilRight = document.getElementById('pupil-right');
     const wordmark = document.getElementById('towering-wordmark');
+    const portraitWrap = document.getElementById('towering-portrait-wrap');
 
-    if (!stage || !portrait || !wordmark) return;
+    if (!hero || !portraitStage || !pupilLeft || !pupilRight) return;
+
+    // Check motion preference & touch capability
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isTouchDevice = window.matchMedia('(pointer: coarse)').matches || (window.innerWidth <= 768);
+
+    if (prefersReducedMotion || isTouchDevice) {
+        pupilLeft.style.transform = 'translate3d(0, 0, 0)';
+        pupilRight.style.transform = 'translate3d(0, 0, 0)';
+        return;
+    }
+
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let isInsideHero = false;
+
+    // Saccade & lerp interpolation positions
+    let curDxL = 0, curDyL = 0;
+    let curDxR = 0, curDyR = 0;
+    let targetDxL = 0, targetDyL = 0;
+    let targetDxR = 0, targetDyR = 0;
+
+    let curParallaxX = 0, curParallaxY = 0;
+    let targetParallaxX = 0, targetParallaxY = 0;
 
     window.addEventListener('mousemove', (e) => {
-        const { clientX, clientY } = e;
-        const centerX = window.innerWidth / 2;
-        const centerY = window.innerHeight / 2;
+        mouseX = e.clientX;
+        mouseY = e.clientY;
 
-        const deltaX = (clientX - centerX) / centerX;
-        const deltaY = (clientY - centerY) / centerY;
+        const heroRect = hero.getBoundingClientRect();
+        // Active when cursor is anywhere in or near the hero section
+        isInsideHero = (
+            e.clientY >= heroRect.top - 80 &&
+            e.clientY <= heroRect.bottom + 80 &&
+            e.clientX >= 0 &&
+            e.clientX <= window.innerWidth
+        );
+    }, { passive: true });
 
-        // Move foreground portrait subtly toward mouse
-        const portraitMoveX = deltaX * 14;
-        const portraitMoveY = deltaY * 8;
-        portrait.style.transform = `translate3d(${portraitMoveX}px, ${portraitMoveY}px, 0) scale(1.02)`;
-
-        // Move background towering wordmark subtly in opposite direction for depth
-        const wordmarkMoveX = -deltaX * 18;
-        const wordmarkMoveY = -deltaY * 10;
-        wordmark.style.transform = `translate3d(${wordmarkMoveX}px, ${wordmarkMoveY}px, 0)`;
+    document.addEventListener('mouseleave', () => {
+        isInsideHero = false;
     });
+
+    function renderGaze() {
+        if (!isInsideHero) {
+            // Smoothly return to natural centered neutral gaze
+            targetDxL = 0;
+            targetDyL = 0;
+            targetDxR = 0;
+            targetDyR = 0;
+            targetParallaxX = 0;
+            targetParallaxY = 0;
+        } else {
+            const stageRect = portraitStage.getBoundingClientRect();
+            const stageWidth = stageRect.width;
+
+            // Scale factor relative to the 1086px native resolution
+            const scale = stageWidth / 1086;
+
+            // Maximum realistic anatomical eye boundaries in pixels (subtle, non-distorting)
+            const maxDx = 4.2 * scale;
+            const maxDy = 2.4 * scale;
+
+            // Left eye center on screen (37.29% width, 36.88% height)
+            const leftEyeX = stageRect.left + stageWidth * 0.3729;
+            const leftEyeY = stageRect.top + stageRect.height * 0.3688;
+
+            // Right eye center on screen (56.35% width, 36.95% height)
+            const rightEyeX = stageRect.left + stageWidth * 0.5635;
+            const rightEyeY = stageRect.top + stageRect.height * 0.3695;
+
+            // Vector from left eye to mouse
+            const rawDxL = mouseX - leftEyeX;
+            const rawDyL = mouseY - leftEyeY;
+            const distL = Math.hypot(rawDxL, rawDyL);
+            const angleL = Math.atan2(rawDyL, rawDxL);
+
+            const intensityL = Math.min(1.0, distL / 280);
+            targetDxL = Math.cos(angleL) * maxDx * intensityL;
+            targetDyL = Math.sin(angleL) * maxDy * intensityL;
+
+            // Vector from right eye to mouse
+            const rawDxR = mouseX - rightEyeX;
+            const rawDyR = mouseY - rightEyeY;
+            const distR = Math.hypot(rawDxR, rawDyR);
+            const angleR = Math.atan2(rawDyR, rawDxR);
+
+            const intensityR = Math.min(1.0, distR / 280);
+            targetDxR = Math.cos(angleR) * maxDx * intensityR;
+            targetDyR = Math.sin(angleR) * maxDy * intensityR;
+
+            // Subtle depth parallax for background wordmark & foreground
+            const centerX = window.innerWidth / 2;
+            const centerY = window.innerHeight / 2;
+            const deltaX = (mouseX - centerX) / centerX;
+            const deltaY = (mouseY - centerY) / centerY;
+            targetParallaxX = deltaX * 14;
+            targetParallaxY = deltaY * 8;
+        }
+
+        // 60fps lerp damping (0.12 factor gives realistic human eye saccade motion)
+        curDxL += (targetDxL - curDxL) * 0.12;
+        curDyL += (targetDyL - curDyL) * 0.12;
+
+        curDxR += (targetDxR - curDxR) * 0.12;
+        curDyR += (targetDyR - curDyR) * 0.12;
+
+        curParallaxX += (targetParallaxX - curParallaxX) * 0.08;
+        curParallaxY += (targetParallaxY - curParallaxY) * 0.08;
+
+        pupilLeft.style.transform = `translate3d(${curDxL.toFixed(2)}px, ${curDyL.toFixed(2)}px, 0)`;
+        pupilRight.style.transform = `translate3d(${curDxR.toFixed(2)}px, ${curDyR.toFixed(2)}px, 0)`;
+
+        if (wordmark) {
+            wordmark.style.transform = `translate3d(${-curParallaxX.toFixed(2)}px, ${-curParallaxY.toFixed(2)}px, 0)`;
+        }
+        if (portraitWrap) {
+            portraitWrap.style.transform = `translate3d(${(curParallaxX * 0.25).toFixed(2)}px, ${(curParallaxY * 0.25).toFixed(2)}px, 0)`;
+        }
+
+        requestAnimationFrame(renderGaze);
+    }
+
+    requestAnimationFrame(renderGaze);
 }
 
 /* ==========================================================================
