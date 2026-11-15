@@ -8,6 +8,7 @@ CREATE TABLE IF NOT EXISTS public.contacts (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     full_name TEXT NOT NULL,
     email TEXT NOT NULL,
+    phone TEXT,
     service_required TEXT,
     budget TEXT,
     project_details TEXT NOT NULL,
@@ -16,6 +17,7 @@ CREATE TABLE IF NOT EXISTS public.contacts (
 
 -- In case the table already existed with older column names, add any missing columns safely:
 ALTER TABLE public.contacts ADD COLUMN IF NOT EXISTS full_name TEXT;
+ALTER TABLE public.contacts ADD COLUMN IF NOT EXISTS phone TEXT;
 ALTER TABLE public.contacts ADD COLUMN IF NOT EXISTS service_required TEXT;
 ALTER TABLE public.contacts ADD COLUMN IF NOT EXISTS budget TEXT;
 ALTER TABLE public.contacts ADD COLUMN IF NOT EXISTS project_details TEXT;

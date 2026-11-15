@@ -268,6 +268,7 @@ function initInquiryForm() {
 
         const name = form.fullName.value.trim();
         const email = form.email.value.trim();
+        const phone = form.phone ? form.phone.value.trim() : '';
         const service = form.service.value;
         const budget = form.budget ? form.budget.value : 'Not specified';
         const details = form.details.value.trim();
@@ -292,6 +293,7 @@ function initInquiryForm() {
             `*New Project Inquiry via Portfolio*\n\n` +
             `• *Name:* ${name}\n` +
             `• *Email:* ${email}\n` +
+            (phone ? `• *Phone / WhatsApp:* ${phone}\n` : '') +
             `• *Service:* ${service}\n` +
             `• *Budget:* ${budget}\n\n` +
             `• *Project Details:*\n${details}`
@@ -303,6 +305,7 @@ function initInquiryForm() {
             `Hi Sejal,\n\nI would like to inquire about your services:\n\n` +
             `Name: ${name}\n` +
             `Email: ${email}\n` +
+            (phone ? `Phone / WhatsApp: ${phone}\n` : '') +
             `Service Required: ${service}\n` +
             `Budget: ${budget}\n\n` +
             `Project Details:\n${details}\n\n` +
@@ -317,15 +320,25 @@ function initInquiryForm() {
             const formData = {
                 full_name: name,
                 email: email,
+                phone: phone || null,
                 service_required: service,
                 budget: budget || 'Not specified',
                 project_details: details,
                 created_at: new Date().toISOString()
             };
 
-            const { data, error } = await supabase
+            let { data, error } = await supabase
                 .from('contacts')
                 .insert([formData]);
+
+            // If phone column is not yet added in Supabase schema, retry without phone column
+            if (error && error.code === 'PGRST204' && error.message?.includes('phone')) {
+                const { phone: _, ...fallbackPayload } = formData;
+                const retry = await supabase
+                    .from('contacts')
+                    .insert([fallbackPayload]);
+                error = retry.error;
+            }
 
             if (error) {
                 console.warn('Supabase insertion notice:', error);
