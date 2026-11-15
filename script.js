@@ -686,45 +686,13 @@ function initContactForm() {
                 created_at: new Date().toISOString()
             };
 
-            let inserted = false;
-            let lastError = null;
+            const { data, error } = await supabase
+                .from('contacts')
+                .insert([formData]);
 
-            // 1. Direct Supabase Client Insertion (if initialized via environment)
-            if (supabase) {
-                const { data, error } = await supabase
-                    .from('contacts')
-                    .insert([formData]);
-
-                if (!error) {
-                    inserted = true;
-                } else {
-                    lastError = error;
-                    console.warn('Supabase direct insert note:', error);
-                }
-            }
-
-            // 2. Serverless API Endpoint Fallback (for Vercel deployment where env vars reside on server)
-            if (!inserted) {
-                try {
-                    const res = await fetch('/api/contact', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(formData)
-                    });
-
-                    if (res.ok) {
-                        inserted = true;
-                    } else {
-                        const errJson = await res.json().catch(() => ({}));
-                        if (!lastError) lastError = new Error(errJson.error || 'Server submission error');
-                    }
-                } catch (fetchErr) {
-                    console.warn('/api/contact endpoint note:', fetchErr);
-                }
-            }
-
-            if (!inserted && lastError) {
-                throw lastError;
+            if (error) {
+                console.warn('Supabase insert note:', error);
+                throw error;
             }
 
             showStatus('Message successfully delivered! I will reply within 24 hours. ✨', 'success');
