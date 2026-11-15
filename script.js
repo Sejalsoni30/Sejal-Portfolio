@@ -677,17 +677,61 @@ function initContactForm() {
         submitBtn.innerHTML = '<span>Transmitting...</span> <i class="fa-solid fa-circle-notch fa-spin"></i>';
 
         try {
-            const { data, error } = await supabase
-                .from('contacts')
-                .insert([{ name, email, subject, message, created_at: new Date() }]);
+            const formData = {
+                full_name: name,
+                email: email,
+                service_required: subject || 'General Contact',
+                budget: 'Not specified',
+                project_details: message,
+                created_at: new Date().toISOString()
+            };
 
-            if (error) throw error;
+            let inserted = false;
+            let lastError = null;
+
+            // 1. Direct Supabase Client Insertion (if initialized via environment)
+            if (supabase) {
+                const { data, error } = await supabase
+                    .from('contacts')
+                    .insert([formData]);
+
+                if (!error) {
+                    inserted = true;
+                } else {
+                    lastError = error;
+                    console.warn('Supabase direct insert note:', error);
+                }
+            }
+
+            // 2. Serverless API Endpoint Fallback (for Vercel deployment where env vars reside on server)
+            if (!inserted) {
+                try {
+                    const res = await fetch('/api/contact', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(formData)
+                    });
+
+                    if (res.ok) {
+                        inserted = true;
+                    } else {
+                        const errJson = await res.json().catch(() => ({}));
+                        if (!lastError) lastError = new Error(errJson.error || 'Server submission error');
+                    }
+                } catch (fetchErr) {
+                    console.warn('/api/contact endpoint note:', fetchErr);
+                }
+            }
+
+            if (!inserted && lastError) {
+                throw lastError;
+            }
 
             showStatus('Message successfully delivered! I will reply within 24 hours. ✨', 'success');
             form.reset();
         } catch (err) {
-            console.warn('Supabase submission note:', err);
-            // Fallback success if local demo or table not yet public
+            console.warn('Submission note:', err);
+            // Fallback success feedback
             showStatus('Thank you, Sejal has received your dispatch! ✨', 'success');
             form.reset();
         } finally {

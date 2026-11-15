@@ -1136,6 +1136,10 @@
         </div>
     </div>
 
+    <!-- Environment Config (Local gitignored env or Vercel serverless injection) -->
+    <script src="/api/env.js" onerror="/* vercel env fallback */"></script>
+    <script src="env.js" onerror="/* local env fallback */"></script>
+
     <!-- Core Interactive Logic -->
     <script type="module" src="script.js"></script>
 </body>

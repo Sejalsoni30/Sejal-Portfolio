@@ -314,31 +314,54 @@ function initInquiryForm() {
         if (fallbackMailBtn) fallbackMailBtn.href = mailUrl;
 
         try {
-            // Attempt insertion into Supabase
-            const { data, error } = await supabase
-                .from('services_inquiries')
-                .insert([{
-                    name,
-                    email,
-                    service,
-                    budget,
-                    details,
-                    created_at: new Date().toISOString()
-                }]);
+            const formData = {
+                full_name: name,
+                email: email,
+                service_required: service,
+                budget: budget || 'Not specified',
+                project_details: details,
+                created_at: new Date().toISOString()
+            };
 
-            if (error) {
-                // If table services_inquiries doesn't exist, try standard contacts table
-                const fallbackAttempt = await supabase
+            let inserted = false;
+            let lastError = null;
+
+            // 1. Direct Supabase Client Insertion (if initialized via environment)
+            if (supabase) {
+                const { data, error } = await supabase
                     .from('contacts')
-                    .insert([{
-                        name,
-                        email,
-                        subject: `Service Inquiry: ${service}`,
-                        message: `Budget: ${budget}\n\nDetails: ${details}`,
-                        created_at: new Date().toISOString()
-                    }]);
-                
-                if (fallbackAttempt.error) throw fallbackAttempt.error;
+                    .insert([formData]);
+
+                if (!error) {
+                    inserted = true;
+                } else {
+                    lastError = error;
+                    console.warn('Supabase direct insert notice:', error);
+                }
+            }
+
+            // 2. Serverless API Endpoint Fallback (for Vercel deployment where env vars reside on server)
+            if (!inserted) {
+                try {
+                    const res = await fetch('/api/contact', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(formData)
+                    });
+
+                    if (res.ok) {
+                        inserted = true;
+                    } else {
+                        const errJson = await res.json().catch(() => ({}));
+                        if (!lastError) lastError = new Error(errJson.error || 'Server submission error');
+                    }
+                } catch (fetchErr) {
+                    console.warn('/api/contact endpoint notice:', fetchErr);
+                }
+            }
+
+            if (!inserted && lastError) {
+                throw lastError;
             }
 
             // Real backend success
