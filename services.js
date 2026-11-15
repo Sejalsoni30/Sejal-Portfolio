@@ -28,9 +28,11 @@ if (document.readyState === 'loading') {
 function initTheme() {
     const themeBtn = document.getElementById('theme-toggle-btn');
     const body = document.body;
-    const themes = ['dark-mode', 'light-mode'];
+    const themes = ['dark-mode', 'light-mode', 'ocean-mode', 'cyberpunk-mode'];
 
-    let savedTheme = localStorage.getItem('portfolio-theme') || 'dark-mode';
+    const urlParams = new URLSearchParams(window.location.search);
+    const queryTheme = urlParams.get('theme');
+    let savedTheme = queryTheme || localStorage.getItem('portfolio-theme') || 'dark-mode';
     if (!themes.includes(savedTheme)) savedTheme = 'dark-mode';
 
     body.classList.remove(...themes);
