@@ -339,15 +339,59 @@
                 </div>
 
                 <div class="story-grid">
-                    <!-- Left: Story Portrait Card & Actions -->
+                    <!-- Left: Developer System Console & Actions (Clean tech showcase, no duplicate portrait) -->
                     <div class="story-media-col reveal-left">
-                        <div class="story-portrait-frame">
-                            <span class="hazard-badge">//////</span>
-                            <img src="sejal-story.jpg" alt="Sejal Soni" class="story-portrait-img">
-                            <div class="story-portrait-overlay">
-                                <div class="story-portrait-tag">
+                        <div class="developer-console-card">
+                            <!-- Terminal Titlebar -->
+                            <div class="console-titlebar">
+                                <div class="console-dots">
+                                    <span class="console-dot dot-red"></span>
+                                    <span class="console-dot dot-yellow"></span>
+                                    <span class="console-dot dot-green"></span>
+                                </div>
+                                <div class="console-tab">
+                                    <i class="fa-solid fa-code"></i>
+                                    <span>sejal.manifest.ts</span>
+                                </div>
+                                <div class="console-status">
                                     <span class="pulse-dot"></span>
-                                    <span>SEJAL SONI · B.TECH CSE (8.90 CGPA)</span>
+                                    <span>SYSTEM // READY</span>
+                                </div>
+                            </div>
+
+                            <!-- Code Snippet Body -->
+                            <div class="console-body">
+                                <pre class="console-code"><code><span class="code-line"><span class="line-num">01</span><span class="code-keyword">export const</span> <span class="code-const">engineer</span>: <span class="code-type">DeveloperProfile</span> = {</span>
+<span class="code-line"><span class="line-num">02</span>  name: <span class="code-str">"Sejal Soni"</span>,</span>
+<span class="code-line"><span class="line-num">03</span>  degree: <span class="code-str">"B.Tech CSE"</span>, <span class="code-comment">// 8.90 CGPA</span></span>
+<span class="code-line"><span class="line-num">04</span>  role: <span class="code-str">"Full-Stack Architect &amp; UI Craftsman"</span>,</span>
+<span class="code-line"><span class="line-num">05</span>  coreStack: [</span>
+<span class="code-line"><span class="line-num">06</span>    <span class="code-str">"React.js"</span>, <span class="code-str">"Node.js"</span>, <span class="code-str">"TypeScript"</span>,</span>
+<span class="code-line"><span class="line-num">07</span>    <span class="code-str">"Express"</span>, <span class="code-str">"MongoDB"</span>, <span class="code-str">"REST APIs"</span></span>
+<span class="code-line"><span class="line-num">08</span>  ],</span>
+<span class="code-line"><span class="line-num">09</span>  architecturalFocus: [</span>
+<span class="code-line"><span class="line-num">10</span>    <span class="code-str">"Low-Latency Distributed Backend"</span>,</span>
+<span class="code-line"><span class="line-num">11</span>    <span class="code-str">"Cloud Deduplication Architecture"</span>,</span>
+<span class="code-line"><span class="line-num">12</span>    <span class="code-str">"Fluid 60FPS Micro-Interactions"</span></span>
+<span class="code-line"><span class="line-num">13</span>  ],</span>
+<span class="code-line"><span class="line-num">14</span>  impactScore: <span class="code-str">"~35% Redundancy Reduction"</span>,</span>
+<span class="code-line"><span class="line-num">15</span>  status: <span class="code-status-str">"Open for Select Projects &amp; Roles"</span></span>
+<span class="code-line"><span class="line-num">16</span>};</span></code></pre>
+                            </div>
+
+                            <!-- Integrated Telemetry Metrics Bar inside Card -->
+                            <div class="console-metrics-bar">
+                                <div class="console-metric">
+                                    <span class="console-metric-val">8.90</span>
+                                    <span class="console-metric-lbl">CGPA Honors</span>
+                                </div>
+                                <div class="console-metric">
+                                    <span class="console-metric-val">35%</span>
+                                    <span class="console-metric-lbl">Storage Dedup</span>
+                                </div>
+                                <div class="console-metric">
+                                    <span class="console-metric-val">60<small>FPS</small></span>
+                                    <span class="console-metric-lbl">Fluid Motion</span>
                                 </div>
                             </div>
                         </div>

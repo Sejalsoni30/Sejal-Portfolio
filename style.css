@@ -1484,8 +1484,8 @@ body.light-mode #btn-hero-connect {
    ========================================================================== */
 .story-grid {
     display: grid;
-    grid-template-columns: 400px 1fr;
-    gap: 4rem;
+    grid-template-columns: minmax(360px, 460px) 1fr;
+    gap: clamp(2rem, 4vw, 4.5rem);
     align-items: flex-start;
 }
 
@@ -1493,7 +1493,172 @@ body.light-mode #btn-hero-connect {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    max-width: 420px;
+    max-width: 480px;
+    width: 100%;
+}
+
+/* ==========================================================================
+   DEVELOPER CONSOLE CARD (SECTION 2 REPLACEMENT)
+   ========================================================================== */
+.developer-console-card {
+    position: relative;
+    width: 100%;
+    background: #09090d;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 59, 31, 0.05);
+    transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+body.light-mode .developer-console-card {
+    background: #0d0e14;
+    border-color: rgba(0, 0, 0, 0.14);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.16), 0 0 25px rgba(255, 59, 31, 0.08);
+}
+
+.developer-console-card:hover {
+    border-color: var(--accent-ember-border);
+    transform: translateY(-4px);
+    box-shadow: 0 25px 55px rgba(0, 0, 0, 0.75), 0 0 35px var(--accent-ember-subtle);
+}
+
+.console-titlebar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background: #050508;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.console-dots {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.console-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.dot-red { background: #ff5f56; }
+.dot-yellow { background: #ffbd2e; }
+.dot-green { background: #27c93f; }
+
+.console-tab {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: #e2e8f0;
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.console-tab i {
+    color: var(--accent-ember);
+    font-size: 0.75rem;
+}
+
+.console-status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #94a3b8;
+    font-weight: 600;
+}
+
+.console-body {
+    padding: 18px 18px 14px;
+    overflow-x: auto;
+    background: #09090d;
+}
+
+.console-code {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    line-height: 1.65;
+    color: #f1f5f9;
+}
+
+.console-code code {
+    font-family: inherit;
+    display: block;
+}
+
+.code-line {
+    display: block;
+    white-space: pre;
+}
+
+.line-num {
+    display: inline-block;
+    width: 26px;
+    color: #475569;
+    user-select: none;
+    font-size: 0.75rem;
+}
+
+.code-keyword { color: #f43f5e; font-weight: 600; }
+.code-const { color: #38bdf8; font-weight: 600; }
+.code-type { color: #34d399; font-weight: 500; }
+.code-str { color: #fef08a; }
+.code-comment { color: #64748b; font-style: italic; }
+.code-status-str { color: #a5f3fc; font-weight: 500; }
+
+.console-metrics-bar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    background: #050508;
+}
+
+.console-metric {
+    padding: 12px 14px;
+    text-align: center;
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.console-metric:last-child {
+    border-right: none;
+}
+
+.console-metric-val {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    line-height: 1;
+    color: var(--accent-ember);
+    letter-spacing: 0.02em;
+}
+
+.console-metric-val small {
+    font-size: 0.8rem;
+    font-family: var(--font-mono);
+    margin-left: 2px;
+}
+
+.console-metric-lbl {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: #94a3b8;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
 }
 
 .story-portrait-frame {
@@ -2982,6 +3147,38 @@ body.light-mode #btn-hero-connect {
         padding: 8px 16px;
         font-size: 0.74rem;
         min-height: 40px;
+    }
+
+    /* Story & Console Mobile */
+    .story-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .console-code {
+        font-size: 0.74rem;
+        line-height: 1.55;
+    }
+
+    .console-body {
+        padding: 14px 12px 10px;
+    }
+
+    .line-num {
+        width: 20px;
+        font-size: 0.68rem;
+    }
+
+    .console-metric {
+        padding: 10px 6px;
+    }
+
+    .console-metric-val {
+        font-size: 1.15rem;
+    }
+
+    .console-metric-lbl {
+        font-size: 0.58rem;
     }
 
     .venture-card {

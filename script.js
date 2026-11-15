@@ -130,6 +130,20 @@ function initLoader() {
                 loader.classList.add('loader-finished');
                 document.body.style.overflowY = 'auto';
 
+                // If page was loaded with a hash (e.g. #story, #ventures) or ?scroll= param, scroll to it now
+                const urlParams = new URLSearchParams(window.location.search);
+                const scrollTargetId = urlParams.get('scroll') || (window.location.hash ? window.location.hash.substring(1) : null);
+                if (scrollTargetId) {
+                    const hashTarget = document.getElementById(scrollTargetId);
+                    if (hashTarget) {
+                        setTimeout(() => {
+                            hashTarget.scrollIntoView({ behavior: 'instant' });
+                            // Trigger reveals
+                            document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right').forEach(el => el.classList.add('active-reveal'));
+                        }, 50);
+                    }
+                }
+
                 // Staggered shutter transition takes 0.85s + 0.32s = ~1.17s to fully clear
                 setTimeout(() => {
                     loader.style.display = 'none';
