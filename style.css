@@ -909,16 +909,15 @@ body.cyberpunk-mode .nav-backdrop {
    ========================================================================== */
 .cinematic-hero {
     position: relative;
-    height: calc(100vh - 8px);
-    min-height: 640px;
-    max-height: 940px;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    overflow: hidden;
+    overflow-x: clip;
+    overflow-y: visible;
     background: var(--bg-primary);
-    padding-top: 84px;
-    padding-bottom: 16px;
+    padding-top: max(96px, 12vh);
+    padding-bottom: 12px;
 }
 
 /* Subtle radial background glow */
@@ -1122,24 +1121,30 @@ body.light-mode .hero-status-pill {
     position: relative;
     z-index: 2;
     width: 100%;
-    max-width: 440px;
+    max-width: 620px;
     display: flex;
     justify-content: center;
     align-items: flex-end;
     transform-origin: center bottom;
     transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     line-height: 0;
+    overflow: visible;
 }
 
 .interactive-portrait-stage {
     position: relative;
-    width: min(430px, 56vh, 85vw);
+    height: clamp(480px, 82vh, 880px);
+    max-height: calc(100vh - 130px);
+    width: auto;
+    max-width: 100%;
     aspect-ratio: 1 / 1;
     margin: 0 auto;
-    margin-bottom: -10%;
+    margin-bottom: 0;
     user-select: none;
     -webkit-user-select: none;
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
     filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.45));
     transition: filter 0.4s ease, transform 0.4s ease;
 }

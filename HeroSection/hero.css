@@ -1,24 +1,26 @@
 /* ==========================================================================
    HERO SECTION STYLES (CINEMATIC UPGRADE)
-   Photoreal Canvas Eye Tracking, Kinetic Typography, Floating Stat Chips,
-   Magnetic CTAs & Adaptive Ambient Lighting.
+   3-Zone Balanced Grid (38% | 38% | 24%)
+   Tall Centerpiece Portrait (Bottom-Anchored, Zero Top Clipping)
+   Non-Overlapping Shoulder/Chest Stat Chips & Tightened Headline
    ========================================================================== */
 
 /* 1. Main Hero Container */
 .cinematic-hero {
     position: relative;
     min-height: 100vh;
-    min-height: calc(100vh - 12px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    overflow: hidden;
+    overflow-x: clip;
+    overflow-y: visible;
     background: var(--bg-primary);
-    padding-top: 86px;
-    padding-bottom: 12px;
+    padding-top: max(96px, 12vh);
+    padding-bottom: 14px;
+    box-sizing: border-box;
 }
 
-/* Cursor-Following Ambient Spotlight */
+/* Ambient Cursor-Following Spotlight */
 .hero-cursor-spotlight {
     position: absolute;
     top: 0;
@@ -39,7 +41,7 @@ body.light-mode .hero-cursor-spotlight {
     background: radial-gradient(circle, rgba(255, 59, 31, 0.08) 0%, rgba(255, 59, 31, 0.02) 45%, transparent 70%);
 }
 
-/* Atmospheric Ambient Lighting */
+/* Atmospheric Lighting */
 .hero-radial-glow {
     position: absolute;
     top: 45%;
@@ -67,7 +69,7 @@ body.light-mode .hero-cursor-spotlight {
     z-index: 0;
 }
 
-/* 2. Oversized Background Anton Wordmark */
+/* 2. Oversized Background Anton Wordmark (Centered Behind Portrait) */
 .towering-wordmark {
     position: absolute;
     inset: 0;
@@ -105,28 +107,34 @@ body.light-mode .towering-wordmark {
     -webkit-text-fill-color: transparent;
 }
 
-/* 3. Balanced 3-Column Editorial Grid */
+/* 3. Balanced 3-Zone Editorial Grid: Left (38%) | Center (38%) | Right (24%) */
 .hero-editorial-grid {
     position: relative;
     z-index: 10;
     display: grid;
-    grid-template-columns: minmax(290px, 1.15fr) auto minmax(290px, 1.05fr);
+    grid-template-columns: minmax(0, 38fr) minmax(0, 38fr) minmax(0, 24fr);
     align-items: flex-end;
-    gap: clamp(1.2rem, 3.2vw, 3.6rem);
+    gap: clamp(1rem, 2vw, 2.5rem);
     width: 100%;
+    max-width: 1440px;
     margin: 0 auto;
     flex: 1;
-    padding-bottom: 0;
+    padding: 0 24px;
+    box-sizing: border-box;
 }
 
-/* Left Column: Identity & Kinetic Headline */
+/* ==========================================================================
+   LEFT COLUMN: Identity, Tightened Headline & Introduction (Max ~38% width)
+   ========================================================================== */
 .hero-col-left {
     align-self: center;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 1.15rem;
-    padding-bottom: 2.2rem;
+    gap: clamp(0.75rem, 1.2vh, 1.15rem);
+    padding-bottom: 1.5rem;
+    max-width: 100%;
+    width: 100%;
     opacity: 0;
     transform: translateY(24px);
     transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
@@ -167,24 +175,26 @@ body.light-mode .towering-wordmark {
     50% { opacity: 0.45; transform: scale(0.85); }
 }
 
-/* Kinetic Headline Stack */
+/* Headline Stack: Tightened Font & Line-Height (Fits in 2 lines each, max 4 lines total) */
 .hero-roles-stack {
     display: flex;
     flex-direction: column;
     gap: 0;
     margin: 0;
+    width: 100%;
 }
 
 .role-line-wrap {
     overflow: hidden;
     display: block;
+    width: 100%;
 }
 
 .hero-roles-stack .role-line {
     font-family: var(--font-display, 'Anton', sans-serif);
-    font-size: clamp(2.3rem, 4.4vw, 4.8rem);
-    line-height: 0.94;
-    letter-spacing: 0.015em;
+    font-size: clamp(1.75rem, 2.65vw, 3.1rem);
+    line-height: 0.92;
+    letter-spacing: 0.01em;
     text-transform: uppercase;
     color: var(--text-primary);
     display: block;
@@ -206,12 +216,12 @@ body.light-mode .towering-wordmark {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    padding: 6px 14px;
+    padding: 5px 13px;
     border-radius: 8px;
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.08);
     font-family: var(--font-mono, 'JetBrains Mono', monospace);
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     color: var(--text-secondary);
 }
 
@@ -242,8 +252,8 @@ body.light-mode .hero-rotating-role-bar {
 }
 
 .hero-intro-text {
-    font-size: 1.05rem;
-    line-height: 1.65;
+    font-size: clamp(0.92rem, 1.02vw, 1rem);
+    line-height: 1.6;
     color: var(--text-secondary);
     max-width: 440px;
     margin: 0;
@@ -252,21 +262,21 @@ body.light-mode .hero-rotating-role-bar {
 .hero-badges-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 4px;
+    gap: 8px;
+    margin-top: 2px;
 }
 
 .hero-status-pill {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 6px 14px;
+    padding: 5px 12px;
     border-radius: 999px;
     background: var(--bg-surface, rgba(255, 255, 255, 0.04));
     border: 1px solid var(--border-color, rgba(255, 255, 255, 0.10));
     font-family: var(--font-mono, 'JetBrains Mono', monospace);
-    font-size: 0.78rem;
-    letter-spacing: 0.06em;
+    font-size: 0.76rem;
+    letter-spacing: 0.05em;
     color: var(--text-primary);
 }
 
@@ -282,7 +292,10 @@ body.light-mode .hero-rotating-role-bar {
     color: var(--accent-ember, #ff3b1f);
 }
 
-/* 4. Center Column: Interactive Canvas Portrait Stage & Stat Chips */
+/* ==========================================================================
+   CENTER COLUMN: Visual Centerpiece Portrait Stage (34% - 40% Width)
+   Bottom-Anchored, Zero Top Clipping, Soft Bottom Fade
+   ========================================================================== */
 .hero-col-center {
     align-self: flex-end;
     display: flex;
@@ -291,32 +304,46 @@ body.light-mode .hero-rotating-role-bar {
     position: relative;
     perspective: 1000px;
     line-height: 0;
+    width: 100%;
+    overflow: visible;
 }
 
 .towering-portrait-wrap {
     position: relative;
     z-index: 2;
     width: 100%;
-    max-width: 440px;
+    max-width: 620px;
     display: flex;
     justify-content: center;
     align-items: flex-end;
     transform-origin: center bottom;
     line-height: 0;
     will-change: transform;
+    overflow: visible;
 }
 
+/* Centerpiece Portrait Stage: Sized via clamp() / vh, 85-90% of hero height */
 .interactive-portrait-stage {
     position: relative;
-    width: min(430px, 54vh, 86vw);
+    z-index: 3;
+    height: clamp(500px, 84vh, 880px);
+    max-height: calc(100vh - 130px);
+    width: auto;
+    max-width: 100%;
     aspect-ratio: 1 / 1;
     margin: 0 auto;
-    margin-bottom: -10%;
+    margin-bottom: 0;
     user-select: none;
     -webkit-user-select: none;
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
     filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.45));
     transition: filter 0.4s ease;
+    overflow: visible;
+    /* Soft bottom fade ONLY (never at the top) */
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 84%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 0%, #000 84%, transparent 100%);
 }
 
 body.light-mode .interactive-portrait-stage {
@@ -329,28 +356,34 @@ body:not(.light-mode) .interactive-portrait-stage {
 
 /* HTML5 Canvas Eye Tracking Stage */
 .hero-portrait-canvas {
-    width: 100%;
     height: 100%;
+    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
     display: block;
     pointer-events: none;
     user-select: none;
     object-fit: contain;
+    object-position: bottom center;
 }
 
-/* 5. Floating Interactive Stat Chips */
+/* ==========================================================================
+   FLOATING STAT CHIPS: Positioned Outside the Face Area (Shoulder/Chest)
+   Z-Index 2 (Behind Cutout Face, Above Background Lettering)
+   ========================================================================== */
 .hero-stat-chip {
     position: absolute;
-    z-index: 4;
+    z-index: 2;
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    padding: 8px 16px;
+    gap: 7px;
+    padding: 6px 13px;
     border-radius: 999px;
-    background: rgba(18, 18, 24, 0.75);
+    background: rgba(18, 18, 24, 0.78);
     border: 1px solid rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35), 0 0 20px rgba(255, 59, 31, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35), 0 0 16px rgba(255, 59, 31, 0.08);
     cursor: default;
     user-select: none;
     transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
@@ -358,73 +391,80 @@ body:not(.light-mode) .interactive-portrait-stage {
 }
 
 body.light-mode .hero-stat-chip {
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.88);
     border: 1px solid rgba(0, 0, 0, 0.10);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
 .hero-stat-chip:hover {
     transform: scale(1.05) translateY(-3px) !important;
     border-color: rgba(255, 59, 31, 0.45);
-    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45), 0 0 25px rgba(255, 59, 31, 0.22);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.45), 0 0 22px rgba(255, 59, 31, 0.22);
 }
 
 .chip-icon {
-    font-size: 0.9rem;
+    font-size: 0.78rem;
     color: var(--accent-ember, #ff3b1f);
 }
 
 .chip-text {
     font-family: var(--font-mono, 'JetBrains Mono', monospace);
-    font-size: 0.80rem;
-    letter-spacing: 0.04em;
+    font-size: 0.74rem;
+    letter-spacing: 0.03em;
     color: var(--text-primary);
     font-weight: 500;
 }
 
-/* Out-of-phase floating animations */
+/* Specific Placements: Outside the face, at shoulder & chest level */
+/* 1. "8+ Projects Shipped": Left of shoulder/chest level (Y ~50%, X outside left) */
 .chip-top-left {
-    top: 14%;
-    left: -16%;
+    top: 50%;
+    left: -8%;
     animation: floatChip1 5.2s ease-in-out infinite;
 }
 
-.chip-bottom-left {
-    bottom: 24%;
-    left: -12%;
-    animation: floatChip2 6.1s ease-in-out infinite;
-}
-
+/* 2. "Open for Work": Right of shoulder/chest level (Y ~54%, X outside right) */
 .chip-top-right {
-    top: 20%;
-    right: -16%;
+    top: 54%;
+    right: -8%;
     animation: floatChip3 5.6s ease-in-out infinite;
 }
 
+/* 3. "MERN + AI Architectures": Lower torso / waist level (Y ~84%, X outside left) */
+.chip-bottom-left {
+    bottom: 12%;
+    left: -2%;
+    animation: floatChip2 6.1s ease-in-out infinite;
+}
+
 @keyframes floatChip1 {
-    0%, 100% { transform: translate(0, 0); }
-    50% { transform: translate(-3px, -8px); }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
 }
 
 @keyframes floatChip2 {
-    0%, 100% { transform: translate(0, 0); }
-    50% { transform: translate(4px, -7px); }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
 }
 
 @keyframes floatChip3 {
-    0%, 100% { transform: translate(0, 0); }
-    50% { transform: translate(3px, -9px); }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
 }
 
-/* 6. Right Column: Description & Magnetic CTAs */
+/* ==========================================================================
+   RIGHT COLUMN: Description & Magnetic CTAs (~24% width)
+   ========================================================================== */
 .hero-col-right {
     align-self: center;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     text-align: right;
-    gap: 1.15rem;
-    padding-bottom: 2.2rem;
+    gap: clamp(0.75rem, 1.2vh, 1.15rem);
+    padding-bottom: 1.5rem;
+    max-width: 100%;
+    width: 100%;
     opacity: 0;
     transform: translateY(24px);
     transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
@@ -440,7 +480,7 @@ body.light-mode .hero-stat-chip {
     align-items: center;
     gap: 10px;
     font-family: var(--font-mono, 'JetBrains Mono', monospace);
-    font-size: 0.78rem;
+    font-size: 0.76rem;
     letter-spacing: 0.14em;
     color: var(--text-muted);
 }
@@ -453,29 +493,29 @@ body.light-mode .hero-stat-chip {
 }
 
 .hero-statement {
-    font-size: 1.05rem;
-    line-height: 1.65;
+    font-size: clamp(0.92rem, 1.02vw, 1rem);
+    line-height: 1.6;
     color: var(--text-secondary);
-    max-width: 380px;
+    max-width: 360px;
     margin: 0;
 }
 
 .hero-ctas-wrap {
     display: flex;
-    gap: 12px;
+    gap: 10px;
     align-items: center;
-    margin-top: 6px;
+    margin-top: 4px;
 }
 
 .btn-hero-cta {
     position: relative;
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    padding: 12px 24px;
+    gap: 8px;
+    padding: 11px 22px;
     font-family: var(--font-mono, 'JetBrains Mono', monospace);
-    font-size: 0.86rem;
-    letter-spacing: 0.06em;
+    font-size: 0.82rem;
+    letter-spacing: 0.05em;
     font-weight: 600;
     text-transform: uppercase;
     text-decoration: none;
@@ -489,11 +529,11 @@ body.light-mode .hero-stat-chip {
     background: var(--accent-ember, #ff3b1f);
     color: #ffffff;
     border: 1px solid var(--accent-ember, #ff3b1f);
-    box-shadow: 0 8px 24px rgba(255, 59, 31, 0.35);
+    box-shadow: 0 8px 22px rgba(255, 59, 31, 0.35);
 }
 
 .btn-hero-cta.btn-primary:hover {
-    box-shadow: 0 12px 32px rgba(255, 59, 31, 0.55);
+    box-shadow: 0 12px 30px rgba(255, 59, 31, 0.55);
 }
 
 .btn-hero-cta.btn-outline {
@@ -516,7 +556,7 @@ body.light-mode .btn-hero-cta.btn-outline {
     align-items: center;
     gap: 8px;
     font-family: var(--font-mono, 'JetBrains Mono', monospace);
-    font-size: 0.76rem;
+    font-size: 0.74rem;
     color: var(--text-muted);
 }
 
@@ -529,16 +569,23 @@ body.light-mode .btn-hero-cta.btn-outline {
     animation: pulseGlow 2.4s infinite ease-in-out;
 }
 
-/* 7. Bottom Bar: Scroll Indicator & Quick Tech */
+/* 4. Bottom Bar: Scroll Indicator & Quick Tech */
 .hero-bottom-bar {
     position: relative;
     z-index: 10;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 14px;
+    padding-top: 12px;
     border-top: 1px solid rgba(255, 255, 255, 0.06);
     margin-top: auto;
+    width: 100%;
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+    box-sizing: border-box;
 }
 
 body.light-mode .hero-bottom-bar {
@@ -551,7 +598,7 @@ body.light-mode .hero-bottom-bar {
     gap: 10px;
     text-decoration: none;
     font-family: var(--font-mono, 'JetBrains Mono', monospace);
-    font-size: 0.76rem;
+    font-size: 0.74rem;
     letter-spacing: 0.14em;
     color: var(--text-muted);
     transition: color 0.3s ease;
@@ -583,7 +630,7 @@ body.light-mode .hero-bottom-bar {
     align-items: center;
     gap: 10px;
     font-family: var(--font-mono, 'JetBrains Mono', monospace);
-    font-size: 0.76rem;
+    font-size: 0.74rem;
     letter-spacing: 0.08em;
     color: var(--text-muted);
 }
@@ -594,20 +641,41 @@ body.light-mode .hero-bottom-bar {
 }
 
 /* ==========================================================================
-   RESPONSIVE DESIGN (TABLET & MOBILE)
+   RESPONSIVE DESIGN & VIEWPORT TUNING
    ========================================================================== */
 
-/* Tablet & Smaller Desktops (<1024px) */
+/* Medium Desktops / Laptops (1200px - 1440px) */
+@media (max-width: 1440px) {
+    .chip-top-left { left: -10%; }
+    .chip-top-right { right: -10%; }
+    .chip-bottom-left { left: -6%; }
+}
+
+/* Small Desktops / Tablets Landscape (<1200px) */
+@media (max-width: 1200px) {
+    .hero-editorial-grid {
+        gap: 1.2rem;
+    }
+    .chip-top-left { left: -6%; }
+    .chip-top-right { right: -6%; }
+    .chip-bottom-left { left: -2%; }
+}
+
+/* Tablet Portrait & Smaller Screens (<1024px) */
 @media (max-width: 1024px) {
     .hero-editorial-grid {
         grid-template-columns: 1fr 1fr;
-        gap: 2rem;
+        gap: 1.8rem;
     }
 
     .hero-col-center {
         grid-column: 1 / -1;
         order: 2;
-        margin: 1rem auto;
+        margin: 0.5rem auto 0;
+    }
+
+    .interactive-portrait-stage {
+        height: clamp(420px, 60vh, 600px);
     }
 
     .hero-col-left {
@@ -623,15 +691,15 @@ body.light-mode .hero-bottom-bar {
         padding-bottom: 1rem;
     }
 
-    .chip-top-left { left: -8%; }
-    .chip-top-right { right: -8%; }
-    .chip-bottom-left { left: -6%; }
+    .chip-top-left { left: -4%; }
+    .chip-top-right { right: -4%; }
+    .chip-bottom-left { left: -2%; }
 }
 
 /* Mobile Devices (<768px) */
 @media (max-width: 768px) {
     .cinematic-hero {
-        padding-top: 76px;
+        padding-top: 80px;
         min-height: auto;
         padding-bottom: 24px;
     }
@@ -640,7 +708,7 @@ body.light-mode .hero-bottom-bar {
         display: flex;
         flex-direction: column;
         gap: 1.2rem;
-        padding: 0 1rem;
+        padding: 0 16px;
     }
 
     .hero-col-left {
@@ -652,7 +720,7 @@ body.light-mode .hero-bottom-bar {
     }
 
     .hero-roles-stack .role-line {
-        font-size: clamp(1.8rem, 7.8vw, 2.6rem);
+        font-size: clamp(1.75rem, 7.5vw, 2.4rem);
         line-height: 0.96;
     }
 
@@ -664,43 +732,45 @@ body.light-mode .hero-bottom-bar {
     .hero-col-center {
         order: 2;
         width: 100%;
-        margin: 0.4rem auto;
+        margin: 0.5rem auto 0;
     }
 
     .interactive-portrait-stage {
-        width: min(310px, 46vh, 86vw);
+        height: clamp(340px, 48vh, 440px);
+        width: auto;
+        aspect-ratio: 1 / 1;
         margin-bottom: 0;
     }
 
     .hero-stat-chip {
         position: absolute;
-        padding: 5px 11px;
+        padding: 5px 10px;
         backdrop-filter: blur(12px);
     }
 
     .chip-top-left {
-        top: 4%;
-        left: -4%;
+        top: 54%;
+        left: -3%;
         transform: scale(0.82) !important;
         animation: none !important;
     }
 
     .chip-top-right {
-        top: 8%;
-        right: -4%;
+        top: 56%;
+        right: -3%;
         transform: scale(0.82) !important;
         animation: none !important;
     }
 
     .chip-bottom-left {
-        bottom: 14%;
+        bottom: 8%;
         left: -2%;
         transform: scale(0.82) !important;
         animation: none !important;
     }
 
     .chip-text {
-        font-size: 0.72rem;
+        font-size: 0.70rem;
     }
 
     .hero-col-right {
@@ -726,8 +796,8 @@ body.light-mode .hero-bottom-bar {
     }
 
     .btn-hero-cta {
-        padding: 11px 18px;
-        font-size: 0.80rem;
+        padding: 10px 18px;
+        font-size: 0.78rem;
         flex: 1;
         justify-content: center;
     }
