@@ -1,4 +1,5 @@
 import { supabase } from './supabaseClient.js';
+import { ConstellationSection } from './ProjectsConstellation/ConstellationSection.js';
 
 /* ==========================================================================
    MARCUS VANE CINEMATIC INTERACTIVE ENGINE — SEJAL SONI PORTFOLIO
@@ -7,7 +8,7 @@ import { supabase } from './supabaseClient.js';
    - Towering Hero Parallax Tilt (Foreground Portrait vs Towering Wordmark)
    - Precision Custom Cursor with Magnetic Tracking
    - Interactive Voices / Testimonials Switcher
-   - Filterable Ventures Gallery
+   - Project Constellation Celestial Map
    - 1-Click Email Copy Pill
    - Supabase Connected Contact Form
    - Interactive Project Sandbox Modals
@@ -22,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
     initEyeTracking();
     initEyeBlinking();
+    initConstellationSection();
     initScrollReveal();
     initVenturesFilter();
     initVoicesSwitcher();
@@ -527,6 +529,20 @@ function initScrollReveal() {
             }
         });
     }, 300);
+}
+
+/* ==========================================================================
+   6B. PROJECT CONSTELLATION SECTION ENGINE
+   ========================================================================== */
+function initConstellationSection() {
+    const venturesSection = document.getElementById('ventures');
+    if (venturesSection) {
+        try {
+            window.constellationInstance = new ConstellationSection(venturesSection);
+        } catch (err) {
+            console.error('Failed to initialize Project Constellation:', err);
+        }
+    }
 }
 
 /* ==========================================================================

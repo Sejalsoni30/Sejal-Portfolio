@@ -1,0 +1,1305 @@
+/* ==============================================================================
+   PROJECT CONSTELLATION — CINEMATIC CELESTIAL STYLESHEET
+   Design Language: Marcus Vane Cosmic Void / Electric Accents / 60FPS Micro-Interactions
+   ============================================================================== */
+
+/* --- Constellation Section Outer Wrapper --- */
+.constellation-section {
+    position: relative;
+    padding: clamp(80px, 10vw, 130px) 0;
+    background: var(--bg-primary);
+    overflow: hidden;
+    isolation: isolate;
+}
+
+/* Cosmic Ambient Background Glows */
+.constellation-bg-glow {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: 
+        radial-gradient(circle at 50% 45%, rgba(255, 59, 31, 0.08) 0%, transparent 60%),
+        radial-gradient(circle at 80% 20%, rgba(0, 240, 255, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 15% 75%, rgba(192, 132, 252, 0.06) 0%, transparent 50%);
+    z-index: 0;
+}
+
+.constellation-grid-pattern {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-size: 60px 60px;
+    background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+    mask-image: radial-gradient(ellipse at 50% 50%, rgba(0, 0, 0, 1) 30%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse at 50% 50%, rgba(0, 0, 0, 1) 30%, transparent 80%);
+    z-index: 0;
+}
+
+.constellation-header-container {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 2rem;
+}
+
+.constellation-subtitle {
+    margin-top: 0.75rem;
+    max-width: 680px;
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: var(--text-secondary);
+}
+
+.constellation-telemetry-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 16px;
+    border-radius: 9999px;
+    background: rgba(255, 59, 31, 0.06);
+    border: 1px solid rgba(255, 59, 31, 0.25);
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.12em;
+    color: var(--accent-ember-bright);
+    white-space: nowrap;
+}
+
+.constellation-telemetry-badge .pulse-beacon {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent-ember);
+    box-shadow: 0 0 10px var(--accent-ember);
+    animation: beacon-pulse 2s infinite ease-in-out;
+}
+
+@keyframes beacon-pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.4); opacity: 0.4; }
+}
+
+/* ==============================================================================
+   FILTER BAR (ASTRONOMICAL SPECTRUM)
+   ============================================================================== */
+.constellation-filter-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 1.75rem;
+    padding-bottom: 6px;
+}
+
+.constellation-filter-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 8px 18px;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    user-select: none;
+}
+
+.constellation-filter-pill:hover {
+    color: var(--text-primary);
+    border-color: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.07);
+    transform: translateY(-1px);
+}
+
+.constellation-filter-pill.active {
+    color: #ffffff;
+    background: rgba(255, 59, 31, 0.14);
+    border-color: var(--accent-ember);
+    box-shadow: 0 0 20px rgba(255, 59, 31, 0.2);
+}
+
+.constellation-filter-pill .filter-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.constellation-filter-pill .filter-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    font-size: 0.68rem;
+    color: inherit;
+    margin-left: 2px;
+}
+
+.constellation-filter-pill.active .filter-count {
+    background: var(--accent-ember);
+    color: #ffffff;
+}
+
+/* ==============================================================================
+   CONSTELLATION CANVAS STAGE
+   ============================================================================== */
+.constellation-stage {
+    position: relative;
+    width: 100%;
+    height: clamp(600px, 78vh, 880px);
+    margin: 1.5rem auto 0;
+    border-radius: 20px;
+    background: radial-gradient(circle at 50% 50%, rgba(12, 12, 18, 0.95) 0%, rgba(6, 6, 9, 0.98) 100%);
+    border: 1px solid var(--border-subtle);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), inset 0 0 100px rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+    user-select: none;
+}
+
+.constellation-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    cursor: grab;
+    z-index: 1;
+}
+
+.constellation-canvas:active {
+    cursor: grabbing;
+}
+
+.constellation-nodes-layer {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* ==============================================================================
+   INTERACTIVE CELESTIAL PLANETARY NODES
+   ============================================================================== */
+.constellation-node-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    transition: opacity 0.4s var(--ease-out-expo), filter 0.4s var(--ease-out-expo);
+    will-change: transform;
+}
+
+.constellation-node-wrapper.dimmed {
+    opacity: 0.15;
+    filter: grayscale(0.85);
+    pointer-events: none !important;
+}
+
+.constellation-node-btn {
+    pointer-events: auto;
+    position: relative;
+    transform: translate(-50%, -50%);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+/* Size Scalers */
+.size-flagship .constellation-node-btn {
+    width: 58px;
+    height: 58px;
+}
+.size-large .constellation-node-btn {
+    width: 48px;
+    height: 48px;
+}
+.size-medium .constellation-node-btn {
+    width: 38px;
+    height: 38px;
+}
+
+/* Orbit Spinning Ring */
+.node-orbit-ring {
+    position: absolute;
+    inset: -10px;
+    border-radius: 50%;
+    border: 1px dashed var(--cat-color, #ff3b1f);
+    opacity: 0.45;
+    animation: orbit-spin 24s linear infinite;
+    pointer-events: none;
+}
+
+.size-flagship .node-orbit-ring {
+    inset: -14px;
+    border-width: 1.5px;
+    border-style: dotted;
+    opacity: 0.65;
+}
+
+@keyframes orbit-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Atmospheric Halo */
+.node-halo {
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--cat-glow, rgba(255, 59, 31, 0.4)) 0%, transparent 70%);
+    filter: blur(4px);
+    opacity: 0.75;
+    animation: halo-breathe 4s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+
+@keyframes halo-breathe {
+    0% { transform: scale(0.92); opacity: 0.6; }
+    100% { transform: scale(1.15); opacity: 0.95; }
+}
+
+/* Core Planet Sphere */
+.node-core {
+    position: relative;
+    width: 65%;
+    height: 65%;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #ffffff 0%, var(--cat-color, #ff3b1f) 45%, #08080d 100%);
+    box-shadow: 
+        0 0 20px var(--cat-color, #ff3b1f),
+        inset 0 0 10px rgba(255, 255, 255, 0.8);
+    transition: transform 0.3s var(--ease-out-expo), box-shadow 0.3s var(--ease-out-expo);
+}
+
+.constellation-node-btn:hover .node-core,
+.constellation-node-btn:focus-visible .node-core,
+.constellation-node-wrapper.active-node .node-core {
+    transform: scale(1.22);
+    box-shadow: 
+        0 0 35px var(--cat-color, #ff3b1f),
+        0 0 15px #ffffff,
+        inset 0 0 14px rgba(255, 255, 255, 1);
+}
+
+/* Active HUD Reticle */
+.node-hud-reticle {
+    position: absolute;
+    inset: -18px;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.constellation-node-btn:focus-visible .node-hud-reticle,
+.constellation-node-wrapper.active-node .node-hud-reticle {
+    border-color: #00f0ff;
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.45);
+    animation: reticle-pulse 2s infinite ease-in-out;
+}
+
+@keyframes reticle-pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.08); opacity: 0.55; }
+}
+
+/* Node Label Pill */
+.node-label {
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    background: rgba(8, 8, 12, 0.88);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 9999px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    white-space: nowrap;
+    transition: all 0.25s var(--ease-out-expo);
+    pointer-events: none;
+}
+
+.node-label-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+}
+
+.node-label-text {
+    font-family: var(--font-heading);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: #e4e4e7;
+    text-transform: uppercase;
+}
+
+.constellation-node-btn:hover .node-label,
+.constellation-node-btn:focus-visible .node-label {
+    background: rgba(18, 18, 26, 0.96);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateX(-50%) translateY(2px);
+}
+
+/* ==============================================================================
+   FLOATING HUD TOOLTIP
+   ============================================================================== */
+.constellation-tooltip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 280px;
+    padding: 18px;
+    border-radius: 14px;
+    background: rgba(12, 12, 18, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 59, 31, 0.08);
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translate3d(0, 0, 0) scale(0.95);
+    transition: opacity 0.25s var(--ease-out-expo), transform 0.25s var(--ease-out-expo), visibility 0.25s;
+    z-index: 10;
+}
+
+.constellation-tooltip.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translate3d(var(--x, 0), var(--y, 0), 0) scale(1);
+}
+
+.tooltip-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.tooltip-category-badge {
+    font-family: var(--font-mono);
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    padding: 2px 7px;
+    border-radius: 4px;
+    border: 1px solid currentColor;
+}
+
+.tooltip-status-pill {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    padding: 2px 6px;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.08);
+    color: #a1a1aa;
+}
+
+.tooltip-status-pill.status-live {
+    background: rgba(16, 185, 129, 0.15);
+    color: #34d399;
+}
+.tooltip-status-pill.status-in-progress {
+    background: rgba(245, 158, 11, 0.15);
+    color: #fbbf24;
+}
+.tooltip-status-pill.status-research {
+    background: rgba(192, 132, 252, 0.15);
+    color: #c084fc;
+}
+
+.tooltip-title {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 4px;
+}
+
+.tooltip-tagline {
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: #a1a1aa;
+    margin-bottom: 12px;
+}
+
+.tooltip-tech-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 12px;
+}
+
+.tip-chip {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.06);
+    color: #d4d4d8;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.tooltip-cta-hint {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--accent-ember-bright);
+}
+
+/* ==============================================================================
+   HOLOGRAPHIC CORNER RADAR MINI-MAP
+   ============================================================================== */
+.constellation-minimap-container {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    z-index: 5;
+    pointer-events: auto;
+}
+
+.constellation-minimap-hud {
+    padding: 10px;
+    border-radius: 16px;
+    background: rgba(8, 8, 14, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    width: 150px;
+}
+
+.minimap-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    color: var(--text-muted);
+}
+
+.minimap-led {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #10b981;
+    box-shadow: 0 0 8px #10b981;
+}
+
+.minimap-radar-frame {
+    position: relative;
+    width: 130px;
+    height: 130px;
+    margin: 0 auto;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.minimap-canvas {
+    display: block;
+    border-radius: 50%;
+}
+
+.minimap-blips-layer {
+    position: absolute;
+    inset: 0;
+    pointer-events: auto;
+}
+
+.minimap-blip {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--blip-color, #ff3b1f);
+    border: 1px solid #ffffff;
+    box-shadow: 0 0 6px var(--blip-color, #ff3b1f);
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    padding: 0;
+    outline: none;
+    transition: transform 0.2s ease;
+}
+
+.minimap-blip:hover,
+.minimap-blip.active {
+    transform: translate(-50%, -50%) scale(1.6);
+    box-shadow: 0 0 12px #ffffff;
+}
+
+.minimap-footer {
+    margin-top: 8px;
+    text-align: center;
+}
+
+.minimap-active-name {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.05em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Stage Bottom Hint Bar */
+.constellation-hint-bar {
+    position: absolute;
+    bottom: 20px;
+    right: 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 8px 16px;
+    border-radius: 9999px;
+    background: rgba(8, 8, 14, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    color: var(--text-muted);
+    z-index: 5;
+    pointer-events: none;
+}
+
+.constellation-hint-bar i {
+    color: var(--accent-ember);
+    margin-right: 4px;
+}
+
+/* ==============================================================================
+   SLIDE-IN MISSION BRIEFING PANEL (CASE-STUDY INSPECTOR)
+   ============================================================================== */
+.mission-briefing-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(3, 3, 6, 0.78);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 1050;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.4s var(--ease-out-expo), visibility 0.4s;
+}
+
+.mission-briefing-overlay.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+}
+
+.mission-briefing-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: min(580px, 94vw);
+    height: 100vh;
+    height: 100dvh;
+    background: #09090e;
+    border-left: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: -20px 0 60px rgba(0, 0, 0, 0.95), 0 0 40px rgba(255, 59, 31, 0.08);
+    z-index: 1060;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transform: translate3d(105%, 0, 0);
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.45s;
+    visibility: hidden;
+    overflow: hidden;
+    outline: none;
+}
+
+.mission-briefing-panel.open {
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+}
+
+/* Header */
+.briefing-drag-bar {
+    display: none;
+    width: 44px;
+    height: 4px;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 12px auto 4px;
+}
+
+.briefing-header {
+    padding: 32px 32px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(14, 14, 20, 0.6);
+}
+
+.briefing-meta-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.briefing-code {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    color: var(--accent-ember-bright);
+    font-weight: 600;
+}
+
+.briefing-status-pill {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    padding: 3px 10px;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.08);
+    color: #a1a1aa;
+}
+
+.briefing-status-pill.status-live {
+    background: rgba(16, 185, 129, 0.15);
+    color: #34d399;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+.briefing-status-pill.status-in-progress {
+    background: rgba(245, 158, 11, 0.15);
+    color: #fbbf24;
+    border: 1px solid rgba(245, 158, 11, 0.3);
+}
+.briefing-status-pill.status-research {
+    background: rgba(192, 132, 252, 0.15);
+    color: #c084fc;
+    border: 1px solid rgba(192, 132, 252, 0.3);
+}
+
+.briefing-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.briefing-title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.4rem, 4vw, 1.85rem);
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+}
+
+.briefing-close-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #e4e4e7;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.briefing-close-btn:hover {
+    color: #ffffff;
+    background: rgba(255, 59, 31, 0.2);
+    border-color: var(--accent-ember);
+}
+
+.briefing-close-btn .esc-hint {
+    font-size: 0.65rem;
+    color: var(--text-muted);
+}
+
+.briefing-tagline {
+    margin-top: 8px;
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: #a1a1aa;
+}
+
+/* Scrollable Body */
+.briefing-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 24px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Media Showcase */
+.briefing-media-frame {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #050508;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+}
+
+.media-viewport {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+}
+
+.briefing-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s var(--ease-out-expo);
+}
+
+.media-viewport:hover .briefing-image {
+    transform: scale(1.04);
+}
+
+.media-scanline {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0) 0px,
+        rgba(255, 255, 255, 0) 2px,
+        rgba(0, 0, 0, 0.25) 3px,
+        rgba(0, 0, 0, 0.25) 4px
+    );
+    opacity: 0.55;
+}
+
+.media-hud-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    padding: 10px 14px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.hud-tag {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    padding: 3px 8px;
+    background: rgba(0, 0, 0, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+    color: #ffffff;
+}
+
+.hud-crosshair {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--font-mono);
+    font-size: 1.2rem;
+    color: rgba(255, 59, 31, 0.4);
+}
+
+/* Problem -> Solution -> Impact Matrix */
+.briefing-matrix {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.matrix-card {
+    padding: 16px 18px;
+    border-radius: 10px;
+    background: rgba(14, 14, 20, 0.7);
+    border-left: 3px solid var(--accent-ember);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.matrix-card.card-problem {
+    border-left-color: #f43f5e;
+}
+.matrix-card.card-solution {
+    border-left-color: #00f0ff;
+}
+.matrix-card.card-impact {
+    border-left-color: #10b981;
+}
+
+.matrix-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #d4d4d8;
+    margin-bottom: 6px;
+}
+
+.card-problem .matrix-label { color: #f43f5e; }
+.card-solution .matrix-label { color: #00f0ff; }
+.card-impact .matrix-label { color: #10b981; }
+
+.matrix-text {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: #d1d5db;
+}
+
+/* Tech Stack Arsenal */
+.briefing-section-title {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+}
+
+.briefing-tech-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.briefing-chip {
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    padding: 5px 12px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #f4f4f5;
+    transition: all var(--transition-fast);
+}
+
+.briefing-chip:hover {
+    border-color: var(--accent-ember);
+    background: rgba(255, 59, 31, 0.08);
+}
+
+/* Action Buttons */
+.briefing-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding-top: 8px;
+}
+
+.briefing-btn-live {
+    flex: 1;
+    min-width: 180px;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 24px;
+}
+
+.briefing-btn-github {
+    flex: 1;
+    min-width: 180px;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 24px;
+}
+
+/* Footer / Prev & Next Controls */
+.briefing-footer {
+    padding: 20px 32px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(14, 14, 20, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.briefing-nav-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 14px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #e4e4e7;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    outline: none;
+}
+
+.briefing-nav-btn:hover,
+.briefing-nav-btn:focus-visible {
+    border-color: var(--accent-ember);
+    background: rgba(255, 59, 31, 0.1);
+    color: #ffffff;
+}
+
+.briefing-nav-btn .nav-sub {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+}
+
+.briefing-nav-btn .nav-target-name {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.briefing-nav-dots {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.briefing-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.briefing-dot.active {
+    width: 14px;
+    border-radius: 9999px;
+    background: var(--accent-ember);
+    box-shadow: 0 0 8px var(--accent-ember);
+}
+
+/* ==============================================================================
+   MOBILE STAR TRAIL TIMELINE (< 768PX)
+   ============================================================================== */
+.constellation-mobile-trail {
+    display: none;
+    position: relative;
+    padding: 2rem 0;
+}
+
+@media (max-width: 768px) {
+    .constellation-stage {
+        display: none !important; /* Switch completely to Star Trail on mobile */
+    }
+
+    .constellation-minimap-container {
+        display: none;
+    }
+
+    .constellation-hint-bar {
+        display: none;
+    }
+
+    .constellation-mobile-trail {
+        display: block;
+    }
+
+    .trail-central-beam {
+        position: absolute;
+        top: 20px;
+        bottom: 20px;
+        left: 28px;
+        width: 2px;
+        background: linear-gradient(to bottom, rgba(255, 59, 31, 0.8), rgba(0, 240, 255, 0.8), rgba(192, 132, 252, 0.8), rgba(16, 185, 129, 0.8));
+        box-shadow: 0 0 10px rgba(255, 59, 31, 0.4);
+    }
+
+    .trail-nodes-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .trail-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 18px;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .trail-beacon-col {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .trail-orb {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: var(--cat-color, #ff3b1f);
+        box-shadow: 0 0 15px var(--cat-glow, rgba(255, 59, 31, 0.6));
+        border: 2px solid #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .trail-orb .orb-core {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #ffffff;
+    }
+
+    .trail-step-num {
+        font-family: var(--font-mono);
+        font-size: 0.62rem;
+        color: var(--text-muted);
+    }
+
+    .trail-card {
+        flex: 1;
+        padding: 18px;
+        border-radius: 14px;
+        background: var(--bg-card);
+        border: 1px solid var(--border-subtle);
+        transition: transform var(--transition-fast), border-color var(--transition-fast);
+    }
+
+    .trail-item:hover .trail-card,
+    .trail-item.active .trail-card {
+        border-color: var(--accent-ember);
+        transform: translateX(4px);
+    }
+
+    .trail-card-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 8px;
+    }
+
+    .trail-cat-badge {
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        padding: 2px 6px;
+        border-radius: 4px;
+        border: 1px solid currentColor;
+    }
+
+    .trail-status-pill {
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        color: #a1a1aa;
+    }
+
+    .trail-title {
+        font-family: var(--font-heading);
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: #ffffff;
+        margin-bottom: 4px;
+    }
+
+    .trail-tagline {
+        font-size: 0.85rem;
+        line-height: 1.5;
+        color: #a1a1aa;
+        margin-bottom: 12px;
+    }
+
+    .trail-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-bottom: 14px;
+    }
+
+    .trail-chip {
+        font-family: var(--font-mono);
+        font-size: 0.68rem;
+        padding: 2px 7px;
+        border-radius: 4px;
+        background: rgba(255, 255, 255, 0.05);
+        color: #d4d4d8;
+    }
+
+    .trail-inspect-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Mobile Bottom Sheet Adaptation for Mission Briefing */
+    .mission-briefing-panel {
+        top: auto;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        width: 100%;
+        max-height: 88vh;
+        border-left: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 20px 20px 0 0;
+        transform: translate3d(0, 105%, 0);
+    }
+
+    .mission-briefing-panel.open {
+        transform: translate3d(0, 0, 0);
+    }
+
+    .briefing-drag-bar {
+        display: block;
+    }
+
+    .briefing-header {
+        padding: 16px 20px 14px;
+    }
+
+    .briefing-body {
+        padding: 16px 20px;
+    }
+
+    .briefing-footer {
+        padding: 14px 20px;
+    }
+}
+
+/* ==============================================================================
+   LIGHT MODE OVERRIDES
+   ============================================================================== */
+body.light-mode .constellation-section {
+    background: #f4f4f7;
+}
+
+body.light-mode .constellation-stage {
+    background: radial-gradient(circle at 50% 50%, rgba(240, 240, 245, 0.98) 0%, rgba(230, 230, 238, 0.98) 100%);
+    border-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12), inset 0 0 80px rgba(0, 0, 0, 0.04);
+}
+
+body.light-mode .constellation-filter-pill {
+    background: rgba(0, 0, 0, 0.04);
+    border-color: rgba(0, 0, 0, 0.1);
+    color: #3f3f46;
+}
+
+body.light-mode .constellation-filter-pill:hover {
+    background: rgba(0, 0, 0, 0.08);
+    color: #0c0d14;
+}
+
+body.light-mode .constellation-filter-pill.active {
+    background: rgba(230, 46, 18, 0.1);
+    border-color: var(--accent-ember);
+    color: var(--accent-ember);
+}
+
+body.light-mode .node-label {
+    background: rgba(255, 255, 255, 0.92);
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .node-label-text {
+    color: #0c0d14;
+}
+
+body.light-mode .constellation-tooltip {
+    background: rgba(255, 255, 255, 0.96);
+    border-color: rgba(0, 0, 0, 0.12);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
+}
+
+body.light-mode .tooltip-title {
+    color: #0c0d14;
+}
+
+body.light-mode .constellation-minimap-hud {
+    background: rgba(255, 255, 255, 0.94);
+    border-color: rgba(0, 0, 0, 0.12);
+}
+
+body.light-mode .constellation-hint-bar {
+    background: rgba(255, 255, 255, 0.88);
+    border-color: rgba(0, 0, 0, 0.12);
+    color: #52525b;
+}
+
+body.light-mode .mission-briefing-panel {
+    background: #ffffff;
+    border-left-color: rgba(0, 0, 0, 0.12);
+    box-shadow: -20px 0 60px rgba(0, 0, 0, 0.2);
+}
+
+body.light-mode .briefing-header,
+body.light-mode .briefing-footer {
+    background: #f9f9fb;
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+body.light-mode .briefing-title {
+    color: #0c0d14;
+}
+
+body.light-mode .matrix-card {
+    background: #f4f4f7;
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+body.light-mode .matrix-text {
+    color: #1f2937;
+}
+
+/* ==============================================================================
+   REDUCED MOTION SUPPORT
+   ============================================================================== */
+@media (prefers-reduced-motion: reduce) {
+    .node-orbit-ring,
+    .node-halo,
+    .constellation-telemetry-badge .pulse-beacon {
+        animation: none !important;
+    }
+
+    .mission-briefing-panel {
+        transition: opacity 0.3s ease !important;
+    }
+
+    .constellation-node-btn .node-core {
+        transition: none !important;
+    }
+}
