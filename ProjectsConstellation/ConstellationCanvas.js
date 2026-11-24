@@ -186,10 +186,6 @@ export class ConstellationCanvas {
         }
     }
 
-    draw() {
-        this.render();
-    }
-
     stop() {
         if (this.animId) {
             cancelAnimationFrame(this.animId);
@@ -454,3 +450,4 @@ export class ConstellationCanvas {
         this.motionMediaQuery.removeEventListener('change', this.handleMotionChange);
     }
 }
+

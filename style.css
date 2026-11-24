@@ -1134,9 +1134,9 @@ body.light-mode .hero-status-pill {
 .interactive-portrait-stage {
     position: relative;
     width: min(430px, 56vh, 85vw);
-    aspect-ratio: 1086 / 1448;
+    aspect-ratio: 1 / 1;
     margin: 0 auto;
-    margin-bottom: -14.2%;
+    margin-bottom: -10%;
     user-select: none;
     -webkit-user-select: none;
     display: block;

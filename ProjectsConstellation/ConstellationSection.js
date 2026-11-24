@@ -180,13 +180,6 @@ export class ConstellationSection {
 
                 this.activeCategory = pill.getAttribute('data-filter') || 'all';
 
-                if (this.nodesOverlay) {
-                    this.nodesOverlay.updateNodePositions();
-                }
-                if (this.canvasEngine && typeof this.canvasEngine.render === 'function') {
-                    this.canvasEngine.render();
-                }
-
                 // Update mobile star trail filtering as well
                 this.filterMobileTrail(this.activeCategory);
             });
@@ -280,3 +273,4 @@ export class ConstellationSection {
         if (this.briefing) this.briefing.destroy();
     }
 }
+

@@ -1,10 +1,12 @@
 import { supabase } from './supabaseClient.js';
 import { ConstellationSection } from './ProjectsConstellation/ConstellationSection.js';
+import { HeroSection } from './HeroSection/HeroSection.js';
 
 /* ==========================================================================
    MARCUS VANE CINEMATIC INTERACTIVE ENGINE — SEJAL SONI PORTFOLIO
    Features: 
    - Marcus Vane Cinematic Preloader (0% -> 100%)
+   - Upgraded Canvas Eye-Tracking & Photoreal Blinking Hero Engine
    - Towering Hero Parallax Tilt (Foreground Portrait vs Towering Wordmark)
    - Precision Custom Cursor with Magnetic Tracking
    - Interactive Voices / Testimonials Switcher
@@ -21,8 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initCustomCursor();
     initNavbarScroll();
     initMobileMenu();
-    initEyeTracking();
-    initEyeBlinking();
+    new HeroSection();
     initConstellationSection();
     initScrollReveal();
     initVenturesFilter();
@@ -224,211 +225,9 @@ function initCustomCursor() {
 }
 
 /* ==========================================================================
-   4. INTERACTIVE EYE TRACKING & HERO DEPTH ENGINE
-   (Inspired by GSAP Vault Reactive Face Mesh: elliptical clamping, saccadic
-    quickTo response, dual-velocity head lag & idle micro-breathing)
+   4. INTERACTIVE HERO & EYE TRACKING ENGINE
+   (Now orchestrated via modular HeroSection / EyeTracker in ./HeroSection)
    ========================================================================== */
-function initEyeTracking() {
-    const hero = document.getElementById('hero');
-    const portraitStage = document.getElementById('hero-portrait-stage');
-    const pupilLeft = document.getElementById('pupil-left');
-    const pupilRight = document.getElementById('pupil-right');
-    const wordmark = document.getElementById('towering-wordmark');
-    const portraitWrap = document.getElementById('towering-portrait-wrap');
-
-    if (!hero || !portraitStage || !pupilLeft || !pupilRight) return;
-
-    // Check motion preference & touch capability
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const isTouchDevice = window.matchMedia('(pointer: coarse)').matches || (window.innerWidth <= 768);
-
-    if (prefersReducedMotion || isTouchDevice) {
-        pupilLeft.style.transform = 'translate3d(0, 0, 0)';
-        pupilRight.style.transform = 'translate3d(0, 0, 0)';
-        return;
-    }
-
-    let mouseX = window.innerWidth / 2;
-    let mouseY = window.innerHeight / 2;
-    let lastMouseX = mouseX;
-    let lastMouseY = mouseY;
-    let isInsideHero = false;
-
-    // Saccade & lerp interpolation positions (matching GSAP quickTo 0.16s power2.out)
-    let curDxL = 0, curDyL = 0;
-    let curDxR = 0, curDyR = 0;
-    let targetDxL = 0, targetDyL = 0;
-    let targetDxR = 0, targetDyR = 0;
-
-    // Head yaw/pitch parallax positions (matching GSAP 0.9s power3.out heavy lag)
-    let curParallaxX = 0, curParallaxY = 0;
-    let targetParallaxX = 0, targetParallaxY = 0;
-
-    let animTime = 0;
-
-    window.addEventListener('mousemove', (e) => {
-        // Deadzone threshold against micro-jitter
-        if (Math.hypot(e.clientX - lastMouseX, e.clientY - lastMouseY) > 1.5) {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            lastMouseX = mouseX;
-            lastMouseY = mouseY;
-        }
-
-        const heroRect = hero.getBoundingClientRect();
-        // Active when cursor is anywhere in or near the hero section
-        isInsideHero = (
-            e.clientY >= heroRect.top - 80 &&
-            e.clientY <= heroRect.bottom + 80 &&
-            e.clientX >= 0 &&
-            e.clientX <= window.innerWidth
-        );
-    }, { passive: true });
-
-    document.addEventListener('mouseleave', () => {
-        isInsideHero = false;
-    });
-
-    function renderGaze() {
-        animTime += 0.016;
-
-        const stageWidth = portraitStage.clientWidth || 360;
-        const scale = stageWidth / 1086;
-
-        if (!isInsideHero) {
-            // Smoothly glide back to neutral centered gaze & reset head yaw
-            targetDxL = 0;
-            targetDyL = 0;
-            targetDxR = 0;
-            targetDyR = 0;
-            targetParallaxX = 0;
-            targetParallaxY = 0;
-        } else {
-            const stageRect = portraitStage.getBoundingClientRect();
-
-            // Maximum realistic anatomical eye boundaries in pixels
-            // Human palpebral fissure: wider horizontally (~4.2px) than vertically (~2.4px)
-            const maxDx = 4.2 * scale;
-            const maxDy = 2.4 * scale;
-
-            // Left eye center on screen (37.29% width, 36.88% height)
-            const leftEyeX = stageRect.left + stageWidth * 0.3729;
-            const leftEyeY = stageRect.top + stageRect.height * 0.3688;
-
-            // Right eye center on screen (56.35% width, 36.95% height)
-            const rightEyeX = stageRect.left + stageWidth * 0.5635;
-            const rightEyeY = stageRect.top + stageRect.height * 0.3695;
-
-            // Left eye vector calculation with true anatomical ellipse clamping
-            const rawDxL = mouseX - leftEyeX;
-            const rawDyL = mouseY - leftEyeY;
-            const distL = Math.hypot(rawDxL, rawDyL);
-            const angleL = Math.atan2(rawDyL, rawDxL);
-            const cosL = Math.cos(angleL);
-            const sinL = Math.sin(angleL);
-            // Elliptical boundary constraint r(theta) = (a*b) / sqrt((b*cos)^2 + (a*sin)^2)
-            const maxRL = (maxDx * maxDy) / Math.sqrt((maxDy * cosL) ** 2 + (maxDx * sinL) ** 2);
-            const intensityL = Math.min(1.0, distL / 280);
-            targetDxL = cosL * maxRL * intensityL;
-            targetDyL = sinL * maxRL * intensityL;
-
-            // Right eye vector calculation with true anatomical ellipse clamping
-            const rawDxR = mouseX - rightEyeX;
-            const rawDyR = mouseY - rightEyeY;
-            const distR = Math.hypot(rawDxR, rawDyR);
-            const angleR = Math.atan2(rawDyR, rawDxR);
-            const cosR = Math.cos(angleR);
-            const sinR = Math.sin(angleR);
-            const maxRR = (maxDx * maxDy) / Math.sqrt((maxDy * cosR) ** 2 + (maxDx * sinR) ** 2);
-            const intensityR = Math.min(1.0, distR / 280);
-            targetDxR = cosR * maxRR * intensityR;
-            targetDyR = sinR * maxRR * intensityR;
-
-            // Subtle depth parallax for background wordmark & foreground stage
-            const centerX = window.innerWidth / 2;
-            const centerY = window.innerHeight / 2;
-            const deltaX = (mouseX - centerX) / centerX;
-            const deltaY = (mouseY - centerY) / centerY;
-            targetParallaxX = deltaX * 14;
-            targetParallaxY = deltaY * 8;
-        }
-
-        // 1. Saccadic Eye Interpolation: 0.16 damping factor replicates GSAP quickTo(0.16s, power2.out)
-        curDxL += (targetDxL - curDxL) * 0.16;
-        curDyL += (targetDyL - curDyL) * 0.16;
-
-        curDxR += (targetDxR - curDxR) * 0.16;
-        curDyR += (targetDyR - curDyR) * 0.16;
-
-        // 2. Head Yaw & Parallax: 0.045 damping factor replicates GSAP power3.out 0.9s heavy lag
-        curParallaxX += (targetParallaxX - curParallaxX) * 0.045;
-        curParallaxY += (targetParallaxY - curParallaxY) * 0.045;
-
-        // 3. Subtle ambient breathing oscillation (inspired by GSAP Vault 2.3s sine.inOut loop)
-        const breathY = Math.sin(animTime * 2.7) * 0.35 * scale;
-
-        pupilLeft.style.transform = `translate3d(${curDxL.toFixed(2)}px, ${(curDyL + breathY * 0.5).toFixed(2)}px, 0)`;
-        pupilRight.style.transform = `translate3d(${curDxR.toFixed(2)}px, ${(curDyR + breathY * 0.5).toFixed(2)}px, 0)`;
-
-        if (wordmark) {
-            wordmark.style.transform = `translate3d(${-curParallaxX.toFixed(2)}px, ${-curParallaxY.toFixed(2)}px, 0)`;
-        }
-        if (portraitWrap) {
-            // Subtle 3D perspective tilt coupled with horizontal parallax (grounded bottom)
-            const rotY = (curParallaxX * 0.18).toFixed(2);
-            const rotX = (-curParallaxY * 0.10).toFixed(2);
-            portraitWrap.style.transform = `translate3d(${(curParallaxX * 0.20).toFixed(2)}px, 0, 0) perspective(900px) rotateY(${rotY}deg) rotateX(${rotX}deg)`;
-        }
-
-        requestAnimationFrame(renderGaze);
-    }
-
-    requestAnimationFrame(renderGaze);
-}
-
-/* ==========================================================================
-   4B. REALISTIC BLINKING ENGINE
-   (Natural human blink frequency: 3.5s - 6.5s with occasional double-blinks)
-   ========================================================================== */
-function initEyeBlinking() {
-    const blinkLayer = document.getElementById('portrait-blink');
-    if (!blinkLayer) return;
-
-    let blinkTimer = null;
-
-    function executeBlink(isDouble = false) {
-        // Fast eyelid closure
-        blinkLayer.style.opacity = '1';
-
-        setTimeout(() => {
-            // Eyelid reopening
-            blinkLayer.style.opacity = '0';
-
-            // 22% probability of a quick follow-up micro-blink (human double-blink reflex)
-            if (!isDouble && Math.random() < 0.22) {
-                setTimeout(() => {
-                    executeBlink(true);
-                }, 130);
-                return;
-            }
-
-            // Schedule next natural blink
-            queueNextBlink();
-        }, 110);
-    }
-
-    function queueNextBlink() {
-        if (blinkTimer) clearTimeout(blinkTimer);
-        // Random natural interval between 3200ms and 6500ms
-        const delay = 3200 + Math.random() * 3300;
-        blinkTimer = setTimeout(() => {
-            executeBlink();
-        }, delay);
-    }
-
-    // Initial natural blink after page load
-    setTimeout(queueNextBlink, 2000);
-}
 
 /* ==========================================================================
    5. NAVBAR SCROLL & MOBILE MENU

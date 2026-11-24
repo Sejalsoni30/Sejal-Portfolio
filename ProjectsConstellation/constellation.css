@@ -1018,11 +1018,11 @@
 
 @media (max-width: 768px) {
     .constellation-stage {
-        display: none !important; /* Switch completely to Star Trail on mobile */
+        height: 480px;
     }
 
     .constellation-minimap-container {
-        display: none;
+        display: none; /* Hide complex radar on small viewports to keep stage clean */
     }
 
     .constellation-hint-bar {
@@ -1303,3 +1303,4 @@ body.light-mode .matrix-text {
         transition: none !important;
     }
 }
+

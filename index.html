@@ -45,6 +45,9 @@
 
     <!-- Project Constellation Stylesheet -->
     <link rel="stylesheet" href="ProjectsConstellation/constellation.css">
+
+    <!-- Upgraded Hero Section Stylesheet -->
+    <link rel="stylesheet" href="HeroSection/hero.css">
 </head>
 
 <body class="dark-mode">
@@ -171,6 +174,9 @@
              CINEMATIC EDITORIAL HERO SECTION (BALANCED 3-COLUMN LAYOUT)
              ========================================================================== -->
         <section class="cinematic-hero" id="hero">
+            <!-- Ambient Cursor-Following Spotlight -->
+            <div class="hero-cursor-spotlight" id="hero-cursor-spotlight" aria-hidden="true"></div>
+
             <!-- Atmospheric Lighting & Red Gradient Glow -->
             <div class="hero-radial-glow" aria-hidden="true"></div>
             <div class="hero-accent-light" aria-hidden="true"></div>
@@ -192,9 +198,16 @@
                     </div>
 
                     <h1 class="hero-roles-stack">
-                        <span class="role-line">FULL STACK DEVELOPER</span>
-                        <span class="role-line role-accent">CREATIVE PROBLEM SOLVER</span>
+                        <span class="role-line-wrap"><span class="role-line">FULL STACK DEVELOPER</span></span>
+                        <span class="role-line-wrap"><span class="role-line role-accent">CREATIVE PROBLEM SOLVER</span></span>
                     </h1>
+
+                    <!-- Rotating Subtitle Role Cycler -->
+                    <div class="hero-rotating-role-bar">
+                        <span class="rotating-role-prefix">&gt;</span>
+                        <span class="rotating-role-text" id="hero-rotating-role-text">MERN Developer</span>
+                        <span class="typing-cursor">_</span>
+                    </div>
 
                     <p class="hero-intro-text">
                         Engineering modern, responsive, and high-performance digital experiences. Specializing in robust MERN architectures, elegant frontend interactions, and scalable cloud systems.
@@ -214,24 +227,22 @@
                 <div class="hero-col hero-col-center">
                     <div class="towering-portrait-wrap" id="towering-portrait-wrap">
                         <div class="interactive-portrait-stage" id="hero-portrait-stage" title="Interactive Eye-Tracking Portrait">
-                            <!-- Layer 1: Base Portrait with Sclera -->
-                            <img src="sejal-eye-base.png" alt="Sejal Soni" class="portrait-layer portrait-base" draggable="false">
+                            <!-- 60fps HTML5 Canvas Portrait Layer -->
+                            <canvas class="hero-portrait-canvas" id="hero-portrait-canvas" width="1024" height="1024" aria-label="Portrait of Sejal Soni with interactive eye tracking"></canvas>
 
-                            <!-- Layer 2: Moving Irises / Pupils -->
-                            <div class="eye-tracker-layer" aria-hidden="true">
-                                <div class="eye-pupil left-pupil" id="pupil-left">
-                                    <img src="sejal-iris-left.png" alt="" draggable="false">
-                                </div>
-                                <div class="eye-pupil right-pupil" id="pupil-right">
-                                    <img src="sejal-iris-right.png" alt="" draggable="false">
-                                </div>
+                            <!-- Floating Interactive Stat Chips (Config-Driven) -->
+                            <div class="hero-stat-chip chip-top-left" title="Production-ready Web &amp; AI Platforms">
+                                <i class="fa-solid fa-rocket chip-icon"></i>
+                                <span class="chip-text">8+ Projects Shipped</span>
                             </div>
-
-                            <!-- Layer 3: Face Eyelids Mask -->
-                            <img src="sejal-eye-mask.png" alt="Sejal Soni" class="portrait-layer portrait-mask" draggable="false">
-
-                            <!-- Layer 4: Natural Closed Eyelids for Realistic Blinking -->
-                            <img src="sejal-eyelids-closed.png" alt="" class="portrait-layer portrait-blink" id="portrait-blink" draggable="false" aria-hidden="true">
+                            <div class="hero-stat-chip chip-bottom-left" title="React, Node, Mongo, Gemini AI">
+                                <i class="fa-solid fa-brain chip-icon"></i>
+                                <span class="chip-text">MERN + AI Architectures</span>
+                            </div>
+                            <div class="hero-stat-chip chip-top-right" title="Ready for high-impact roles">
+                                <i class="fa-solid fa-circle-dot chip-icon"></i>
+                                <span class="chip-text">Open for Work</span>
+                            </div>
                         </div>
                     </div>
                 </div>
