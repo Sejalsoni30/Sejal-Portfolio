@@ -104,6 +104,12 @@ export class EyeTracker {
             // Render first clean frame immediately
             this.renderFrame(0, 0, 0, 0, 0);
 
+            // Hide fallback picture once canvas is active
+            const fallbackPic = document.getElementById('hero-portrait-picture');
+            if (fallbackPic) {
+                fallbackPic.style.opacity = '0';
+            }
+
             // Bind listeners & start animation loop
             this.bindEvents();
             this.scheduleNextBlink();

@@ -227,6 +227,11 @@
                 <div class="hero-col hero-col-center">
                     <div class="towering-portrait-wrap" id="towering-portrait-wrap">
                         <div class="interactive-portrait-stage" id="hero-portrait-stage" title="Interactive Eye-Tracking Portrait">
+                            <!-- Photoreal High-DPI Picture (Instant Display & Non-Canvas Fallback) -->
+                            <picture class="hero-portrait-picture" id="hero-portrait-picture">
+                                <source type="image/webp" srcset="hero-cutout.webp 1x, hero-cutout-2x.webp 2x">
+                                <img src="hero-cutout.png" alt="Portrait of Sejal Soni" class="hero-portrait-img" width="1024" height="1024" fetchpriority="high" decoding="async">
+                            </picture>
                             <!-- 60fps HTML5 Canvas Portrait Layer -->
                             <canvas class="hero-portrait-canvas" id="hero-portrait-canvas" width="1024" height="1024" aria-label="Portrait of Sejal Soni with interactive eye tracking"></canvas>
                         </div>
